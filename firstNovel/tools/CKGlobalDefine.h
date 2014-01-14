@@ -22,5 +22,6 @@
 #define SYSTEM_VERSION_LOWWER_THAN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 
-#define IOS7_TOPMARGIN  (20.0f)
-#define TABBAR_HEIGHT   (57.0f)
+#define STATUS_HEIGHT           (20.0f)
+#define NAVIGATIONBAR_HEIGHT    (44.0f)
+#define TABBAR_HEIGHT           (57.0f)

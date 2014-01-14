@@ -55,10 +55,6 @@
     [tmpMainViewController release];
     
     UINavigationController *naviViewController = [[UINavigationController alloc] initWithRootViewController:_mainViewController];
-    //if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
-    //{
-        [naviViewController setNavigationBarHidden:YES];
-    //}
     naviViewController.view.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT);
     [self.view addSubview:naviViewController.view];
     self.rootNaviViewController = naviViewController;

@@ -13,6 +13,8 @@
 #import "CKFileManager.h"
 #import "CKBookLibraryViewController.h"
 
+#define CONTAINER_HEIGHT (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT)
+
 @interface CKMainViewController ()
 
 @property (nonatomic, retain) UITableView *bookShelfTable;
@@ -47,9 +49,8 @@
 {
     [super loadView];
     
-    
-    _slidingContainer = [[UIView alloc] initWithFrame:CGRectMake(0.0, IOS7_TOPMARGIN, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT - IOS7_TOPMARGIN - TABBAR_HEIGHT)];
-    _slidingContainer.backgroundColor = [UIColor redColor];
+    _slidingContainer = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0f, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT)];
+    _slidingContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
     [self.view addSubview:_slidingContainer];
     
     CKSlidingTabBarViewController *tmpSlidingTabBarVC = [[CKSlidingTabBarViewController alloc] init];
@@ -68,15 +69,20 @@
     _slidingTabBarVC.view.frame = CGRectMake(0.0f, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT, APPLICATION_FRAME_WIDTH, TABBAR_HEIGHT);
     if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
-        _slidingTabBarVC.view.frame = CGRectMake(0.0f, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT, APPLICATION_FRAME_WIDTH, TABBAR_HEIGHT);
+        _slidingTabBarVC.view.frame = CGRectMake(0.0f, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - NAVIGATIONBAR_HEIGHT, APPLICATION_FRAME_WIDTH, TABBAR_HEIGHT + NAVIGATIONBAR_HEIGHT);
     }
-    
+    _slidingTabBarVC.view.clipsToBounds = YES;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        //self.automaticallyAdjustsScrollViewInsets = NO;
     }
     
-    _bookShelfTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - IOS7_TOPMARGIN - TABBAR_HEIGHT)];
+    CGFloat tableHeight = CONTAINER_HEIGHT;
+    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        tableHeight -= NAVIGATIONBAR_HEIGHT;
+    }
+    _bookShelfTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, tableHeight)];
     _bookShelfTable.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
     _bookShelfTable.dataSource = self;
     _bookShelfTable.delegate = self;
@@ -87,7 +93,15 @@
     [_slidingContainer addSubview:_bookShelfTable];
     
     _bookLibraryViewController = [[CKBookLibraryViewController alloc] init];
-    _bookLibraryViewController.view.frame = CGRectMake(APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - IOS7_TOPMARGIN - TABBAR_HEIGHT);
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        _bookLibraryViewController.view.frame = CGRectMake(APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT );
+    }
+    else
+    {
+        _bookLibraryViewController.view.frame = CGRectMake(APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT);
+    }
+    _bookLibraryViewController.view.clipsToBounds = YES;
     [_slidingContainer addSubview:_bookLibraryViewController.view];
     
     self.navigationItem.title = @"欢迎";
@@ -144,7 +158,7 @@
 - (void)tabBarChangeFrom:(NSUInteger) fromIndex to:(NSUInteger)toIndex
 {
     [UIView animateWithDuration:0.5 animations:^{
-        _slidingContainer.frame = CGRectMake(-APPLICATION_FRAME_WIDTH *toIndex, IOS7_TOPMARGIN, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT - IOS7_TOPMARGIN - TABBAR_HEIGHT);
+        _slidingContainer.frame = CGRectMake(-APPLICATION_FRAME_WIDTH *toIndex, 0.0f, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT);
     }];
 }
 

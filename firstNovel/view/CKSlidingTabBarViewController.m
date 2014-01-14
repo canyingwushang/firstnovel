@@ -49,6 +49,7 @@
     backgroundView.image = [[UIImage imageNamed:@"tabbar_bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(10.0f, 5.0f, 5.0f, 5.0f)];
     [self.view addSubview:backgroundView];
     [backgroundView release];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLoad
@@ -101,6 +102,11 @@
 - (void)setBarItemHighlighted:(NSUInteger)index
 {
     if (_currentIndex == index) return;
+    if (_currentIndex < 0)
+    {
+        _currentIndex = index;
+        return;
+    }
     
     CGFloat itemWidth = APPLICATION_FRAME_WIDTH / _dataArray.count;
     int i = 0;
