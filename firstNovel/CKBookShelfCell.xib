@@ -15,11 +15,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookcover_bg.png" highlightedImage="bookcover_bg.png" id="vaq-lH-fwC" userLabel="bookCoverBack">
-                        <rect key="frame" x="3" y="8" width="60" height="78"/>
+                        <rect key="frame" x="13" y="8" width="60" height="78"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Yhg-Xh-gAs" userLabel="bookCover">
-                        <rect key="frame" x="7" y="12" width="52" height="68"/>
+                        <rect key="frame" x="17" y="12" width="52" height="68"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nxn-OV-c61" userLabel="bookname">
@@ -51,6 +51,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="bookcover_bg.png" width="60" height="78"/>
         <image name="bookcover_bg.png" width="60" height="78"/>
     </resources>
 </document>
