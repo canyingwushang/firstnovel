@@ -20,4 +20,6 @@
 
 + (NSString *)md5:(NSString *)aInput;
 
++ (BOOL)isiPhone5;
+
 @end

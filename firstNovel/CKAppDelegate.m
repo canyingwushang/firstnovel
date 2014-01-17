@@ -14,7 +14,6 @@
 - (void)dealloc
 {
     [_window release];
-    [_rootViewController release];
     [super dealloc];
 }
 
@@ -23,8 +22,7 @@
     // Override point for customization after application launch.
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _rootViewController = [[CKRootViewController alloc] init];
-    _window.rootViewController = _rootViewController;
+    _window.rootViewController = [CKRootViewController sharedInstance];;
     [_window makeKeyAndVisible];
     
     return YES;

@@ -13,6 +13,5 @@
 @interface CKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (retain, nonatomic) UIWindow *window;
-@property (retain, nonatomic) CKRootViewController *rootViewController;
 
 @end

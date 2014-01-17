@@ -37,4 +37,12 @@
     return  output;
 }
 
++ (BOOL)isiPhone5
+{
+    CGSize applicationSize = [CKCommonUtility getApplicationSize];
+    if ((int)applicationSize.width == 320 && (int)applicationSize.height > 480)
+        return YES;
+    return NO;
+}
+
 @end

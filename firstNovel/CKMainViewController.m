@@ -12,6 +12,8 @@
 #import "CKBookShelfCell.h"
 #import "CKFileManager.h"
 #import "CKBookLibraryViewController.h"
+#import "CKBookDescViewController.h"
+#import "CKRootViewController.h"
 
 #define CONTAINER_HEIGHT (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT)
 
@@ -83,13 +85,12 @@
         tableHeight -= NAVIGATIONBAR_HEIGHT;
     }
     _bookShelfTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, tableHeight)];
-    _bookShelfTable.backgroundColor =  [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
     _bookShelfTable.dataSource = self;
     _bookShelfTable.delegate = self;
     _bookShelfTable.allowsMultipleSelection = NO;
     _bookShelfTable.allowsSelectionDuringEditing = NO;
-    _bookShelfTable.separatorColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bookshelf_line.png"]];
     _bookShelfTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _bookShelfTable.backgroundColor = [UIColor clearColor];
     [_slidingContainer addSubview:_bookShelfTable];
     
     _bookLibraryViewController = [[CKBookLibraryViewController alloc] init];
@@ -104,7 +105,7 @@
     _bookLibraryViewController.view.clipsToBounds = YES;
     [_slidingContainer addSubview:_bookLibraryViewController.view];
     
-    self.navigationItem.title = @"欢迎";
+    self.navigationItem.title = @"名著";
 }
 
 - (void)viewDidLoad
@@ -128,6 +129,14 @@
         NSArray *nibsArray = [[NSBundle mainBundle] loadNibNamed:@"CKBookShelfCell" owner:self options:nil];
         cell = (CKBookShelfCell*)[nibsArray objectAtIndex:0];
     }
+    
+    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     NSDictionary *book = [[[CKZBooksManager sharedInstance] books] objectAtIndex:indexPath.row];
     NSString *coverName = [book objectForKey:@"cover"];
     cell.bookCover.image = [UIImage imageWithContentsOfFile:[[CKFileManager sharedInstance] bookCoverPath:coverName]];
@@ -142,7 +151,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ;
+    CKBookDescViewController *bookDescViewController = [[CKBookDescViewController alloc] initWithNibName:@"CKBookDesc" bundle:nil];
+    NSDictionary *book = [[[CKZBooksManager sharedInstance] books] objectAtIndex:indexPath.row];
+    bookDescViewController.bookData = book;
+    [[CKRootViewController sharedInstance].rootNaviViewController pushViewController:bookDescViewController animated:YES];
+    [bookDescViewController autorelease];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -159,6 +172,8 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         _slidingContainer.frame = CGRectMake(-APPLICATION_FRAME_WIDTH *toIndex, 0.0f, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT);
+    } completion:^(BOOL finished) {
+        
     }];
 }
 

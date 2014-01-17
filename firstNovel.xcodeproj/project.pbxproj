@@ -70,6 +70,8 @@
 		07FF517C1881805500C98408 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51751881805500C98408 /* zip.c */; };
 		07FF517D1881805500C98408 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51781881805500C98408 /* ZipArchive.mm */; };
 		07FF517F1881825100C98408 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FF517E1881825100C98408 /* libz.dylib */; };
+		D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A34A188919D9000A5234 /* CKBookDesc.xib */; };
+		D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,9 @@
 		07FF51771881805500C98408 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		07FF51781881805500C98408 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		07FF517E1881825100C98408 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D4A2A34A188919D9000A5234 /* CKBookDesc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookDesc.xib; sourceTree = "<group>"; };
+		D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookDescViewController.h; sourceTree = "<group>"; };
+		D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookDescViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +281,9 @@
 			children = (
 				07DC4F4A1880F71900279923 /* CKAppDelegate.h */,
 				07DC4F4B1880F71900279923 /* CKAppDelegate.m */,
+				D4A2A34A188919D9000A5234 /* CKBookDesc.xib */,
+				D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */,
+				D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */,
 				0791AC1A1882EA520095F502 /* CKBookLibraryViewController.h */,
 				0791AC1B1882EA520095F502 /* CKBookLibraryViewController.m */,
 				0791AC0F1882C12D0095F502 /* CKBookShelfCell.h */,
@@ -486,6 +494,7 @@
 				07FF51661881097200C98408 /* 114.png in Resources */,
 				07FF51621881097200C98408 /* 29.png in Resources */,
 				0791ABD41882797B0095F502 /* tabbar_bg.png in Resources */,
+				D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */,
 				07FF51651881097200C98408 /* 80.png in Resources */,
 				07FF51641881097200C98408 /* 58.png in Resources */,
 				0791ABF81882983F0095F502 /* toolbar_bkg.png in Resources */,
@@ -539,6 +548,7 @@
 			files = (
 				0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */,
 				07FF517B1881805500C98408 /* unzip.c in Sources */,
+				D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */,
 				07FF51511880FF3A00C98408 /* CKCommonUtility.m in Sources */,
 				07FF516A18815B2E00C98408 /* CKFileManager.m in Sources */,
 				07FF517D1881805500C98408 /* ZipArchive.mm in Sources */,
