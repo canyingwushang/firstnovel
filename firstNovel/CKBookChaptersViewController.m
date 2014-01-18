@@ -8,8 +8,13 @@
 
 #import "CKBookChaptersViewController.h"
 #import "CKZBooksManager.h"
+#import "CKCommonUtility.h"
 
 @interface CKBookChaptersViewController ()
+
+@property (nonatomic, retain) UITableView *chaptersTable;
+@property (nonatomic, retain) NSMutableArray *chaptersArray;
+@property (nonatomic, retain) UIActivityIndicatorView *loadingView;
 
 @end
 
@@ -25,13 +30,84 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [_chaptersTable release];
+    [_chaptersArray release];
+    [_bookData release];
+    [_loadingView release];
+    
+    [super dealloc];
+}
+
+- (void)loadView
+{
+    [super loadView];
+    
+    NSString *title = [_bookData objectForKey:@"bookname"];
+    if (CHECK_STRING_INVALID(title))
+    {
+        title = @"章节";
+    }
+    
+    self.navigationItem.title = title;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
+    
+    CGRect tableFrame = CGRectMake(STATUS_HEIGHT / 2, STATUS_HEIGHT / 2, APPLICATION_FRAME_WIDTH - STATUS_HEIGHT, APPLICATION_FRAME_HEIGHT - STATUS_HEIGHT);
+    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        tableFrame = CGRectMake(STATUS_HEIGHT / 2, STATUS_HEIGHT / 2, APPLICATION_FRAME_WIDTH - STATUS_HEIGHT, APPLICATION_FRAME_HEIGHT - STATUS_HEIGHT - NAVIGATIONBAR_HEIGHT);
+    }
+    
+    _chaptersTable = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    _chaptersTable.dataSource = self;
+    _chaptersTable.delegate = self;
+    _chaptersTable.backgroundColor = [UIColor clearColor];
+    _chaptersTable.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:_chaptersTable];
+    
+    _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _loadingView.frame = CGRectMake((APPLICATION_FRAME_WIDTH - 30.0f)/2, 200.0f, 30.0f, 30.0f);
+    [self.view addSubview:_loadingView];
+    [_loadingView startAnimating];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    dispatch_async(GCD_GLOBAL_QUEUQ, ^{
-        [[CKZBooksManager sharedInstance] unZipBookChapters:@"0000"];
-    });
+    @try
+    {
+        dispatch_async(GCD_GLOBAL_QUEUQ, ^{
+            NSString *bookDir = [[CKZBooksManager sharedInstance] unzipBookChapters:[_bookData objectForKey:@"id"]];
+            NSString *chaptersFilePath = [bookDir stringByAppendingPathComponent:@"chapters.txt"];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:chaptersFilePath])
+            {
+                NSData *chaptersData = [NSData dataWithContentsOfFile:chaptersFilePath];
+                if (chaptersData != nil)
+                {
+                    NSDictionary *chapertsDict = [NSJSONSerialization JSONObjectWithData:chaptersData options:0 error:nil];
+                    self.chaptersArray = [chapertsDict objectForKey:@"chapters"];
+                    dispatch_async(GCD_MAIN_QUEUE, ^{
+                        if (_chaptersArray == nil || _chaptersArray.count == 0)
+                        {
+                            [self showErrorAlert];
+                        }
+                        else
+                        {
+                            [_chaptersTable reloadData];
+                            [_loadingView stopAnimating];
+                        }
+                    });
+                }
+            }
+        });
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+    }
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -39,6 +115,51 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showErrorAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"不是吧" message:@"这本书的章节莫名其妙的丢失了, 要不你清理下缓存试试" delegate:nil cancelButtonTitle:@"好吧" otherButtonTitles: nil];
+    [alert show];
+    [alert release];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"chaptersCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil)
+    {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.imageView.image = [UIImage imageNamed:@"chapter_icon_novel.png"];
+        if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+        {
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        }
+    }
+    NSDictionary *chapterDict = [_chaptersArray objectAtIndex:indexPath.row];
+    if (chapterDict == nil) return nil;
+    NSString *chapterName = [chapterDict objectForKey:@"title"];
+    cell.textLabel.text = chapterName;
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _chaptersArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30.0f;
 }
 
 @end

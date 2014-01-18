@@ -29,3 +29,19 @@
 // GCD
 #define GCD_GLOBAL_QUEUQ (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
 #define GCD_MAIN_QUEUE (dispatch_get_main_queue())
+
+// check字符串
+#define CHECK_STRING_VALID(targetString)				\
+(targetString != nil && [targetString length] != 0)
+
+#define CHECK_STRING_INVALID(targetString)              \
+(targetString == nil || [targetString length] == 0)
+
+// 设置dictionary的键值对
+#define DICTIONARY_SET_OBJECT_FOR_KEY(dictionay,object,key)			\
+do{																	\
+if ((object) != nil && (key) != nil)                                \
+{                                                                   \
+[(dictionay) setObject:(object) forKey:(key)];                      \
+}                                                                   \
+}while(0)

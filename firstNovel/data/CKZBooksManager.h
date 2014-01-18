@@ -14,6 +14,6 @@
 
 - (NSArray *)books;
 
-- (NSString *)unZipBookChapters:(NSString *)bookID;
+- (NSString *)unzipBookChapters:(NSString *)bookID;
 
 @end

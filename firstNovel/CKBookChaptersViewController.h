@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CKBookChaptersViewController : UIViewController
+@interface CKBookChaptersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) NSString *bookID;
+@property (nonatomic, retain) NSDictionary *bookData;
 
 @end

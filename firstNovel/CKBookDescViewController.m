@@ -78,6 +78,7 @@
 - (IBAction)readBook:(id)sender
 {
     CKBookChaptersViewController *bookChaptersViewController = [[CKBookChaptersViewController alloc] init];
+    bookChaptersViewController.bookData = _bookData;
     [[self navigationController] pushViewController:bookChaptersViewController animated:YES];
     [bookChaptersViewController release];
 }

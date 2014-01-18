@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A15188AC7940061B53A /* chapter_icon_novel.png */; };
+		07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */; };
 		0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0746E64D188275810027FD43 /* CKBookShelfViewController.m */; };
 		0791ABCC1882788A0095F502 /* CKSlidingTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0791ABCB1882788A0095F502 /* CKSlidingTabBarViewController.m */; };
 		0791ABD21882797B0095F502 /* tabbar_baritem_hl_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0791ABCE1882797B0095F502 /* tabbar_baritem_hl_bg.png */; };
@@ -86,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07362A15188AC7940061B53A /* chapter_icon_novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chapter_icon_novel.png; sourceTree = "<group>"; };
+		07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chapter_icon_novel@2x.png"; sourceTree = "<group>"; };
 		0746E64C188275810027FD43 /* CKBookShelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfViewController.h; sourceTree = "<group>"; };
 		0746E64D188275810027FD43 /* CKBookShelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfViewController.m; sourceTree = "<group>"; };
 		0791ABCA1882788A0095F502 /* CKSlidingTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSlidingTabBarViewController.h; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				07FF518018818B1200C98408 /* books */,
 				0791AC121882CD5F0095F502 /* bookshelf_line.png */,
 				0791AC131882CD5F0095F502 /* bookshelf_line@2x.png */,
+				07362A15188AC7940061B53A /* chapter_icon_novel.png */,
+				07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */,
 				07FF5156188106FE00C98408 /* Default-568h@2x.png */,
 				07FF5157188106FE00C98408 /* Default.png */,
 				07FF5158188106FE00C98408 /* Default@2x.png */,
@@ -508,6 +514,7 @@
 				0791ABE818827F7E0095F502 /* tabbar_book_library_hl@2x.png in Resources */,
 				0791ABE918827F7E0095F502 /* tabbar_book_library.png in Resources */,
 				07FF515B188106FE00C98408 /* Default@2x.png in Resources */,
+				07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */,
 				0791AC191882DAD40095F502 /* CKBookShelfCell.xib in Resources */,
 				07DC4F461880F71900279923 /* InfoPlist.strings in Resources */,
 				0791ABD51882797B0095F502 /* tabbar_bg@2x.png in Resources */,
@@ -528,6 +535,7 @@
 				0791ABEB18827F7E0095F502 /* tabbar_book_shelf_hl.png in Resources */,
 				0791ABF218827F7E0095F502 /* tabbar_pandora_box@2x.png in Resources */,
 				0791AC141882CD5F0095F502 /* bookshelf_line.png in Resources */,
+				07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */,
 				0791ABF118827F7E0095F502 /* tabbar_pandora_box.png in Resources */,
 				0791AC0B1882C04B0095F502 /* bookcover_bg.png in Resources */,
 				0791AC0C1882C04B0095F502 /* bookcover_bg@2x.png in Resources */,

@@ -59,11 +59,14 @@
     }
 }
 
-- (NSString *)unZipBookChapters:(NSString *)bookID
+- (NSString *)unzipBookChapters:(NSString *)bookID
 {
-    NSString *cacheDataPath = [[CKFileManager sharedInstance] bookContentCachePath:bookID];
+    if (CHECK_STRING_INVALID(bookID)) return nil;
+    
+    NSString *cacheBookDir = [[CKFileManager sharedInstance] bookContentCachePath:bookID];
+    NSString *chapertsFilePath = [cacheBookDir stringByAppendingPathComponent:@"chapters.text"];
     BOOL isDir = NO;
-    if (!([[NSFileManager defaultManager] fileExistsAtPath:cacheDataPath isDirectory:&isDir] && isDir))
+    if (!([[NSFileManager defaultManager] fileExistsAtPath:cacheBookDir isDirectory:&isDir] && isDir && [[NSFileManager defaultManager] fileExistsAtPath:chapertsFilePath]))
     {
         NSString *zipBookPath = [[CKFileManager sharedInstance] bookContentPath:bookID];
         if ([[NSFileManager defaultManager] fileExistsAtPath:zipBookPath])
@@ -79,10 +82,10 @@
         }
         else
         {
-            cacheDataPath = nil;
+            cacheBookDir = nil;
         }
     }
-    return cacheDataPath;
+    return cacheBookDir;
 }
 
 - (void)dealBooksData
