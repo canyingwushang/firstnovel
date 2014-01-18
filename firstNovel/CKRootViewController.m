@@ -9,6 +9,7 @@
 #import "CKRootViewController.h"
 #import "CKCommonUtility.h"
 #import "CKZBooksManager.h"
+#import "WKReaderConfig.h"
 
 @interface CKRootViewController ()
 
@@ -59,6 +60,10 @@
     [self.view addSubview:naviViewController.view];
     self.rootNaviViewController = naviViewController;
     [naviViewController release];
+    
+    // 文库sdk配置
+    //[WKReaderConfig setDatabaseFolderPath:@"Library/WKSDKDatabase"];
+    [WKReaderConfig setCUID:@"DSFAJHFADEHJQHFJEWHFJKDSAHFKJSDAH1289"];
 }
 
 - (void)viewDidLoad

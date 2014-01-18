@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A15188AC7940061B53A /* chapter_icon_novel.png */; };
 		07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */; };
+		07362A20188ACFC50061B53A /* libWKTXTReaderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */; };
+		07362A22188ACFC60061B53A /* WKTXTReaderBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 07362A1F188ACFC50061B53A /* WKTXTReaderBundle.bundle */; };
+		07362A24188AD4800061B53A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A23188AD4800061B53A /* CoreData.framework */; };
+		07362A28188AD4C10061B53A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A27188AD4C10061B53A /* SystemConfiguration.framework */; };
+		07362A2A188AD5050061B53A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A29188AD5050061B53A /* CoreTelephony.framework */; };
 		0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0746E64D188275810027FD43 /* CKBookShelfViewController.m */; };
 		0791ABCC1882788A0095F502 /* CKSlidingTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0791ABCB1882788A0095F502 /* CKSlidingTabBarViewController.m */; };
 		0791ABD21882797B0095F502 /* tabbar_baritem_hl_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0791ABCE1882797B0095F502 /* tabbar_baritem_hl_bg.png */; };
@@ -53,6 +58,11 @@
 		07DC4F4C1880F71900279923 /* CKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DC4F4B1880F71900279923 /* CKAppDelegate.m */; };
 		07DC4F5F1880F71900279923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DC4F3B1880F71900279923 /* Foundation.framework */; };
 		07DC4F601880F71900279923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DC4F3F1880F71900279923 /* UIKit.framework */; };
+		07DD9B9A188AE5960031E77B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DD9B99188AE5960031E77B /* libstdc++.dylib */; };
+		07DD9B9C188AE6E50031E77B /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DD9B9B188AE6E50031E77B /* libstdc++.6.0.9.dylib */; };
+		07DD9B9E188AE6EB0031E77B /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DD9B9D188AE6EB0031E77B /* libstdc++.6.dylib */; };
+		07DD9BA2188AE77B0031E77B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DD9BA1188AE77B0031E77B /* JSONKit.m */; };
+		07DD9BA3188AE8250031E77B /* nlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A1B188ACFC50061B53A /* nlog.framework */; };
 		07E567F9188A10E100F8BAFE /* CKBookChaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */; };
 		07FF51491880FD1700C98408 /* CKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51481880FD1700C98408 /* CKRootViewController.m */; };
 		07FF514D1880FEDA00C98408 /* CKZBooksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FF514C1880FEDA00C98408 /* CKZBooksManager.m */; };
@@ -90,6 +100,16 @@
 /* Begin PBXFileReference section */
 		07362A15188AC7940061B53A /* chapter_icon_novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chapter_icon_novel.png; sourceTree = "<group>"; };
 		07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chapter_icon_novel@2x.png"; sourceTree = "<group>"; };
+		07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWKTXTReaderSDK.a; sourceTree = "<group>"; };
+		07362A1B188ACFC50061B53A /* nlog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nlog.framework; sourceTree = "<group>"; };
+		07362A1C188ACFC50061B53A /* WKReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKReaderConfig.h; sourceTree = "<group>"; };
+		07362A1D188ACFC50061B53A /* WKReaderSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKReaderSwitch.h; sourceTree = "<group>"; };
+		07362A1E188ACFC50061B53A /* WKReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKReaderViewController.h; sourceTree = "<group>"; };
+		07362A1F188ACFC50061B53A /* WKTXTReaderBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WKTXTReaderBundle.bundle; sourceTree = "<group>"; };
+		07362A23188AD4800061B53A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		07362A25188AD4900061B53A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		07362A27188AD4C10061B53A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		07362A29188AD5050061B53A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0746E64C188275810027FD43 /* CKBookShelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfViewController.h; sourceTree = "<group>"; };
 		0746E64D188275810027FD43 /* CKBookShelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfViewController.m; sourceTree = "<group>"; };
 		0791ABCA1882788A0095F502 /* CKSlidingTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSlidingTabBarViewController.h; sourceTree = "<group>"; };
@@ -142,6 +162,11 @@
 		07DC4F4A1880F71900279923 /* CKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKAppDelegate.h; sourceTree = "<group>"; };
 		07DC4F4B1880F71900279923 /* CKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKAppDelegate.m; sourceTree = "<group>"; };
 		07DC4F5C1880F71900279923 /* firstNovelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firstNovelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07DD9B99188AE5960031E77B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		07DD9B9B188AE6E50031E77B /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		07DD9B9D188AE6EB0031E77B /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		07DD9BA0188AE77B0031E77B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		07DD9BA1188AE77B0031E77B /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		07E567F7188A10E100F8BAFE /* CKBookChaptersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookChaptersViewController.h; sourceTree = "<group>"; };
 		07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookChaptersViewController.m; sourceTree = "<group>"; };
 		07FF51471880FD1700C98408 /* CKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRootViewController.h; sourceTree = "<group>"; };
@@ -184,7 +209,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DD9BA3188AE8250031E77B /* nlog.framework in Frameworks */,
+				07DD9B9E188AE6EB0031E77B /* libstdc++.6.dylib in Frameworks */,
+				07DD9B9C188AE6E50031E77B /* libstdc++.6.0.9.dylib in Frameworks */,
+				07DD9B9A188AE5960031E77B /* libstdc++.dylib in Frameworks */,
+				07362A2A188AD5050061B53A /* CoreTelephony.framework in Frameworks */,
+				07362A28188AD4C10061B53A /* SystemConfiguration.framework in Frameworks */,
+				07362A24188AD4800061B53A /* CoreData.framework in Frameworks */,
 				07FF517F1881825100C98408 /* libz.dylib in Frameworks */,
+				07362A20188ACFC50061B53A /* libWKTXTReaderSDK.a in Frameworks */,
 				07DC4F3E1880F71900279923 /* CoreGraphics.framework in Frameworks */,
 				07DC4F401880F71900279923 /* UIKit.framework in Frameworks */,
 				07DC4F3C1880F71900279923 /* Foundation.framework in Frameworks */,
@@ -203,6 +236,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07362A19188ACFC50061B53A /* WKTXTReaderSDK */ = {
+			isa = PBXGroup;
+			children = (
+				07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */,
+				07362A1B188ACFC50061B53A /* nlog.framework */,
+				07362A1C188ACFC50061B53A /* WKReaderConfig.h */,
+				07362A1D188ACFC50061B53A /* WKReaderSwitch.h */,
+				07362A1E188ACFC50061B53A /* WKReaderViewController.h */,
+				07362A1F188ACFC50061B53A /* WKTXTReaderBundle.bundle */,
+			);
+			path = WKTXTReaderSDK;
+			sourceTree = "<group>";
+		};
 		0746E64B188275590027FD43 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +321,13 @@
 		07DC4F3A1880F71900279923 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07DD9B9D188AE6EB0031E77B /* libstdc++.6.dylib */,
+				07DD9B9B188AE6E50031E77B /* libstdc++.6.0.9.dylib */,
+				07DD9B99188AE5960031E77B /* libstdc++.dylib */,
+				07362A29188AD5050061B53A /* CoreTelephony.framework */,
+				07362A27188AD4C10061B53A /* SystemConfiguration.framework */,
+				07362A25188AD4900061B53A /* CFNetwork.framework */,
+				07362A23188AD4800061B53A /* CoreData.framework */,
 				07FF517E1881825100C98408 /* libz.dylib */,
 				07DC4F3B1880F71900279923 /* Foundation.framework */,
 				07DC4F3D1880F71900279923 /* CoreGraphics.framework */,
@@ -321,6 +374,15 @@
 				07DC4F491880F71900279923 /* firstNovel-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07DD9B9F188AE77A0031E77B /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				07DD9BA0188AE77B0031E77B /* JSONKit.h */,
+				07DD9BA1188AE77B0031E77B /* JSONKit.m */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 		07FF514A1880FEDA00C98408 /* data */ = {
@@ -377,6 +439,8 @@
 		07FF516B1881805500C98408 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				07DD9B9F188AE77A0031E77B /* JSONKit */,
+				07362A19188ACFC50061B53A /* WKTXTReaderSDK */,
 				07FF516C1881805500C98408 /* zipArchive */,
 			);
 			path = libs;
@@ -516,6 +580,7 @@
 				07FF515B188106FE00C98408 /* Default@2x.png in Resources */,
 				07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */,
 				0791AC191882DAD40095F502 /* CKBookShelfCell.xib in Resources */,
+				07362A22188ACFC60061B53A /* WKTXTReaderBundle.bundle in Resources */,
 				07DC4F461880F71900279923 /* InfoPlist.strings in Resources */,
 				0791ABD51882797B0095F502 /* tabbar_bg@2x.png in Resources */,
 				0791ABDA18827A1B0095F502 /* main_view_bg@2x.png in Resources */,
@@ -575,6 +640,7 @@
 				07FF51491880FD1700C98408 /* CKRootViewController.m in Sources */,
 				0791ABF51882917B0095F502 /* CKMainViewController.m in Sources */,
 				07E567F9188A10E100F8BAFE /* CKBookChaptersViewController.m in Sources */,
+				07DD9BA2188AE77B0031E77B /* JSONKit.m in Sources */,
 				07DC4F481880F71900279923 /* main.m in Sources */,
 				07FF51791881805500C98408 /* ioapi.c in Sources */,
 			);
@@ -687,13 +753,28 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\\\"",
+					"/Users/canyingwushang/ck-firstnovel/firstNovel/libs/WKTXTReaderSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
 				INFOPLIST_FILE = "firstNovel/firstNovel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F64E6C5E-A24C-44BB-BA7E-B53E89259242";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -705,13 +786,28 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\\\"",
+					"/Users/canyingwushang/ck-firstnovel/firstNovel/libs/WKTXTReaderSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
 				INFOPLIST_FILE = "firstNovel/firstNovel-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-force_load",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F64E6C5E-A24C-44BB-BA7E-B53E89259242";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

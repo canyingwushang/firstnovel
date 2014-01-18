@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WKReaderViewController.h"
 
-@interface CKBookChaptersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CKBookChaptersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, WKReaderViewControllerDelegate>
 
 @property (nonatomic, retain) NSDictionary *bookData;
 

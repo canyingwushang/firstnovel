@@ -9,12 +9,16 @@
 #import "CKBookChaptersViewController.h"
 #import "CKZBooksManager.h"
 #import "CKCommonUtility.h"
+#import "WKReaderSwitch.H"
+#import "CKRootViewController.h"
 
 @interface CKBookChaptersViewController ()
 
 @property (nonatomic, retain) UITableView *chaptersTable;
 @property (nonatomic, retain) NSMutableArray *chaptersArray;
 @property (nonatomic, retain) UIActivityIndicatorView *loadingView;
+@property (nonatomic, retain) NSString *bookDir;
+@property (nonatomic, retain) WKReaderViewController *novelReaderViewController;
 
 @end
 
@@ -36,6 +40,8 @@
     [_chaptersArray release];
     [_bookData release];
     [_loadingView release];
+    [_bookDir release];
+    [_novelReaderViewController release];
     
     [super dealloc];
 }
@@ -81,6 +87,8 @@
     {
         dispatch_async(GCD_GLOBAL_QUEUQ, ^{
             NSString *bookDir = [[CKZBooksManager sharedInstance] unzipBookChapters:[_bookData objectForKey:@"id"]];
+            if (CHECK_STRING_INVALID(bookDir)) return;
+            self.bookDir = bookDir;
             NSString *chaptersFilePath = [bookDir stringByAppendingPathComponent:@"chapters.txt"];
             if ([[NSFileManager defaultManager] fileExistsAtPath:chaptersFilePath])
             {
@@ -149,7 +157,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ;
+    NSDictionary *chapterDict = [_chaptersArray objectAtIndex:indexPath.row];
+    NSString *chapterName = [chapterDict objectForKey:@"title"];
+    NSString *chapterFileName = [[chapterDict objectForKey:@"id"]stringByAppendingPathExtension:@"txt"];
+    NSString *chapterFilePath = [_bookDir stringByAppendingPathComponent:chapterFileName];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:chapterFilePath]) return;
+    
+    self.novelReaderViewController = [WKReaderSwitch openBookWithFile:chapterFilePath fileName:chapterName fileType:@"txt" pushAnimation:NO];
+    _novelReaderViewController.readerViewControllerDelegate = self;
+    [[CKRootViewController sharedInstance] presentViewController:_novelReaderViewController animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -160,6 +177,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 30.0f;
+}
+
+- (void)wkReaderViewController:(WKReaderViewController *)readerViewController backAtPercentage:(CGFloat)percentage
+{
+    [_novelReaderViewController dismissViewControllerAnimated:YES completion:nil];
+    self.novelReaderViewController = nil;
 }
 
 @end
