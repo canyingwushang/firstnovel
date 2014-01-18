@@ -68,7 +68,7 @@
 
 - (NSString *)bookContentCachePath:(NSString *)bookid
 {
-    return [_cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"book_%@.zip", bookid]];
+    return [_cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"book_%@", bookid]];
 }
 
 @end

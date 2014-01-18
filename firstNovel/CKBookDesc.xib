@@ -60,6 +60,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="readBook:" destination="-1" eventType="touchUpInside" id="4Py-2a-SGS"/>
+                            </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="cJ4-MR-qZg">
                             <rect key="frame" x="20" y="174" width="280" height="302"/>

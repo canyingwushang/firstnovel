@@ -59,6 +59,32 @@
     }
 }
 
+- (NSString *)unZipBookChapters:(NSString *)bookID
+{
+    NSString *cacheDataPath = [[CKFileManager sharedInstance] bookContentCachePath:bookID];
+    BOOL isDir = NO;
+    if (!([[NSFileManager defaultManager] fileExistsAtPath:cacheDataPath isDirectory:&isDir] && isDir))
+    {
+        NSString *zipBookPath = [[CKFileManager sharedInstance] bookContentPath:bookID];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:zipBookPath])
+        {
+            NSString *cacheZipBookPath = [[[CKFileManager sharedInstance] cacheDir] stringByAppendingPathComponent:[zipBookPath lastPathComponent]];
+            NSError *error = nil;
+            [[NSFileManager defaultManager] copyItemAtPath:zipBookPath toPath:cacheZipBookPath error:&error];
+            ZipArchive *zipArchive = [[ZipArchive alloc] init];
+            [zipArchive UnzipOpenFile:cacheZipBookPath Password:@"ck"];
+            [zipArchive UnzipFileTo:[[CKFileManager sharedInstance] cacheDir] overWrite:YES];
+            [zipArchive UnzipCloseFile];
+            [[NSFileManager defaultManager] removeItemAtPath:cacheZipBookPath error:&error];
+        }
+        else
+        {
+            cacheDataPath = nil;
+        }
+    }
+    return cacheDataPath;
+}
+
 - (void)dealBooksData
 {
     NSString *listFile = [[CKFileManager sharedInstance].documentDir stringByAppendingPathComponent:@"list"];

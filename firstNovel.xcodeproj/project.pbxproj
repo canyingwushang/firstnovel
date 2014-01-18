@@ -51,6 +51,7 @@
 		07DC4F4C1880F71900279923 /* CKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DC4F4B1880F71900279923 /* CKAppDelegate.m */; };
 		07DC4F5F1880F71900279923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DC4F3B1880F71900279923 /* Foundation.framework */; };
 		07DC4F601880F71900279923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DC4F3F1880F71900279923 /* UIKit.framework */; };
+		07E567F9188A10E100F8BAFE /* CKBookChaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */; };
 		07FF51491880FD1700C98408 /* CKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51481880FD1700C98408 /* CKRootViewController.m */; };
 		07FF514D1880FEDA00C98408 /* CKZBooksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FF514C1880FEDA00C98408 /* CKZBooksManager.m */; };
 		07FF51511880FF3A00C98408 /* CKCommonUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51501880FF3A00C98408 /* CKCommonUtility.m */; };
@@ -137,6 +138,8 @@
 		07DC4F4A1880F71900279923 /* CKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CKAppDelegate.h; sourceTree = "<group>"; };
 		07DC4F4B1880F71900279923 /* CKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CKAppDelegate.m; sourceTree = "<group>"; };
 		07DC4F5C1880F71900279923 /* firstNovelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firstNovelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07E567F7188A10E100F8BAFE /* CKBookChaptersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookChaptersViewController.h; sourceTree = "<group>"; };
+		07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookChaptersViewController.m; sourceTree = "<group>"; };
 		07FF51471880FD1700C98408 /* CKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRootViewController.h; sourceTree = "<group>"; };
 		07FF51481880FD1700C98408 /* CKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRootViewController.m; sourceTree = "<group>"; };
 		07FF514B1880FEDA00C98408 /* CKZBooksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKZBooksManager.h; sourceTree = "<group>"; };
@@ -281,6 +284,8 @@
 			children = (
 				07DC4F4A1880F71900279923 /* CKAppDelegate.h */,
 				07DC4F4B1880F71900279923 /* CKAppDelegate.m */,
+				07E567F7188A10E100F8BAFE /* CKBookChaptersViewController.h */,
+				07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */,
 				D4A2A34A188919D9000A5234 /* CKBookDesc.xib */,
 				D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */,
 				D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */,
@@ -561,6 +566,7 @@
 				07FF514D1880FEDA00C98408 /* CKZBooksManager.m in Sources */,
 				07FF51491880FD1700C98408 /* CKRootViewController.m in Sources */,
 				0791ABF51882917B0095F502 /* CKMainViewController.m in Sources */,
+				07E567F9188A10E100F8BAFE /* CKBookChaptersViewController.m in Sources */,
 				07DC4F481880F71900279923 /* main.m in Sources */,
 				07FF51791881805500C98408 /* ioapi.c in Sources */,
 			);

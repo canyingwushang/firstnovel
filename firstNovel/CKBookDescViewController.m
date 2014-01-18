@@ -9,6 +9,7 @@
 #import "CKBookDescViewController.h"
 #import "CKFileManager.h"
 #import "CKCommonUtility.h"
+#import "CKBookChaptersViewController.h"
 
 @interface CKBookDescViewController ()
 
@@ -72,6 +73,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)readBook:(id)sender
+{
+    CKBookChaptersViewController *bookChaptersViewController = [[CKBookChaptersViewController alloc] init];
+    [[self navigationController] pushViewController:bookChaptersViewController animated:YES];
+    [bookChaptersViewController release];
 }
 
 @end

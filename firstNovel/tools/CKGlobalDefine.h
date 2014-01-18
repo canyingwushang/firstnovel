@@ -25,3 +25,7 @@
 #define STATUS_HEIGHT           (20.0f)
 #define NAVIGATIONBAR_HEIGHT    (44.0f)
 #define TABBAR_HEIGHT           (57.0f)
+
+// GCD
+#define GCD_GLOBAL_QUEUQ (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0))
+#define GCD_MAIN_QUEUE (dispatch_get_main_queue())
