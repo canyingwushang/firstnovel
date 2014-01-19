@@ -24,4 +24,6 @@
 - (NSString *)getDownloadCacheDirForNovel;
 - (NSString *)getDownloadListFile;
 
+- (NSString *)getAppSettingsFile;
+
 @end

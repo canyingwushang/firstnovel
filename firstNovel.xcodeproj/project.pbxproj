@@ -81,6 +81,7 @@
 		072311A6188C0617001A4673 /* toolbar_refresh_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119E188C0617001A4673 /* toolbar_refresh_highlighted@2x.png */; };
 		072311A7188C0617001A4673 /* toolbar_refresh_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119F188C0617001A4673 /* toolbar_refresh_normal.png */; };
 		072311A8188C0617001A4673 /* toolbar_refresh_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 072311A0188C0617001A4673 /* toolbar_refresh_normal@2x.png */; };
+		072311AB188C1337001A4673 /* CKAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 072311AA188C1337001A4673 /* CKAppSettings.m */; };
 		07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A15188AC7940061B53A /* chapter_icon_novel.png */; };
 		07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */; };
 		07362A20188ACFC50061B53A /* libWKTXTReaderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */; };
@@ -272,6 +273,8 @@
 		0723119E188C0617001A4673 /* toolbar_refresh_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_refresh_highlighted@2x.png"; sourceTree = "<group>"; };
 		0723119F188C0617001A4673 /* toolbar_refresh_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_refresh_normal.png; sourceTree = "<group>"; };
 		072311A0188C0617001A4673 /* toolbar_refresh_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_refresh_normal@2x.png"; sourceTree = "<group>"; };
+		072311A9188C1337001A4673 /* CKAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKAppSettings.h; sourceTree = "<group>"; };
+		072311AA188C1337001A4673 /* CKAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKAppSettings.m; sourceTree = "<group>"; };
 		07362A15188AC7940061B53A /* chapter_icon_novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chapter_icon_novel.png; sourceTree = "<group>"; };
 		07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chapter_icon_novel@2x.png"; sourceTree = "<group>"; };
 		07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWKTXTReaderSDK.a; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 			children = (
 				07DC4F4A1880F71900279923 /* CKAppDelegate.h */,
 				07DC4F4B1880F71900279923 /* CKAppDelegate.m */,
+				072311A9188C1337001A4673 /* CKAppSettings.h */,
+				072311AA188C1337001A4673 /* CKAppSettings.m */,
 				07E567F7188A10E100F8BAFE /* CKBookChaptersViewController.h */,
 				07E567F8188A10E100F8BAFE /* CKBookChaptersViewController.m */,
 				D4A2A34A188919D9000A5234 /* CKBookDesc.xib */,
@@ -1018,6 +1023,7 @@
 				07FF51511880FF3A00C98408 /* CKCommonUtility.m in Sources */,
 				07FF516A18815B2E00C98408 /* CKFileManager.m in Sources */,
 				07FF517D1881805500C98408 /* ZipArchive.mm in Sources */,
+				072311AB188C1337001A4673 /* CKAppSettings.m in Sources */,
 				07231147188BA52F001A4673 /* CKSettingsViewController.m in Sources */,
 				0791AC1C1882EA520095F502 /* CKBookLibraryViewController.m in Sources */,
 				07FF517C1881805500C98408 /* zip.c in Sources */,

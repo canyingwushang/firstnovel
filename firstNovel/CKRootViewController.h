@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CKMainViewController.h"
 
-@interface CKRootViewController : UIViewController
+@interface CKRootViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, retain) CKMainViewController *mainViewController;
 @property (nonatomic, retain) UINavigationController *rootNaviViewController;

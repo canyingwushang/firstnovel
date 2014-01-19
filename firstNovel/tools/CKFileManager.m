@@ -86,4 +86,9 @@
     return [_documentDir stringByAppendingPathComponent:@"novellist.plist"];
 }
 
+- (NSString *)getAppSettingsFile
+{
+    return [_documentDir stringByAppendingPathComponent:@"appsettings.plist"];
+}
+
 @end

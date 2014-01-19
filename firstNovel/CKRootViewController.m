@@ -10,6 +10,8 @@
 #import "CKCommonUtility.h"
 #import "CKZBooksManager.h"
 #import "WKReaderConfig.h"
+#import "CKFileManager.h"
+#import "CKAppSettings.h"
 
 @interface CKRootViewController ()
 
@@ -64,6 +66,11 @@
     // 文库sdk配置
     //[WKReaderConfig setDatabaseFolderPath:@"Library/WKSDKDatabase"];
     [WKReaderConfig setCUID:@"DSFAJHFADEHJQHFJEWHFJKDSAHFKJSDAH1289"];
+    
+    if ([[CKAppSettings sharedInstance] launchTimes] == 3)
+    {
+        [self showRateAlert];
+    }
 }
 
 - (void)viewDidLoad
@@ -87,6 +94,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showRateAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新年快乐" message:@"业余时间搞了这个应用, 献给那些爱读书的朋友, 绝无广告~" delegate:self cancelButtonTitle:@"飘过" otherButtonTitles:@"赞一个", nil];
+    [alert show];
+    [alert release];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    ;
 }
 
 @end
