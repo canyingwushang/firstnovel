@@ -103,13 +103,12 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSDictionary *kvs = [[request URL] keysAndValuesOfQuery];
-    NSLog(@"%@", kvs);
     NSString *downsrc = [kvs objectForKey:@"downsrc"];
     NSString *title = [kvs objectForKey:@"title"];
     if (CHECK_STRING_VALID(downsrc) && CHECK_STRING_VALID(title))
     {
-        NSLog(@"%@", [downsrc stringByUnescapingFromURLArgument]);
         [[BBADownloadDataSource sharedInstance] addDownloadItemWithURL:[downsrc stringByUnescapingFromURLArgument] Title:[title stringByUnescapingFromURLArgument] businessType:EDownloadBusinessTypeNovel];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
         return NO;
     }
     return YES;

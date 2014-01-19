@@ -10,6 +10,7 @@
 #import "CKCommonUtility.h"
 #import "BBADownloadManagerViewController.h"
 #import "CKRootViewController.h"
+#import "BBADownloadDataSource.h"
 
 enum ESettingSection {
     TSettingSectionDM = 0,
@@ -29,8 +30,6 @@ enum ESettingSectionCommon {
 };
 
 @interface CKSettingsViewController ()
-
-@property (nonatomic, retain) UITableView *settingsTable;
 
 @end
 
@@ -92,7 +91,7 @@ enum ESettingSectionCommon {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
     //cell.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
@@ -103,6 +102,10 @@ enum ESettingSectionCommon {
     {
         cell.textLabel.text = @"下载的小说";
         cell.imageView.image = [UIImage imageNamed:@"settings_download.png"];
+        if ([[BBADownloadDataSource sharedInstance] totalCount] > 0)
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [[BBADownloadDataSource sharedInstance] totalCount]];
+        }
     }
     else if (indexPath.section == TSettingSectionCommon)
     {

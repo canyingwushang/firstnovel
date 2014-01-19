@@ -22,6 +22,7 @@
 @property (nonatomic, retain) UIView *slidingContainer;
 @property (nonatomic, retain) CKBookLibraryViewController *bookLibraryViewController;
 @property (nonatomic, retain) CKSettingsViewController *settingsViewController;
+@property (nonatomic, retain) UIImageView *newTaskPoint;
 
 @end
 
@@ -33,17 +34,21 @@
     if (self)
     {
         // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNewPoint) name:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
+    
     [_slidingTabBarVC release];
     [_bookShelfTable release];
     [_slidingContainer release];
     [_bookLibraryViewController release];
     [_settingsViewController release];
+    [_newTaskPoint release];
     
     [super dealloc];
 }
@@ -121,6 +126,11 @@
     [_slidingContainer addSubview:_settingsViewController.view];
     
     self.navigationItem.title = @"名著";
+    
+    _newTaskPoint = [[UIImageView alloc] initWithFrame:CGRectMake(280.0f, 5.0f, 18.0f, 18.0f)];
+    _newTaskPoint.image = [UIImage imageNamed:@"common_list_new.png"];
+    [_slidingTabBarVC.view addSubview:_newTaskPoint];
+    _newTaskPoint.hidden = YES;
 }
 
 - (void)viewDidLoad
@@ -133,6 +143,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showNewPoint
+{
+    _newTaskPoint.hidden = NO;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -244,6 +259,12 @@
         {
             [_bookLibraryViewController.webView goBack];
         }
+    }
+    
+    if (toIndex == 2)
+    {
+        _newTaskPoint.hidden = YES;
+        [_settingsViewController.settingsTable reloadData];
     }
 }
 

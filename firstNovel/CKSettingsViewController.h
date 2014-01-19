@@ -10,4 +10,6 @@
 
 @interface CKSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, retain) UITableView *settingsTable;
+
 @end
