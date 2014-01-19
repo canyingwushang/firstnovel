@@ -73,6 +73,14 @@
 		07231196188BFEE5001A4673 /* dm_retrybutton_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231176188BFEE5001A4673 /* dm_retrybutton_highlighted@2x.png */; };
 		07231197188BFEE5001A4673 /* dm_retrybutton_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231177188BFEE5001A4673 /* dm_retrybutton_normal.png */; };
 		07231198188BFEE5001A4673 /* dm_retrybutton_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231178188BFEE5001A4673 /* dm_retrybutton_normal@2x.png */; };
+		072311A1188C0617001A4673 /* toolbar_goback_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231199188C0617001A4673 /* toolbar_goback_highlighted.png */; };
+		072311A2188C0617001A4673 /* toolbar_goback_highlighted.png@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119A188C0617001A4673 /* toolbar_goback_highlighted.png@2x.png */; };
+		072311A3188C0617001A4673 /* toolbar_goback_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119B188C0617001A4673 /* toolbar_goback_normal.png */; };
+		072311A4188C0617001A4673 /* toolbar_goback_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119C188C0617001A4673 /* toolbar_goback_normal@2x.png */; };
+		072311A5188C0617001A4673 /* toolbar_refresh_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119D188C0617001A4673 /* toolbar_refresh_highlighted.png */; };
+		072311A6188C0617001A4673 /* toolbar_refresh_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119E188C0617001A4673 /* toolbar_refresh_highlighted@2x.png */; };
+		072311A7188C0617001A4673 /* toolbar_refresh_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723119F188C0617001A4673 /* toolbar_refresh_normal.png */; };
+		072311A8188C0617001A4673 /* toolbar_refresh_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 072311A0188C0617001A4673 /* toolbar_refresh_normal@2x.png */; };
 		07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A15188AC7940061B53A /* chapter_icon_novel.png */; };
 		07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */; };
 		07362A20188ACFC50061B53A /* libWKTXTReaderSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */; };
@@ -256,6 +264,14 @@
 		07231176188BFEE5001A4673 /* dm_retrybutton_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dm_retrybutton_highlighted@2x.png"; sourceTree = "<group>"; };
 		07231177188BFEE5001A4673 /* dm_retrybutton_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dm_retrybutton_normal.png; sourceTree = "<group>"; };
 		07231178188BFEE5001A4673 /* dm_retrybutton_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dm_retrybutton_normal@2x.png"; sourceTree = "<group>"; };
+		07231199188C0617001A4673 /* toolbar_goback_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_goback_highlighted.png; sourceTree = "<group>"; };
+		0723119A188C0617001A4673 /* toolbar_goback_highlighted.png@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_goback_highlighted.png@2x.png"; sourceTree = "<group>"; };
+		0723119B188C0617001A4673 /* toolbar_goback_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_goback_normal.png; sourceTree = "<group>"; };
+		0723119C188C0617001A4673 /* toolbar_goback_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_goback_normal@2x.png"; sourceTree = "<group>"; };
+		0723119D188C0617001A4673 /* toolbar_refresh_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_refresh_highlighted.png; sourceTree = "<group>"; };
+		0723119E188C0617001A4673 /* toolbar_refresh_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_refresh_highlighted@2x.png"; sourceTree = "<group>"; };
+		0723119F188C0617001A4673 /* toolbar_refresh_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_refresh_normal.png; sourceTree = "<group>"; };
+		072311A0188C0617001A4673 /* toolbar_refresh_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_refresh_normal@2x.png"; sourceTree = "<group>"; };
 		07362A15188AC7940061B53A /* chapter_icon_novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chapter_icon_novel.png; sourceTree = "<group>"; };
 		07362A16188AC7940061B53A /* chapter_icon_novel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chapter_icon_novel@2x.png"; sourceTree = "<group>"; };
 		07362A1A188ACFC50061B53A /* libWKTXTReaderSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWKTXTReaderSDK.a; sourceTree = "<group>"; };
@@ -737,6 +753,14 @@
 				07231154188BAD8C001A4673 /* settings_rate.png */,
 				07231155188BAD8C001A4673 /* settings_rate@2x.png */,
 				0791ABCD1882794F0095F502 /* tabbar */,
+				07231199188C0617001A4673 /* toolbar_goback_highlighted.png */,
+				0723119A188C0617001A4673 /* toolbar_goback_highlighted.png@2x.png */,
+				0723119B188C0617001A4673 /* toolbar_goback_normal.png */,
+				0723119C188C0617001A4673 /* toolbar_goback_normal@2x.png */,
+				0723119D188C0617001A4673 /* toolbar_refresh_highlighted.png */,
+				0723119E188C0617001A4673 /* toolbar_refresh_highlighted@2x.png */,
+				0723119F188C0617001A4673 /* toolbar_refresh_normal.png */,
+				072311A0188C0617001A4673 /* toolbar_refresh_normal@2x.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -893,12 +917,14 @@
 				0723118E188BFEE5001A4673 /* dm_progress_active_background@2x.png in Resources */,
 				0791ABEA18827F7E0095F502 /* tabbar_book_library@2x.png in Resources */,
 				0791ABEC18827F7E0095F502 /* tabbar_book_shelf_hl@2x.png in Resources */,
+				072311A2188C0617001A4673 /* toolbar_goback_highlighted.png@2x.png in Resources */,
 				07231143188B9DA8001A4673 /* common_tab_new.png in Resources */,
 				07231152188BACFE001A4673 /* settings_feedback.png in Resources */,
 				0791ABE818827F7E0095F502 /* tabbar_book_library_hl@2x.png in Resources */,
 				0723118F188BFEE5001A4673 /* dm_progress_active_foreground.png in Resources */,
 				0791ABE918827F7E0095F502 /* tabbar_book_library.png in Resources */,
 				07FF515B188106FE00C98408 /* Default@2x.png in Resources */,
+				072311A8188C0617001A4673 /* toolbar_refresh_normal@2x.png in Resources */,
 				07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */,
 				0791AC191882DAD40095F502 /* CKBookShelfCell.xib in Resources */,
 				07362A22188ACFC60061B53A /* WKTXTReaderBundle.bundle in Resources */,
@@ -916,14 +942,17 @@
 				0791ABDA18827A1B0095F502 /* main_view_bg@2x.png in Resources */,
 				07FF515A188106FE00C98408 /* Default.png in Resources */,
 				07231197188BFEE5001A4673 /* dm_retrybutton_normal.png in Resources */,
+				072311A5188C0617001A4673 /* toolbar_refresh_highlighted.png in Resources */,
 				07231141188B9DA8001A4673 /* common_list_new.png in Resources */,
 				0791AC081882BFC30095F502 /* book_cell@2x.png in Resources */,
 				0791ABEE18827F7E0095F502 /* tabbar_book_shelf@2x.png in Resources */,
 				07231150188BACFE001A4673 /* settings_download.png in Resources */,
+				072311A7188C0617001A4673 /* toolbar_refresh_normal.png in Resources */,
 				0791ABD31882797B0095F502 /* tabbar_baritem_hl_bg@2x.png in Resources */,
 				07231196188BFEE5001A4673 /* dm_retrybutton_highlighted@2x.png in Resources */,
 				0723114F188BACFE001A4673 /* settings_about@2x.png in Resources */,
 				0791ABE718827F7E0095F502 /* tabbar_book_library_hl.png in Resources */,
+				072311A3188C0617001A4673 /* toolbar_goback_normal.png in Resources */,
 				0723117A188BFEE5001A4673 /* dm_editbutton_normal@2x.png in Resources */,
 				07FF51671881097200C98408 /* 120.png in Resources */,
 				0791ABF018827F7E0095F502 /* tabbar_pandora_box_hl@2x.png in Resources */,
@@ -932,6 +961,7 @@
 				07231194188BFEE5001A4673 /* dm_progress_pause_foreground@2x.png in Resources */,
 				07231188188BFEE5001A4673 /* dm_icon_video@2x.png in Resources */,
 				0723114E188BACFE001A4673 /* settings_about.png in Resources */,
+				072311A1188C0617001A4673 /* toolbar_goback_highlighted.png in Resources */,
 				0791AC151882CD5F0095F502 /* bookshelf_line@2x.png in Resources */,
 				0791ABEF18827F7E0095F502 /* tabbar_pandora_box_hl.png in Resources */,
 				07231192188BFEE5001A4673 /* dm_progress_pause_background@2x.png in Resources */,
@@ -947,6 +977,7 @@
 				07231182188BFEE5001A4673 /* dm_icon_novel@2x.png in Resources */,
 				0791ABF218827F7E0095F502 /* tabbar_pandora_box@2x.png in Resources */,
 				0791AC141882CD5F0095F502 /* bookshelf_line.png in Resources */,
+				072311A4188C0617001A4673 /* toolbar_goback_normal@2x.png in Resources */,
 				07362A17188AC7940061B53A /* chapter_icon_novel.png in Resources */,
 				07231189188BFEE5001A4673 /* dm_pausebutton_highlighted.png in Resources */,
 				0791ABF118827F7E0095F502 /* tabbar_pandora_box.png in Resources */,
@@ -957,6 +988,7 @@
 				0791AC051882BFC30095F502 /* book_cell_select.png in Resources */,
 				07FF51631881097200C98408 /* 57.png in Resources */,
 				07231195188BFEE5001A4673 /* dm_retrybutton_highlighted.png in Resources */,
+				072311A6188C0617001A4673 /* toolbar_refresh_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

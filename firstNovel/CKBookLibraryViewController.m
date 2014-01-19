@@ -14,6 +14,9 @@
 
 @interface CKBookLibraryViewController ()
 
+@property (nonatomic, retain) UIButton *refreshButton;
+@property (nonatomic, retain) UIButton *goBackButton;
+
 @end
 
 @implementation CKBookLibraryViewController
@@ -51,7 +54,44 @@
     }
     [self.view addSubview:_webView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.baidu.com/book"]]];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        _goBackButton = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - 35.0f), 37.0f, 32.0f)];
+        _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(278.0f, (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - 35.0f), 37.0f, 32.0f)];
+    }
+    else
+    {
+        _goBackButton = [[UIButton alloc] initWithFrame:CGRectMake(5.0f, (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - 35.0f), 37.0f, 32.0f)];
+        _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(278.0f, (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - 35.0f), 37.0f, 32.0f)];
+    }
+    _goBackButton.backgroundColor = [UIColor colorWithRed:(223.0f/255.0f) green:(223.0f/255.0f) blue:(223.0f/255.0f) alpha:1.0f];
+    _refreshButton.backgroundColor = [UIColor colorWithRed:(223.0f/255.0f) green:(223.0f/255.0f) blue:(223.0f/255.0f) alpha:1.0f];
+    _goBackButton.alpha = 0.8f;
+    _refreshButton.alpha = 0.8f;
+    [_goBackButton setImage:[UIImage imageNamed:@"toolbar_goback_normal.png"] forState:UIControlStateNormal];
+    [_goBackButton setImage:[UIImage imageNamed:@"toolbar_goback_highlighted.png"] forState:UIControlStateHighlighted];
+    [_goBackButton addTarget:self action:@selector(goBackAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_goBackButton];
+    
+    [_refreshButton setImage:[UIImage imageNamed:@"toolbar_refresh_normal.png"] forState:UIControlStateNormal];
+    [_refreshButton setImage:[UIImage imageNamed:@"toolbar_refresh_highlighted.png"] forState:UIControlStateHighlighted];
+    [_refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_refreshButton];
 	// Do any additional setup after loading the view.
+}
+
+- (void)goBackAction:(id)sender
+{
+    if ([_webView canGoBack])
+    {
+        [_webView goBack];
+    }
+}
+
+- (void)refreshAction:(id)sender
+{
+    [_webView reload];
 }
 
 - (void)didReceiveMemoryWarning
