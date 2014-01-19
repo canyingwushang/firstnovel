@@ -32,7 +32,6 @@
 @property (nonatomic, retain) NSString *cacheUrl; // 移动网络提示时暂存下载任务url
 @property (nonatomic, retain) NSString *cacheTitle;
 @property (nonatomic) TDownloadBusinessType cacheBusinessType; // 下载业务类型
-@property (nonatomic) BOOL cacheAnimationed; // 下载业务类型
 
 @end
 
@@ -162,7 +161,7 @@
     });
 }
 
-- (BOOL)addDownloadItemWithURL:(NSString *)sourceUrl Title:(NSString *)title businessType:(TDownloadBusinessType)aBusinessType animationed:(BOOL)aAnimationed
+- (BOOL)addDownloadItemWithURL:(NSString *)sourceUrl Title:(NSString *)title businessType:(TDownloadBusinessType)aBusinessType
 {
     NSString *aSourceUrl = [sourceUrl stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
@@ -203,7 +202,6 @@
         self.cacheTitle = title;
         self.cacheUrl = sourceUrl;
         self.cacheBusinessType = aBusinessType;
-        self.cacheAnimationed = aAnimationed;
         [self WWANAlert];
         return NO;
     }
@@ -693,7 +691,6 @@
 
                 self.cacheUrl = nil;
                 self.cacheTitle = nil;
-                self.cacheAnimationed = NO;
                 self.cacheBusinessType = EDownloadBusinessTypeUnkown;
             }
             else

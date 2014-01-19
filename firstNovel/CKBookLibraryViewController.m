@@ -10,6 +10,7 @@
 #import "CKCommonUtility.h"
 #import "NSURL+KeyValueParsing.h"
 #import "NSString-URLArguments.h"
+#import "BBADownloadDataSource.h"
 
 @interface CKBookLibraryViewController ()
 
@@ -68,7 +69,7 @@
     if (CHECK_STRING_VALID(downsrc) && CHECK_STRING_VALID(title))
     {
         NSLog(@"%@", [downsrc stringByUnescapingFromURLArgument]);
-        //TODO
+        [[BBADownloadDataSource sharedInstance] addDownloadItemWithURL:[downsrc stringByUnescapingFromURLArgument] Title:[title stringByUnescapingFromURLArgument] businessType:EDownloadBusinessTypeNovel];
         return NO;
     }
     return YES;

@@ -104,7 +104,7 @@
     totalRect.origin.x = downloadRect.origin.x + downloadRect.size.width;
     _totalSizeLabel.frame = totalRect;
     _downloadSizeLabel.text = [CKCommonUtility sizeStr:receivedBytes];
-    _sizeDurLabel.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"StringDownloadManagerFileSize", nil),[CKCommonUtility sizeStr:totalBytes]];
+    _sizeDurLabel.text = [NSString stringWithFormat:@"%@: %@", @"文件大小",[CKCommonUtility sizeStr:totalBytes]];
 }
 
 - (void)setDataSource:(BBADownloadItem *)dataSource
@@ -309,7 +309,7 @@
         _sizeDurLabel.backgroundColor = [UIColor clearColor];
         _sizeDurLabel.textColor = [CKCommonUtility RGBColorFromHexString:@"#999999" alpha:1.0f];
         [self.contentView addSubview:_sizeDurLabel];
-        _sizeDurLabel.text = NSLocalizedString(@"StringDownloadManagerUnKnownSize", nil);
+        _sizeDurLabel.text = @"未知大小";
     }
     
     // 下载失败
@@ -319,7 +319,7 @@
         _failedLabel.font = [UIFont systemFontOfSize:11.0f];
         _failedLabel.textColor = [UIColor whiteColor];
         _failedLabel.backgroundColor = [CKCommonUtility RGBColorFromHexString:@"#ff4900" alpha:1.0f];
-        _failedLabel.text = NSLocalizedString(@"StringDownloadManagerDownloadFailed", nil);
+        _failedLabel.text = @"下载失败";
         [self.contentView addSubview:_failedLabel];
     }
     
@@ -330,7 +330,7 @@
         _retryLabel.font = [UIFont systemFontOfSize:11.0f];
         _retryLabel.textColor = [CKCommonUtility RGBColorFromHexString:@"#999999" alpha:1.0f];
         _retryLabel.backgroundColor = [UIColor clearColor];
-        _retryLabel.text = NSLocalizedString(@"StringDownloadManagerClickedRetry", nil);
+        _retryLabel.text = @"重试";
         [self.contentView addSubview:_retryLabel];
     }
     
@@ -343,7 +343,7 @@
         _downloadSizeLabel.textAlignment = NSTextAlignmentLeft;
         _downloadSizeLabel.frame = CGRectMake(DOWNLOADCELL_LEFTMARGIN + DOWNLOADCELL_PROGRESSBAR_WIDTH + 4.0f, DOWNLOADCELL_PROGRESSBAR_TOP_MARGIN, DOWNLOADCELL_SIZELABEL_WIDTH, DOWNLOADCELL_SIZELABEL_HEIGHT);
         _downloadSizeLabel.backgroundColor = [UIColor clearColor];
-        _downloadSizeLabel.text = NSLocalizedString(@"StringDownloadManagerUnKnownSize", nil);
+        _downloadSizeLabel.text = @"未知";
         [self.contentView addSubview:_downloadSizeLabel];
     }
     
@@ -356,7 +356,7 @@
         _totalSizeLabel.textAlignment = NSTextAlignmentLeft;
         _totalSizeLabel.frame = CGRectMake(DOWNLOADCELL_LEFTMARGIN + DOWNLOADCELL_PROGRESSBAR_WIDTH + 2.0f + DOWNLOADCELL_SIZELABEL_WIDTH, DOWNLOADCELL_PROGRESSBAR_TOP_MARGIN , DOWNLOADCELL_SIZELABEL_WIDTH, DOWNLOADCELL_SIZELABEL_HEIGHT);
         _totalSizeLabel.backgroundColor = [UIColor clearColor];
-        _totalSizeLabel.text = [NSString stringWithFormat:@"/%@", NSLocalizedString(@"StringDownloadManagerUnKnownSize", nil)];
+        _totalSizeLabel.text = [NSString stringWithFormat:@"/%@", @"未知", nil];
         [self.contentView addSubview:_totalSizeLabel];
     }
     
@@ -366,7 +366,7 @@
         _waitingLabel = [[UILabel alloc] initWithFrame:CGRectMake(DOWNLOADCELL_LEFTMARGIN + DOWNLOADCELL_PROGRESSBAR_WIDTH + 6.0f, DOWNLOADCELL_PROGRESSBAR_TOP_MARGIN, 50.0f, 10.0f)];
         _waitingLabel.font = [UIFont systemFontOfSize:10.0f];
         _waitingLabel.textColor = [CKCommonUtility RGBColorFromHexString:@"#999999" alpha:1.0f];
-        _waitingLabel.text = NSLocalizedString(@"StringDownloadManagerRightHereWatingForYou", nil);
+        _waitingLabel.text = @"等待中";
         _waitingLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_waitingLabel];
     }
@@ -405,29 +405,22 @@
     if (status == EDownloadTaskStatusFailed)
     {
         [_actionButton setTitleColor:[CKCommonUtility RGBColorFromHexString:@"#ec3759" alpha:1.0f] forState:UIControlStateNormal];
-        [_actionButton setTitle:NSLocalizedString(@"StringDownloadManagerRetry", nil) forState:UIControlStateNormal];
+        [_actionButton setTitle:@"重试" forState:UIControlStateNormal];
         [_actionButton addTarget:self action:@selector(retry:) forControlEvents:UIControlEventTouchUpInside];
     }
     else if (status == EDownloadTaskStatusFinished)
     {
-        if (_type == EDownloadFileTypeVideo)
-        {
-            [_actionButton setTitle:NSLocalizedString(@"StringDownloadManagerPlay", nil) forState:UIControlStateNormal];
-        }
-        else
-        {
-            [_actionButton setTitle:NSLocalizedString(@"StringDownloadManagerOpen", nil) forState:UIControlStateNormal];
-        }
+        [_actionButton setTitle:@"阅读" forState:UIControlStateNormal];
         [_actionButton addTarget:self action:@selector(play:) forControlEvents:UIControlEventTouchUpInside];
     }
     else if (status == EDownloadTaskStatusRunning || status == EDownloadTaskStatusWaiting)
     {
-        [_actionButton setTitle:NSLocalizedString(@"StringDownloadManagerPause", nil) forState:UIControlStateNormal];
+        [_actionButton setTitle:@"暂停" forState:UIControlStateNormal];
         [_actionButton addTarget:self action:@selector(stop:) forControlEvents:UIControlEventTouchUpInside];
     }
     else if (status == EDownloadTaskStatusSuspend)
     {
-        [_actionButton setTitle:NSLocalizedString(@"StringDownloadManagerContinue", nil) forState:UIControlStateNormal];
+        [_actionButton setTitle:@"继续" forState:UIControlStateNormal];
         [_actionButton addTarget:self action:@selector(resume:) forControlEvents:UIControlEventTouchUpInside];
     }
     if (self.editing)

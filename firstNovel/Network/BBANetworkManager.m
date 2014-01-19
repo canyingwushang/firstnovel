@@ -320,9 +320,9 @@
 - (void)alertNetWorkBadHint
 {
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-														message:NSLocalizedString(@"StringNetWorkBadStatusHint",nil)
+														message:@"网络连接错误，请重试"
 													   delegate:self
-											  cancelButtonTitle:NSLocalizedString(@"StringConfirmation", nil)
+											  cancelButtonTitle:@"重试"
 											  otherButtonTitles:nil , nil];
 	[alertView show];
 	RELEASE_SET_NIL(alertView);

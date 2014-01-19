@@ -171,7 +171,7 @@
     NSMutableString *totalStr = [NSMutableString string];
     if (bytes < 1)
     {
-        [totalStr appendString:[NSString stringWithFormat:@"%@", NSLocalizedString(@"StringDownloadManagerUnKnownSize", nil)]];
+        [totalStr appendString:[NSString stringWithFormat:@"%@", @"未知"]];
     }
     else if (bytes < 1024)
     {

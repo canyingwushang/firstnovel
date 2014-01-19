@@ -25,11 +25,7 @@
 @interface BBADownloadManagerViewController ()
 
 @property (nonatomic, retain) UITableView *downloadTable;
-@property (nonatomic, retain) UIView *bottomView;
-@property (nonatomic, retain) UIView *usedView;
-@property (nonatomic, retain) UILabel *storageLabel;
-@property (nonatomic, retain) UIImageView *emptyView;
-@property (nonatomic, retain) UIButton *editButton;
+@property (nonatomic, retain) UILabel *emptyView;
 @property (nonatomic, retain) UIButton *backButton;
 @property (nonatomic, retain) WKReaderViewController *novelReaderViewController;
 
@@ -49,16 +45,19 @@
 
 - (void)dealloc
 {
+    [BBADownloadDataSource sharedInstance].delegate = nil;
+    NSArray *downloadList = [BBADownloadDataSource sharedInstance].downloadList;
+    for (BBADownloadItem *item in downloadList)
+    {
+        item.viewDelegate = nil;
+    }
+    
     _downloadTable.delegate = nil;
     _downloadTable.dataSource = nil;
-	RELEASE_SET_NIL(_downloadTable);
-    RELEASE_SET_NIL(_bottomView);
-    RELEASE_SET_NIL(_usedView);
-    RELEASE_SET_NIL(_storageLabel);
     RELEASE_SET_NIL(_emptyView);
-    RELEASE_SET_NIL(_editButton);
     RELEASE_SET_NIL(_backButton);
     RELEASE_SET_NIL(_novelReaderViewController);
+    
     
     [super dealloc];
 }
@@ -81,13 +80,14 @@
 {
 	[super loadView];
 
-    self.view.backgroundColor = [UIColor whiteColor];
-        
+    self.navigationItem.title = @"随时看";
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
+    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    
     
 	// frame
 	CGSize applicationSize = [CKCommonUtility getApplicationSize];
@@ -103,8 +103,8 @@
 	_downloadTable.delegate = self;
     _downloadTable.allowsSelection = YES;
     _downloadTable.allowsSelectionDuringEditing = NO;
-    _downloadTable.separatorColor = [CKCommonUtility RGBColorFromHexString:@"#d3dadf" alpha:1.0f];
     _downloadTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _downloadTable.backgroundColor = [UIColor clearColor];
     
     //添加footerview隐藏多余分割线
     UIView *tmpFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _downloadTable.frame.size.width, 0.0f)];
@@ -117,39 +117,16 @@
         emptyViewOriginalY = 95.0f;
     }
     
-    _emptyView = [[UIImageView alloc] initWithFrame:CGRectMake(90.0f, emptyViewOriginalY, 140.0f, 140.0f)];
-    _emptyView.image = [UIImage imageNamed:@"dm_empty.png"];
-    [self.view addSubview:_emptyView];
     // 无下载内容提示文字Label
-    CGRect labelFrame = CGRectMake(-30.0f, 140.0f, 200.0f, 40.0f);  // 添加在_emptyView上的Frame.
-    UILabel *emptyTipLabel = [[UILabel alloc] initWithFrame:labelFrame];
-    emptyTipLabel.numberOfLines = 2;
-    emptyTipLabel.text = NSLocalizedString(@"StringDownloadManagerEmptyTip", nil);
-    emptyTipLabel.font = [UIFont systemFontOfSize:16.0f];
-    emptyTipLabel.textColor = [CKCommonUtility RGBColorFromHexString:@"#666666" alpha:1.0f];
-    emptyTipLabel.backgroundColor = [UIColor clearColor];
-    emptyTipLabel.textAlignment = NSTextAlignmentCenter;
-    [_emptyView addSubview:emptyTipLabel];
-	RELEASE_SET_NIL(emptyTipLabel);
-    
-    // 底部容量界面
-    _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, _downloadTable.frame.origin.y + _downloadTable.frame.size.height, self.view.frame.size.width, DOWNLOAD_TABLE_BOTTOM_MARGIN)];
-    _bottomView.backgroundColor = [CKCommonUtility RGBColorFromHexString:@"#b1d278" alpha:1.0f];
-    // 已使用容量
-    _usedView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 0.0f, DOWNLOAD_TABLE_BOTTOM_MARGIN)];
-    _usedView.backgroundColor =[CKCommonUtility RGBColorFromHexString:@"#499925" alpha:1.0f];
-    [self.view addSubview:_bottomView];
-    [_bottomView addSubview:_usedView];
-    
-    // 容量描述标签
-    _storageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, DOWNLOAD_TABLE_BOTTOM_MARGIN)];
-    _storageLabel.backgroundColor = [UIColor clearColor];
-    _storageLabel.textAlignment = NSTextAlignmentCenter;
-    _storageLabel.textColor = [CKCommonUtility RGBColorFromHexString:@"#ffffff" alpha:1.0f];
-    _storageLabel.font = [UIFont systemFontOfSize:11.0f];
-    [_bottomView addSubview:_storageLabel];
-    
-    [self updateStorageInfo];
+    CGRect labelFrame = CGRectMake(30.0f, 240.0f, 260.0f, 70.0f);  // 添加在_emptyView上的Frame.
+    _emptyView = [[UILabel alloc] initWithFrame:labelFrame];
+    _emptyView.numberOfLines = 3;
+    _emptyView.text = @"还没有离线小说哦~赶紧去书城看看吧~我们推荐把小说离线以后再阅读,体验会更佳~";
+    _emptyView.font = [UIFont systemFontOfSize:16.0f];
+    _emptyView.textColor = [CKCommonUtility RGBColorFromHexString:@"#666666" alpha:1.0f];
+    _emptyView.backgroundColor = [UIColor clearColor];
+    _emptyView.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_emptyView];
     
     [BBADownloadDataSource sharedInstance].delegate = self;
 }
@@ -161,13 +138,11 @@
     {
         _downloadTable.hidden = YES;
         _emptyView.hidden = NO;
-        _editButton.enabled = NO;
     }
     else
     {
         _downloadTable.hidden = NO;
         _emptyView.hidden = YES;
-        _editButton.enabled = YES;
     }
 }
 
@@ -200,7 +175,6 @@
 
 - (void)backAction:(id)sender
 {
-    
     [self resignDataSourceDelegate];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -213,14 +187,12 @@
         _backButton.hidden = YES;
         [_downloadTable setEditing:YES animated:YES];
         [_downloadTable reloadData];
-        [_editButton setTitle:NSLocalizedString(@"StringExitEdit", nil) forState:UIControlStateNormal];
     }
     else
     {
         _backButton.hidden = NO;
         [_downloadTable setEditing:NO animated:YES];
         [_downloadTable reloadData];
-        [_editButton setTitle:NSLocalizedString(@"StringEdit", nil) forState:UIControlStateNormal];
     }
 }
 
@@ -245,6 +217,7 @@
     {
         cell.actionButton.hidden = NO;
     }
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -281,13 +254,11 @@
             {
                 _downloadTable.hidden = YES;
                 _emptyView.hidden = NO;
-                _editButton.enabled = NO;
             }
             else
             {
                 _downloadTable.hidden = NO;
                 _emptyView.hidden = YES;
-                _editButton.enabled = YES;
             }
             if ([BBADownloadDataSource sharedInstance].totalCount == 0)
             {
@@ -425,7 +396,7 @@
             
             if (CHECK_STRING_INVALID(novelFileName))
             {
-                novelFileName = NSLocalizedString(@"StringNovelNoTitle", nil);
+                novelFileName = @"无标题";
             }
             
             self.novelReaderViewController = [WKReaderSwitch openBookWithFile:item.playurl fileName:novelFileName fileType:@"txt" pushAnimation:NO];
@@ -445,47 +416,10 @@
 
 - (void)showNoFileAlert
 {
-    UIAlertView *view = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"StringDownloadManagerFileOpenNotFound", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"StringConfirmation", nil) otherButtonTitles:nil];
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:nil message:@"很抱歉,小说文件没有找到,你还是重新再下载一次吧!" delegate:nil cancelButtonTitle:@"好吧" otherButtonTitles:nil];
     [view show];
     [view release];
 }
-
-- (NSString *)updateStorageInfo
-{
-    NSMutableString *storageInfo = [NSMutableString string];
-    [storageInfo appendString:NSLocalizedString(@"StringDownloadManagerUsedSize", nil)];
-    
-    CGFloat totalDisk = [CKCommonUtility totalDiskStorage];
-    CGFloat freeDisk = [CKCommonUtility avaiableDiskStorage];
-
-    CGFloat usedDisk = totalDisk - freeDisk;
-    
-    if (usedDisk < 1024.0)
-    {
-        [storageInfo appendFormat:@"%.1fMB", usedDisk];
-    }
-    else
-    {
-        [storageInfo appendFormat:@"%.1fGB", usedDisk/1024.0];
-    }
-    
-    [storageInfo appendFormat:@", %@", NSLocalizedString(@"StringDownloadManagerUnUsed", nil)];
-    if (freeDisk < 1024.0)
-    {
-        [storageInfo appendFormat:@"%.1fMB%@", freeDisk, NSLocalizedString(@"StringDownloadManagerFreeSize", nil)];
-    }
-    else
-    {
-        [storageInfo appendFormat:@"%.1fGB%@", freeDisk/1024.0, NSLocalizedString(@"StringDownloadManagerFreeSize", nil)];
-    }
-    _storageLabel.text = storageInfo;
-    
-    CGRect usedFrame = _usedView.frame;
-    usedFrame.size.width = (usedDisk/totalDisk)*_bottomView.frame.size.width;
-    _usedView.frame = usedFrame;
-    return storageInfo;
-}
-
 
 - (void)wkReaderViewController:(WKReaderViewController *)readerViewController backAtPercentage:(CGFloat)percentage
 {

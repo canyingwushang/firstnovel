@@ -14,14 +14,14 @@
 #import "CKBookLibraryViewController.h"
 #import "CKBookDescViewController.h"
 #import "CKRootViewController.h"
-
-#define CONTAINER_HEIGHT (APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT)
+#import "CKSettingsViewController.h"
 
 @interface CKMainViewController ()
 
 @property (nonatomic, retain) UITableView *bookShelfTable;
 @property (nonatomic, retain) UIView *slidingContainer;
 @property (nonatomic, retain) CKBookLibraryViewController *bookLibraryViewController;
+@property (nonatomic, retain) CKSettingsViewController *settingsViewController;
 
 @end
 
@@ -43,6 +43,7 @@
     [_bookShelfTable release];
     [_slidingContainer release];
     [_bookLibraryViewController release];
+    [_settingsViewController release];
     
     [super dealloc];
 }
@@ -93,6 +94,7 @@
     _bookShelfTable.backgroundColor = [UIColor clearColor];
     [_slidingContainer addSubview:_bookShelfTable];
     
+    
     _bookLibraryViewController = [[CKBookLibraryViewController alloc] init];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
@@ -104,6 +106,19 @@
     }
     _bookLibraryViewController.view.clipsToBounds = YES;
     [_slidingContainer addSubview:_bookLibraryViewController.view];
+    
+    
+    _settingsViewController = [[CKSettingsViewController alloc] init];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT );
+    }
+    else
+    {
+        _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT);
+    }
+    _settingsViewController.view.clipsToBounds = YES;
+    [_slidingContainer addSubview:_settingsViewController.view];
     
     self.navigationItem.title = @"名著";
 }
@@ -183,7 +198,7 @@
         }
         else if (toIndex == 2)
         {
-            self.navigationItem.title = @"离线小说";
+            self.navigationItem.title = @"更多设置";
         }
         
         if (toIndex == 1)

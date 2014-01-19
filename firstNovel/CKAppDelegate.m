@@ -8,6 +8,7 @@
 
 #import "CKAppDelegate.h"
 #import "CKRootViewController.h"
+#import "BBANetworkManager.h"
 
 @implementation CKAppDelegate
 
@@ -24,6 +25,9 @@
     NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:userAgent, @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
     [dictionary release];
+    
+    // 检查网络
+	[[BBANetworkManager sharedInstance] startDetectNetwork];
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.rootViewController = [CKRootViewController sharedInstance];;

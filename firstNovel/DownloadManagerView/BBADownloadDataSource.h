@@ -41,7 +41,7 @@ typedef enum _DownloadBusinessType
 
 + (BBADownloadDataSource *)sharedInstance;
 
-- (BOOL)addDownloadItemWithURL:(NSString *)sourceUrl Title:(NSString *)title businessType:(TDownloadBusinessType)aBusinessType animationed:(BOOL)aAnimationed; // 添加下载任务，判断网络和磁盘容量，并增加业务类型，支持小说，视频
+- (BOOL)addDownloadItemWithURL:(NSString *)sourceUrl Title:(NSString *)title businessType:(TDownloadBusinessType)aBusinessType; // 添加下载任务，判断网络和磁盘容量，并增加业务类型，支持小说，视频
 
 - (void)removeDownloadItem:(NSString *)aTaskID; // 删除下载任务
 - (void)stopDownloadItem:(NSString *)aTaskID; // 暂停下载任务
