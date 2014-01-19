@@ -45,3 +45,10 @@ if ((object) != nil && (key) != nil)                                \
 [(dictionay) setObject:(object) forKey:(key)];                      \
 }                                                                   \
 }while(0)
+
+// RELEASE_SET_NIL
+#define RELEASE_SET_NIL(aobj)							\
+do{[aobj release]; aobj = nil;}while(0)
+
+
+#define KJSGetHTMLTagInnerHTML  @"document.getElementsByTagName('html')[0].innerHTML"

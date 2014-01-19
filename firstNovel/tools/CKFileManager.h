@@ -20,4 +20,8 @@
 - (NSString *)bookContentPath:(NSString *)bookid;
 - (NSString *)bookContentCachePath:(NSString *)bookid;
 
+- (NSString *)getDownloadCacheDir;
+- (NSString *)getDownloadCacheDirForNovel;
+- (NSString *)getDownloadListFile;
+
 @end

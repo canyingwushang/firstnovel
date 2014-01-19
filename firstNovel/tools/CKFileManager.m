@@ -71,4 +71,19 @@
     return [_cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"book_%@", bookid]];
 }
 
+- (NSString *)getDownloadCacheDir
+{
+    return [_cacheDir stringByAppendingPathComponent:@"downloadcache"];
+}
+
+- (NSString *)getDownloadCacheDirForNovel
+{
+    return [[self getDownloadCacheDir] stringByAppendingPathComponent:@"novel"];
+}
+
+- (NSString *)getDownloadListFile
+{
+    return [_documentDir stringByAppendingPathComponent:@"novellist.plist"];
+}
+
 @end

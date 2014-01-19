@@ -101,7 +101,6 @@
 
 - (void)setBarItemHighlighted:(NSUInteger)index
 {
-    if (_currentIndex == index) return;
     if (_currentIndex < 0)
     {
         _currentIndex = index;

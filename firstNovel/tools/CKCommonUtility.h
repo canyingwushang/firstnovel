@@ -22,4 +22,19 @@
 
 + (BOOL)isiPhone5;
 
++ (NSArray *)videoTypeList; // Content-Type: Video
++ (BOOL)isM3U8:(NSString *)aContentType; // Content-Type: m3u8
++ (BOOL)isTextHtml:(NSString *)aContentType;// Content-Type: text/html
++ (BOOL)isTextPlain:(NSString *)aContentType; // Content-Type:text/plain
++ (BOOL)isAudioMP3:(NSString *)aContentType; // Content-Type audio/mp3
++ (BOOL)isImage:(NSString *)aContentType; // Content-Type image/*
++ (BOOL)isMP4File:(NSString *)contentType;
++ (NSArray *)imageTypeList;
+
++ (CGFloat)avaiableDiskStorage; // 系统可用容量 单位：MB
++ (CGFloat)totalDiskStorage; // 系统总容量 单位：MB
++ (NSString *)sizeStr:(long long)bytes;
+
++ (UIColor *)RGBColorFromHexString:(NSString *)aHexStr alpha:(float)aAlpha;
+
 @end

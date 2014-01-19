@@ -8,10 +8,10 @@
 
 #import "CKBookLibraryViewController.h"
 #import "CKCommonUtility.h"
+#import "NSURL+KeyValueParsing.h"
+#import "NSString-URLArguments.h"
 
 @interface CKBookLibraryViewController ()
-
-@property (nonatomic, retain) UIWebView *webView;
 
 @end
 
@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    _webView.delegate = self;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
         _webView.frame = CGRectMake(0.0f, STATUS_HEIGHT + NAVIGATIONBAR_HEIGHT, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - STATUS_HEIGHT - NAVIGATIONBAR_HEIGHT);
@@ -56,6 +57,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSDictionary *kvs = [[request URL] keysAndValuesOfQuery];
+    NSLog(@"%@", kvs);
+    NSString *downsrc = [kvs objectForKey:@"downsrc"];
+    NSString *title = [kvs objectForKey:@"title"];
+    if (CHECK_STRING_VALID(downsrc) && CHECK_STRING_VALID(title))
+    {
+        NSLog(@"%@", [downsrc stringByUnescapingFromURLArgument]);
+        //TODO
+        return NO;
+    }
+    return YES;
 }
 
 @end

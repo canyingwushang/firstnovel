@@ -173,8 +173,63 @@
     [UIView animateWithDuration:0.5 animations:^{
         _slidingContainer.frame = CGRectMake(-APPLICATION_FRAME_WIDTH *toIndex, 0.0f, APPLICATION_FRAME_WIDTH * 3, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT);
     } completion:^(BOOL finished) {
+        if (toIndex == 0)
+        {
+            self.navigationItem.title = @"名著";
+        }
+        else if (toIndex == 1)
+        {
+            self.navigationItem.title = @"在线书城";
+        }
+        else if (toIndex == 2)
+        {
+            self.navigationItem.title = @"离线小说";
+        }
+        
+        if (toIndex == 1)
+        {
+            [[CKRootViewController sharedInstance].rootNaviViewController setNavigationBarHidden:YES animated:YES];
+            [UIView animateWithDuration:0.3 animations:^{
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+                {
+                    _bookLibraryViewController.webView.frame = CGRectMake(0.0f, STATUS_HEIGHT, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - STATUS_HEIGHT);
+                }
+                else
+                {
+                    _bookLibraryViewController.webView.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT);
+                    _slidingTabBarVC.view.frame = CGRectMake(0.0f, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT, APPLICATION_FRAME_WIDTH, TABBAR_HEIGHT + NAVIGATIONBAR_HEIGHT);
+                }
+            } completion:^(BOOL finished) {
+                ;
+            }];
+        }
+        else
+        {
+            [[CKRootViewController sharedInstance].rootNaviViewController setNavigationBarHidden:NO animated:YES];
+            [UIView animateWithDuration:0.3 animations:^{
+                if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+                {
+                    _bookLibraryViewController.webView.frame = CGRectMake(0.0f, STATUS_HEIGHT + NAVIGATIONBAR_HEIGHT, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - STATUS_HEIGHT - NAVIGATIONBAR_HEIGHT);
+                }
+                else
+                {
+                    _bookLibraryViewController.webView.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT  - NAVIGATIONBAR_HEIGHT);
+                    _slidingTabBarVC.view.frame = CGRectMake(0.0f, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT - NAVIGATIONBAR_HEIGHT, APPLICATION_FRAME_WIDTH, TABBAR_HEIGHT + NAVIGATIONBAR_HEIGHT);
+                }
+            } completion:^(BOOL finished) {
+                ;
+            }];
+        }
         
     }];
+    
+    if (fromIndex == toIndex && toIndex == 1)
+    {
+        if ([_bookLibraryViewController.webView canGoBack])
+        {
+            [_bookLibraryViewController.webView goBack];
+        }
+    }
 }
 
 @end

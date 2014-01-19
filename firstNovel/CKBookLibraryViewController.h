@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CKBookLibraryViewController : UIViewController
+@interface CKBookLibraryViewController : UIViewController <UIWebViewDelegate>
+
+@property (nonatomic, retain) UIWebView *webView;
 
 @end
