@@ -1165,8 +1165,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\\\"",
-					"/Users/canyingwushang/ck-firstnovel/firstNovel/libs/WKTXTReaderSDK",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
@@ -1198,8 +1197,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\\\"",
-					"/Users/canyingwushang/ck-firstnovel/firstNovel/libs/WKTXTReaderSDK",
+					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";

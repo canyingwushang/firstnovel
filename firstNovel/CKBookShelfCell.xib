@@ -52,6 +52,5 @@
     </objects>
     <resources>
         <image name="bookcover_bg.png" width="60" height="78"/>
-        <image name="bookcover_bg.png" width="60" height="78"/>
     </resources>
 </document>
