@@ -116,7 +116,16 @@
         NSLog(@"%@", exception);
     }
     
+    //[MobClick beginEvent:@"bookShelfReadTime" label:[_bookData objectForKey:@"bookname"]];
+    
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //[MobClick endEvent:@"bookShelfReadTime" label:[_bookData objectForKey:@"bookname"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,6 +192,11 @@
 {
     [_novelReaderViewController dismissViewControllerAnimated:YES completion:nil];
     self.novelReaderViewController = nil;
+}
+
+- (void)addNavigationBarLeftButton
+{
+    ;
 }
 
 @end

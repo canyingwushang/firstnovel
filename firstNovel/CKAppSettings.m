@@ -26,6 +26,8 @@
 	self = [super init];
 	if (self)
 	{
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseOnlineParams:) name:UMOnlineConfigDidFinishedNotification object:nil];
+        
         [self readAppSettings];
 	}
     
@@ -34,6 +36,11 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UMOnlineConfigDidFinishedNotification object:nil];
+    
+    [_lastVersion release];
+    [_onlineParams release];
+    
     [super dealloc];
 }
 
@@ -116,6 +123,11 @@
     [appsettingsDict addEntriesFromDictionary:aDict];
     [appsettingsDict writeToFile:appSettingsFile atomically:YES];
 	RELEASE_SET_NIL(appsettingsDict);
+}
+
+- (void)responseOnlineParams:(NSNotification *)aNotification
+{
+    self.onlineParams = [aNotification userInfo];
 }
 
 @end

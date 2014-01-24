@@ -160,6 +160,7 @@
 		07FF517F1881825100C98408 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FF517E1881825100C98408 /* libz.dylib */; };
 		D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A34A188919D9000A5234 /* CKBookDesc.xib */; };
 		D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */; };
+		D4E149BD188FD5E400F1EE3E /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,6 +380,8 @@
 		D4A2A34A188919D9000A5234 /* CKBookDesc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookDesc.xib; sourceTree = "<group>"; };
 		D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookDescViewController.h; sourceTree = "<group>"; };
 		D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookDescViewController.m; sourceTree = "<group>"; };
+		D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		D4E149BC188FD5E400F1EE3E /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +391,7 @@
 			files = (
 				07DD9BA3188AE8250031E77B /* nlog.framework in Frameworks */,
 				07DD9B9E188AE6EB0031E77B /* libstdc++.6.dylib in Frameworks */,
+				D4E149BD188FD5E400F1EE3E /* libMobClickLibrary.a in Frameworks */,
 				07DD9B9C188AE6E50031E77B /* libstdc++.6.0.9.dylib in Frameworks */,
 				07DD9B9A188AE5960031E77B /* libstdc++.dylib in Frameworks */,
 				07362A2A188AD5050061B53A /* CoreTelephony.framework in Frameworks */,
@@ -775,6 +779,7 @@
 			children = (
 				072310C0188B6A78001A4673 /* Category */,
 				07DD9B9F188AE77A0031E77B /* JSONKit */,
+				D4E149BA188FD5E400F1EE3E /* UMeng */,
 				07362A19188ACFC50061B53A /* WKTXTReaderSDK */,
 				07FF516C1881805500C98408 /* zipArchive */,
 			);
@@ -815,6 +820,15 @@
 				0791ABF91882BE190095F502 /* list.plist */,
 			);
 			path = books;
+			sourceTree = "<group>";
+		};
+		D4E149BA188FD5E400F1EE3E /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */,
+				D4E149BC188FD5E400F1EE3E /* MobClick.h */,
+			);
+			path = UMeng;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1174,6 +1188,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
+					"\"$(SRCROOT)/firstNovel/libs/UMeng\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[arch=*]" = (
@@ -1206,6 +1221,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
+					"\"$(SRCROOT)/firstNovel/libs/UMeng\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				"OTHER_LDFLAGS[arch=*]" = (

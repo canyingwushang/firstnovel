@@ -81,6 +81,8 @@
     bookChaptersViewController.bookData = _bookData;
     [[self navigationController] pushViewController:bookChaptersViewController animated:YES];
     [bookChaptersViewController release];
+    
+    [MobClick event:@"bookShelfRead" attributes:_bookData];
 }
 
 @end

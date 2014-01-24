@@ -17,6 +17,11 @@
 #define IOS_6_0_1 @"6.0.1"
 #define IOS_7_0 @"7.0"
 
+#define BOX_UA   @"Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a baiduboxapp/0_4.0.1.5_enohpi_6311_046/4.0.7_2C2%255enohPi/1099a/FBBE6ECA80E747E8B9D91F550C2A964B56CF0103AFNTHLPGGJG/1"
+
+#define UMENG_APPKEY    @"52d369b456240b8c500ef4c1"
+#define UMENG_APPSTORE  @"1099a"
+
 // detect current system version upon 5.0
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LOWWER_THAN(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -53,3 +58,10 @@ do{[aobj release]; aobj = nil;}while(0)
 
 
 #define KJSGetHTMLTagInnerHTML  @"document.getElementsByTagName('html')[0].innerHTML"
+
+
+// 在线参数
+
+#define ONLINEBOOKS_SWITCH              @"onlinebooks"
+#define ONLINEBOOKS_DOWNLOAD_SWITCH     @"onlinebooksdownload"
+

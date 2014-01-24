@@ -266,6 +266,19 @@
         _newTaskPoint.hidden = YES;
         [_settingsViewController.settingsTable reloadData];
     }
+    
+    if (toIndex == 0)
+    {
+        [MobClick event:@"tabBookShelf"];
+    }
+    else if (toIndex == 1)
+    {
+        [MobClick event:@"tabBookLibrary"];
+    }
+    else if (toIndex == 2)
+    {
+        [MobClick event:@"tabSettings"];
+    }
 }
 
 @end

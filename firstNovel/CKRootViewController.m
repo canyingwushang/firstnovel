@@ -69,8 +69,9 @@
     
     if ([[CKAppSettings sharedInstance] launchTimes] == 3)
     {
-        [self showRateAlert];
+        //[self showRateAlert];
     }
+    [self showRateAlert];
 }
 
 - (void)viewDidLoad
@@ -98,14 +99,21 @@
 
 - (void)showRateAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新年快乐" message:@"业余时间搞了这个应用, 献给那些爱读书的朋友, 绝无广告~" delegate:self cancelButtonTitle:@"飘过" otherButtonTitles:@"赞一个", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新年快乐-马上有钱" message:@"业余时间搞了这个应用, 送给那些爱读书的朋友们,【绝无广告】,你觉得如何?" delegate:self cancelButtonTitle:@"飘过" otherButtonTitles:@"赞一个", nil];
     [alert show];
     [alert release];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    ;
+    if (buttonIndex == 0)
+    {
+        [MobClick event:@"rateAlertNO"];
+    }
+    else if (buttonIndex == 1)
+    {
+        [MobClick event:@"rateAlertOK"];
+    }
 }
 
 @end

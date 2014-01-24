@@ -131,6 +131,16 @@ enum ESettingSectionCommon {
         BBADownloadManagerViewController *downloadViewController = [[BBADownloadManagerViewController alloc] init];
         [[CKRootViewController sharedInstance].rootNaviViewController pushViewController:downloadViewController animated:YES];
         [downloadViewController release];
+        
+        [MobClick event:@"settingsDownload"];
+    }
+    else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowFeedBack)
+    {
+        [MobClick event:@"settingsFeedback"];
+    }
+    else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowRate)
+    {
+        [MobClick event:@"settingsRate"];
     }
 }
 

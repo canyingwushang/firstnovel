@@ -16,6 +16,7 @@
 @property (nonatomic, assign) BOOL isFirstLaunchAfterUpdate;
 @property (nonatomic, retain) NSString *lastVersion;
 @property (nonatomic, assign) NSUInteger launchTimes;
+@property (nonatomic, retain) NSDictionary *onlineParams;
 
 + (CKAppSettings *)sharedInstance;
 - (void)saveAppSettingWithKey:(NSString *)akey Value:(id)anObject;
