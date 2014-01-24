@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) UIButton *refreshButton;
 @property (nonatomic, retain) UIButton *goBackButton;
+@property (nonatomic, retain) UILabel *errorLabel;
 
 @end
 
@@ -34,6 +35,9 @@
 - (void)dealloc
 {
     [_webView release];
+    [_refreshButton release];
+    [_goBackButton release];
+    [_errorLabel release];
     
     [super dealloc];
 }
@@ -78,6 +82,11 @@
     [_refreshButton setImage:[UIImage imageNamed:@"toolbar_refresh_highlighted.png"] forState:UIControlStateHighlighted];
     [_refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_refreshButton];
+    
+    _errorLabel = [[UILabel alloc] initWithFrame:_webView.frame];
+    _errorLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
+    _errorLabel.text = @"很遗憾, 由于版权的问题, 我们无法再提供该服务, 我们会尽快恢复~";
+    [self.view addSubview:_errorLabel];
 	// Do any additional setup after loading the view.
 }
 
