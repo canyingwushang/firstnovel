@@ -524,8 +524,8 @@
         @synchronized(self)
         {
             // 调整下载完成的任务到队伍的末尾
-            [_downloadList removeObject:item];
-            [_downloadList addObject:item];
+            //[_downloadList removeObject:item];
+            //[_downloadList addObject:item];
             
             
             dispatch_async(dispatch_get_main_queue(), ^{

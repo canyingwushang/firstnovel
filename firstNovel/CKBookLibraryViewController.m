@@ -11,6 +11,10 @@
 #import "NSURL+KeyValueParsing.h"
 #import "NSString-URLArguments.h"
 #import "BBADownloadDataSource.h"
+#import "CKAppSettings.h"
+
+#define DOWNLOAD_ALERT_TAG  1111111
+#define DOWNLOAD_ALERT_TIP  1111112
 
 @interface CKBookLibraryViewController ()
 
@@ -57,7 +61,7 @@
         _webView.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT  - NAVIGATIONBAR_HEIGHT);
     }
     [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.baidu.com/book"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ONLINEBOOKS_ADDRESS]]];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
@@ -83,11 +87,21 @@
     [_refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_refreshButton];
     
-    _errorLabel = [[UILabel alloc] initWithFrame:_webView.frame];
+    CGRect webViewFrame = _webView.frame;
+    _errorLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0f, webViewFrame.origin.y, webViewFrame.size.width - 100.0f, webViewFrame.size.height)];
     _errorLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
+    _errorLabel.numberOfLines = 10;
     _errorLabel.text = @"很遗憾, 由于版权的问题, 我们无法再提供该服务, 我们会尽快恢复~";
     [self.view addSubview:_errorLabel];
+    _webView.hidden = NO;
+    _errorLabel.hidden = YES;
 	// Do any additional setup after loading the view.
+}
+
+- (void)updateBookLibrarySwitch:(BOOL)ok
+{
+    _webView.hidden = !ok;
+    _errorLabel.hidden = ok;
 }
 
 - (void)goBackAction:(id)sender
@@ -98,9 +112,22 @@
     }
 }
 
+- (void)refresh
+{
+    [self refreshAction:nil];
+}
+
 - (void)refreshAction:(id)sender
 {
-    [_webView reload];
+    NSURL *url = [_webView request].URL;
+    if ([url host] != nil)
+    {
+        [_webView reload];
+    }
+    else
+    {
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ONLINEBOOKS_ADDRESS]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,11 +143,49 @@
     NSString *title = [kvs objectForKey:@"title"];
     if (CHECK_STRING_VALID(downsrc) && CHECK_STRING_VALID(title))
     {
-        [[BBADownloadDataSource sharedInstance] addDownloadItemWithURL:[downsrc stringByUnescapingFromURLArgument] Title:[title stringByUnescapingFromURLArgument] businessType:EDownloadBusinessTypeNovel];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
+        if ([[CKAppSettings sharedInstance] onlineBookLibraryDownloadAvaiable])
+        {
+            [[BBADownloadDataSource sharedInstance] addDownloadItemWithURL:[downsrc stringByUnescapingFromURLArgument] Title:[title stringByUnescapingFromURLArgument] businessType:EDownloadBusinessTypeNovel];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
+            if (![[CKAppSettings sharedInstance] hasShownDownloadTip])
+            {
+                [self showDownloadTip];
+            }
+        }
+        else
+        {
+            [self showDownloadAlert];
+        }
         return NO;
     }
     return YES;
+}
+
+- (void)showDownloadTip
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"友好提醒" message:@"看, 底下的更多有一个红点, 点进去就能看见你下载的小说" delegate:self cancelButtonTitle:@"去看看" otherButtonTitles:nil];
+    alert.tag = DOWNLOAD_ALERT_TIP;
+    [alert show];
+    [alert release];
+}
+
+- (void)showDownloadAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"抱歉" message:@"很遗憾, 由于版权的问题, 我们无法再提供该服务, 我们会尽快恢复~" delegate:self cancelButtonTitle:@"好吧" otherButtonTitles:nil];
+    alert.tag = DOWNLOAD_ALERT_TAG;
+    [alert show];
+    [alert release];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == DOWNLOAD_ALERT_TIP)
+    {
+        if (buttonIndex == 0)
+        {
+            [[CKAppSettings sharedInstance] saveAppSettingWithKey:APPSETTINGS_SHOWN_DOWNLOADTIP Value:[NSNumber numberWithBool:YES]];
+        }
+    }
 }
 
 @end

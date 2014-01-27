@@ -12,6 +12,7 @@
 #import "WKReaderConfig.h"
 #import "CKFileManager.h"
 #import "CKAppSettings.h"
+#import "Reachability.h"
 
 @interface CKRootViewController ()
 
@@ -35,12 +36,15 @@
     if (self)
     {
         // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object:nil];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    
     [super dealloc];
 }
 
@@ -69,9 +73,8 @@
     
     if ([[CKAppSettings sharedInstance] launchTimes] == 3)
     {
-        //[self showRateAlert];
+        [self showRateAlert];
     }
-    [self showRateAlert];
 }
 
 - (void)viewDidLoad
@@ -99,7 +102,7 @@
 
 - (void)showRateAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新年快乐-马上有钱" message:@"业余时间搞了这个应用, 送给那些爱读书的朋友们,【绝无广告】,你觉得如何?" delegate:self cancelButtonTitle:@"飘过" otherButtonTitles:@"赞一个", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"马上有钱" message:@"业余时间搞了这个应用, 送给那些爱读书的朋友们,【绝无广告】,你觉得如何?" delegate:self cancelButtonTitle:@"飘过" otherButtonTitles:@"赞一个", nil];
     [alert show];
     [alert release];
 }
@@ -113,6 +116,19 @@
     else if (buttonIndex == 1)
     {
         [MobClick event:@"rateAlertOK"];
+    }
+}
+
+- (void)reachabilityChanged:(NSNotification *)aNotification
+{
+    Reachability* curReach = [aNotification object];
+    if ([curReach currentReachabilityStatus] != kReachableViaWWAN && [curReach currentReachabilityStatus] != kReachableViaWiFi)
+    {
+        dispatch_async(GCD_MAIN_QUEUE, ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"网络不给力" message:@"貌似断网了哎, 去检查一下吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        });
     }
 }
 

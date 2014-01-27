@@ -65,3 +65,5 @@ do{[aobj release]; aobj = nil;}while(0)
 #define ONLINEBOOKS_SWITCH              @"onlinebooks"
 #define ONLINEBOOKS_DOWNLOAD_SWITCH     @"onlinebooksdownload"
 
+#define ONLINEBOOKS_ADDRESS         @"http://m.baidu.com/book#rank"
+

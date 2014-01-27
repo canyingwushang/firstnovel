@@ -15,6 +15,7 @@
 #import "CKBookDescViewController.h"
 #import "CKRootViewController.h"
 #import "CKSettingsViewController.h"
+#import "CKAppSettings.h"
 
 @interface CKMainViewController ()
 
@@ -210,6 +211,8 @@
         else if (toIndex == 1)
         {
             self.navigationItem.title = @"在线书城";
+            [_bookLibraryViewController updateBookLibrarySwitch:[[CKAppSettings sharedInstance] onlineBookLibraryAvaiable]];
+            [_bookLibraryViewController refresh];
         }
         else if (toIndex == 2)
         {
@@ -252,14 +255,6 @@
         }
         
     }];
-    
-    if (fromIndex == toIndex && toIndex == 1)
-    {
-        if ([_bookLibraryViewController.webView canGoBack])
-        {
-            [_bookLibraryViewController.webView goBack];
-        }
-    }
     
     if (toIndex == 2)
     {

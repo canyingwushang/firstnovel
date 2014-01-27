@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CKBookLibraryViewController : UIViewController <UIWebViewDelegate>
+@interface CKBookLibraryViewController : UIViewController <UIWebViewDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, retain) UIWebView *webView;
+
+- (void)refresh;
+- (void)updateBookLibrarySwitch:(BOOL)ok;
 
 @end

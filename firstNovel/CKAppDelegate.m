@@ -46,6 +46,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [MobClick updateOnlineConfig];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -62,14 +63,14 @@
 {
     [self initUMeng];
     
+    // 检查网络
+    [[BBANetworkManager sharedInstance] startDetectNetwork];
+    
     dispatch_async(GCD_GLOBAL_QUEUQ, ^{
         NSString *userAgent = BOX_UA;
         NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:userAgent, @"UserAgent", nil];
         [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
         [dictionary release];
-        
-        // 检查网络
-        [[BBANetworkManager sharedInstance] startDetectNetwork];
     });
 }
 

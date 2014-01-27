@@ -10,6 +10,7 @@
 
 #define APPSETTINGS_LASTVERSION     @"lastVersion"
 #define APPSETTINGS_LAUNCHTIMES     @"launchTimes"
+#define APPSETTINGS_SHOWN_DOWNLOADTIP   @"hasShownDownloadTip"
 
 @interface CKAppSettings : NSObject
 
@@ -17,9 +18,12 @@
 @property (nonatomic, retain) NSString *lastVersion;
 @property (nonatomic, assign) NSUInteger launchTimes;
 @property (nonatomic, retain) NSDictionary *onlineParams;
+@property (nonatomic, assign) BOOL hasShownDownloadTip;
 
 + (CKAppSettings *)sharedInstance;
 - (void)saveAppSettingWithKey:(NSString *)akey Value:(id)anObject;
 - (void)saveAppSettingWithDict:(NSDictionary *)aDict;
+- (BOOL)onlineBookLibraryAvaiable;
+- (BOOL)onlineBookLibraryDownloadAvaiable;
 
 @end

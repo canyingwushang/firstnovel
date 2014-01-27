@@ -28,6 +28,11 @@
 	{
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseOnlineParams:) name:UMOnlineConfigDidFinishedNotification object:nil];
         
+        // 开关默认开启
+        _onlineParams = [[NSMutableDictionary alloc] init];
+        [_onlineParams setValue:@"ok" forKey:ONLINEBOOKS_SWITCH];
+        [_onlineParams setValue:@"ok" forKey:ONLINEBOOKS_DOWNLOAD_SWITCH];
+        
         [self readAppSettings];
 	}
     
@@ -48,6 +53,7 @@
 {
     _isFirstLaunchAfterUpdate = NO;
     _launchTimes = 1;
+    _hasShownDownloadTip = NO;
     
     NSMutableDictionary *newDataDict = [NSMutableDictionary dictionary];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[[CKFileManager sharedInstance] getAppSettingsFile]])
@@ -68,6 +74,10 @@
                 else if ([key isEqualToString:APPSETTINGS_LAUNCHTIMES])
                 {
                     _launchTimes = [(NSNumber *)value unsignedIntegerValue];
+                }
+                else if ([key isEqualToString:APPSETTINGS_SHOWN_DOWNLOADTIP])
+                {
+                    _hasShownDownloadTip = [(NSNumber *)value boolValue];
                 }
             }
         }
@@ -130,4 +140,25 @@
     self.onlineParams = [aNotification userInfo];
 }
 
+- (BOOL)onlineBookLibraryAvaiable
+{
+    id onlineBooksSwitch = [_onlineParams objectForKey:ONLINEBOOKS_SWITCH];
+    if (onlineBooksSwitch && ![onlineBooksSwitch isEqualToString:@"ok"])
+    {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)onlineBookLibraryDownloadAvaiable
+{
+    id onlineBooksDownloadSwitch = [_onlineParams objectForKey:ONLINEBOOKS_DOWNLOAD_SWITCH];
+    if (onlineBooksDownloadSwitch && ![onlineBooksDownloadSwitch isEqualToString:@"ok"])
+    {
+        return NO;
+    }
+    return YES;
+}
+
 @end
+
