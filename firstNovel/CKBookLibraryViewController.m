@@ -90,7 +90,7 @@
     CGRect webViewFrame = _webView.frame;
     _errorLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0f, webViewFrame.origin.y, webViewFrame.size.width - 100.0f, webViewFrame.size.height)];
     _errorLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
-    _errorLabel.numberOfLines = 10;
+    _errorLabel.numberOfLines = 5;
     _errorLabel.text = @"很遗憾, 由于版权的问题, 我们无法再提供该服务, 我们会尽快恢复~";
     [self.view addSubview:_errorLabel];
     _webView.hidden = NO;
