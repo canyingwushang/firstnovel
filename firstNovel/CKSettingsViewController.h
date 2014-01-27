@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UMFeedback.h"
 
-@interface CKSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CKSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UMFeedbackDataDelegate>
 
 @property (nonatomic, retain) UITableView *settingsTable;
 

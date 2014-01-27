@@ -79,9 +79,14 @@
     [MobClick setCrashReportEnabled:YES];
     [MobClick setLogEnabled:YES];
     [MobClick setAppVersion:XcodeAppVersion];
-    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) REALTIME channelId:UMENG_APPSTORE];
-    [MobClick checkUpdate];
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) SEND_INTERVAL channelId:UMENG_APPSTORE];
     [MobClick updateOnlineConfig];  //在线参数配置
+    [MobClick setLogSendInterval:600.0f];
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [MobClick checkUpdate];
+    });
 }
 
 @end

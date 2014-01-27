@@ -90,6 +90,8 @@
 		07362A28188AD4C10061B53A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A27188AD4C10061B53A /* SystemConfiguration.framework */; };
 		07362A2A188AD5050061B53A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A29188AD5050061B53A /* CoreTelephony.framework */; };
 		0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0746E64D188275810027FD43 /* CKBookShelfViewController.m */; };
+		077D22D318961F4700FD19B0 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D22D018961F4700FD19B0 /* libUMFeedback.a */; };
+		077D22D418961F4700FD19B0 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077D22D118961F4700FD19B0 /* umFeedback.bundle */; };
 		0791ABCC1882788A0095F502 /* CKSlidingTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0791ABCB1882788A0095F502 /* CKSlidingTabBarViewController.m */; };
 		0791ABD21882797B0095F502 /* tabbar_baritem_hl_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0791ABCE1882797B0095F502 /* tabbar_baritem_hl_bg.png */; };
 		0791ABD31882797B0095F502 /* tabbar_baritem_hl_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0791ABCF1882797B0095F502 /* tabbar_baritem_hl_bg@2x.png */; };
@@ -290,6 +292,9 @@
 		07362A29188AD5050061B53A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0746E64C188275810027FD43 /* CKBookShelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfViewController.h; sourceTree = "<group>"; };
 		0746E64D188275810027FD43 /* CKBookShelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfViewController.m; sourceTree = "<group>"; };
+		077D22D018961F4700FD19B0 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		077D22D118961F4700FD19B0 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
+		077D22D218961F4700FD19B0 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
 		0791ABCA1882788A0095F502 /* CKSlidingTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSlidingTabBarViewController.h; sourceTree = "<group>"; };
 		0791ABCB1882788A0095F502 /* CKSlidingTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSlidingTabBarViewController.m; sourceTree = "<group>"; };
 		0791ABCE1882797B0095F502 /* tabbar_baritem_hl_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_baritem_hl_bg.png; sourceTree = "<group>"; };
@@ -389,6 +394,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077D22D318961F4700FD19B0 /* libUMFeedback.a in Frameworks */,
 				07DD9BA3188AE8250031E77B /* nlog.framework in Frameworks */,
 				07DD9B9E188AE6EB0031E77B /* libstdc++.6.dylib in Frameworks */,
 				D4E149BD188FD5E400F1EE3E /* libMobClickLibrary.a in Frameworks */,
@@ -826,7 +832,10 @@
 			isa = PBXGroup;
 			children = (
 				D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */,
+				077D22D018961F4700FD19B0 /* libUMFeedback.a */,
 				D4E149BC188FD5E400F1EE3E /* MobClick.h */,
+				077D22D118961F4700FD19B0 /* umFeedback.bundle */,
+				077D22D218961F4700FD19B0 /* UMFeedback.h */,
 			);
 			path = UMeng;
 			sourceTree = "<group>";
@@ -1007,6 +1016,7 @@
 				0791AC051882BFC30095F502 /* book_cell_select.png in Resources */,
 				07FF51631881097200C98408 /* 57.png in Resources */,
 				07231195188BFEE5001A4673 /* dm_retrybutton_highlighted.png in Resources */,
+				077D22D418961F4700FD19B0 /* umFeedback.bundle in Resources */,
 				072311A6188C0617001A4673 /* toolbar_refresh_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

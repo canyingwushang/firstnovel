@@ -143,7 +143,7 @@
 - (BOOL)onlineBookLibraryAvaiable
 {
     id onlineBooksSwitch = [_onlineParams objectForKey:ONLINEBOOKS_SWITCH];
-    if (onlineBooksSwitch && ![onlineBooksSwitch isEqualToString:@"ok"])
+    if (onlineBooksSwitch && ![onlineBooksSwitch isEqualToString:@"yes"])
     {
         return NO;
     }
@@ -153,7 +153,7 @@
 - (BOOL)onlineBookLibraryDownloadAvaiable
 {
     id onlineBooksDownloadSwitch = [_onlineParams objectForKey:ONLINEBOOKS_DOWNLOAD_SWITCH];
-    if (onlineBooksDownloadSwitch && ![onlineBooksDownloadSwitch isEqualToString:@"ok"])
+    if (onlineBooksDownloadSwitch && ![onlineBooksDownloadSwitch isEqualToString:@"yes"])
     {
         return NO;
     }

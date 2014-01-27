@@ -11,6 +11,7 @@
 #import "BBADownloadManagerViewController.h"
 #import "CKRootViewController.h"
 #import "BBADownloadDataSource.h"
+#import "CKRootViewController.h"
 
 enum ESettingSection {
     TSettingSectionDM = 0,
@@ -48,6 +49,7 @@ enum ESettingSectionCommon {
 - (void)dealloc
 {
     [_settingsTable release];
+    [UMFeedback sharedInstance].delegate = nil;;
     
     [super dealloc];
 }
@@ -80,6 +82,7 @@ enum ESettingSectionCommon {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UMFeedback sharedInstance] setAppkey:UMENG_APPKEY delegate:self];
 	// Do any additional setup after loading the view.
 }
 
@@ -137,6 +140,7 @@ enum ESettingSectionCommon {
     else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowFeedBack)
     {
         [MobClick event:@"settingsFeedback"];
+        [UMFeedback showFeedback:[CKRootViewController sharedInstance] withAppkey:UMENG_APPKEY];
     }
     else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowRate)
     {
@@ -160,6 +164,16 @@ enum ESettingSectionCommon {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return TSettingSectionCount;
+}
+
+- (void)getFinishedWithError: (NSError *)error
+{
+    NSLog(@"%@", error);
+}
+
+- (void)postFinishedWithError:(NSError *)error
+{
+    NSLog(@"%@", error);
 }
 
 @end
