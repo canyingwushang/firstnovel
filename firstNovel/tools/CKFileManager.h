@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *cacheDir;
 
 - (NSString *)booksPlist;
+- (NSString *)documentBooksListFile;
 - (NSString *)bookCoverPath:(NSString *)coverName;
 - (NSString *)bookContentPath:(NSString *)bookid;
 - (NSString *)bookContentCachePath:(NSString *)bookid;

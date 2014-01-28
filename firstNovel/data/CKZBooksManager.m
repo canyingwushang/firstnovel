@@ -10,6 +10,7 @@
 #import "CKFileManager.h"
 #import "CKCommonUtility.h"
 #import "ZipArchive.h"
+#import "CKAppSettings.h"
 
 @interface CKZBooksManager ()
 
@@ -53,7 +54,17 @@
         if (_localBooks == nil)
         {
             _localBooks = [[NSMutableArray array] retain];
-            [_localBooks addObjectsFromArray:[NSArray arrayWithContentsOfFile:[[CKFileManager sharedInstance] booksPlist]]];
+            NSString *booksListFile = [[CKFileManager sharedInstance] documentBooksListFile];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:booksListFile])
+            {
+                booksListFile = [[CKFileManager sharedInstance] booksPlist];
+            }
+            [_localBooks addObjectsFromArray:[NSArray arrayWithContentsOfFile:booksListFile]];
+            if ([CKAppSettings sharedInstance].lastReadIndex > 0 && [CKAppSettings sharedInstance].lastReadIndex < _localBooks.count)
+            {
+                id lastReadObj = [_localBooks objectAtIndex:[CKAppSettings sharedInstance].lastReadIndex];
+                [_localBooks exchangeObjectAtIndex:0 withObjectAtIndex:[CKAppSettings sharedInstance].lastReadIndex];
+            }
         }
         return [[_localBooks retain] autorelease];
     }

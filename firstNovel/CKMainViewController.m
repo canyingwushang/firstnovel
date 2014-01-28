@@ -184,6 +184,7 @@
 {
     CKBookDescViewController *bookDescViewController = [[CKBookDescViewController alloc] initWithNibName:@"CKBookDesc" bundle:nil];
     NSDictionary *book = [[[CKZBooksManager sharedInstance] books] objectAtIndex:indexPath.row];
+    [CKAppSettings sharedInstance].lastReadIndex = indexPath.row;
     bookDescViewController.bookData = book;
     [[CKRootViewController sharedInstance].rootNaviViewController pushViewController:bookDescViewController animated:YES];
     [bookDescViewController autorelease];

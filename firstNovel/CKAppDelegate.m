@@ -11,6 +11,7 @@
 #import "BBANetworkManager.h"
 #import "CKFileManager.h"
 #import "MobClick.h"
+#import "CKAppSettings.h"
 
 @implementation CKAppDelegate
 
@@ -41,6 +42,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [[CKAppSettings sharedInstance] saveAppSettingWithKey:APPSETTINGS_LASTREAD_INDEX Value:[NSNumber numberWithInteger:[[CKAppSettings sharedInstance] lastReadIndex]]];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

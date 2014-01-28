@@ -56,6 +56,11 @@
     return [[NSBundle mainBundle] pathForResource:@"list" ofType:@"plist"];
 }
 
+- (NSString *)documentBooksListFile
+{
+    return [_documentDir stringByAppendingPathComponent:@"list.plist"];
+}
+
 - (NSString *)bookCoverPath:(NSString *)coverName
 {
     return [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"covers"] stringByAppendingPathComponent:coverName];

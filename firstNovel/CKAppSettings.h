@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define APPSETTINGS_LASTVERSION     @"lastVersion"
-#define APPSETTINGS_LAUNCHTIMES     @"launchTimes"
+#define APPSETTINGS_LASTVERSION         @"lastVersion"
+#define APPSETTINGS_LAUNCHTIMES         @"launchTimes"
 #define APPSETTINGS_SHOWN_DOWNLOADTIP   @"hasShownDownloadTip"
+#define APPSETTINGS_LASTREAD_INDEX      @"lastReadIndex"
 
 @interface CKAppSettings : NSObject
 
@@ -19,6 +20,7 @@
 @property (nonatomic, assign) NSUInteger launchTimes;
 @property (nonatomic, retain) NSDictionary *onlineParams;
 @property (nonatomic, assign) BOOL hasShownDownloadTip;
+@property (nonatomic, assign) NSInteger lastReadIndex;
 
 + (CKAppSettings *)sharedInstance;
 - (void)saveAppSettingWithKey:(NSString *)akey Value:(id)anObject;

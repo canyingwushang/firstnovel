@@ -97,10 +97,8 @@ enum ESettingSectionCommon {
     UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil] autorelease];
     //cell.backgroundColor = [UIColor clearColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
-    {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if (indexPath.section == TSettingSectionDM)
     {
         cell.textLabel.text = @"下载的小说";

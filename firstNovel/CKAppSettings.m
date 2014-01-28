@@ -79,6 +79,10 @@
                 {
                     _hasShownDownloadTip = [(NSNumber *)value boolValue];
                 }
+                else if ([key isEqualToString:APPSETTINGS_LASTREAD_INDEX])
+                {
+                    _lastReadIndex = [(NSNumber *)value integerValue];
+                }
             }
         }
     }
