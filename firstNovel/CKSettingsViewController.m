@@ -27,6 +27,7 @@ enum ESettingSectionDM {
 enum ESettingSectionCommon {
     TSettingCommonRowFeedBack = 0,
     TSettingCommonRowRate,
+    TSettingCommonRowVersion,
     TSettingCommonRowCount
 };
 
@@ -119,6 +120,12 @@ enum ESettingSectionCommon {
         {
             cell.textLabel.text = @"给应用评分";
             cell.imageView.image = [UIImage imageNamed:@"settings_rate.png"];
+        }
+        else if (indexPath.row == TSettingCommonRowVersion)
+        {
+            cell.textLabel.text = @"版本";
+            cell.imageView.image = [UIImage imageNamed:@"settings_rate.png"];
+            cell.detailTextLabel.text = XcodeAppVersion;
         }
     }
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
