@@ -147,7 +147,6 @@
 		07FF5159188106FE00C98408 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF5156188106FE00C98408 /* Default-568h@2x.png */; };
 		07FF515A188106FE00C98408 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF5157188106FE00C98408 /* Default.png */; };
 		07FF515B188106FE00C98408 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF5158188106FE00C98408 /* Default@2x.png */; };
-		07FF51621881097200C98408 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF515C1881097200C98408 /* 29.png */; };
 		07FF51631881097200C98408 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF515D1881097200C98408 /* 57.png */; };
 		07FF51641881097200C98408 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF515E1881097200C98408 /* 58.png */; };
 		07FF51651881097200C98408 /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 07FF515F1881097200C98408 /* 80.png */; };
@@ -362,7 +361,6 @@
 		07FF5156188106FE00C98408 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		07FF5157188106FE00C98408 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		07FF5158188106FE00C98408 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		07FF515C1881097200C98408 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
 		07FF515D1881097200C98408 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
 		07FF515E1881097200C98408 /* 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58.png; sourceTree = "<group>"; };
 		07FF515F1881097200C98408 /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
@@ -734,7 +732,6 @@
 			children = (
 				07FF51601881097200C98408 /* 114.png */,
 				07FF51611881097200C98408 /* 120.png */,
-				07FF515C1881097200C98408 /* 29.png */,
 				07FF515D1881097200C98408 /* 57.png */,
 				07FF515E1881097200C98408 /* 58.png */,
 				07FF515F1881097200C98408 /* 80.png */,
@@ -889,7 +886,7 @@
 				ORGANIZATIONNAME = "张超";
 				TargetAttributes = {
 					07DC4F371880F71900279923 = {
-						DevelopmentTeam = 3278YF5BMB;
+						DevelopmentTeam = W4YAXSU6F6;
 					};
 					07DC4F5B1880F71900279923 = {
 						TestTargetID = 07DC4F371880F71900279923;
@@ -931,7 +928,6 @@
 				07231198188BFEE5001A4673 /* dm_retrybutton_normal@2x.png in Resources */,
 				07FF51661881097200C98408 /* 114.png in Resources */,
 				07231144188B9DA8001A4673 /* common_tab_new@2x.png in Resources */,
-				07FF51621881097200C98408 /* 29.png in Resources */,
 				0723117D188BFEE5001A4673 /* dm_icon_image.png in Resources */,
 				0791ABD41882797B0095F502 /* tabbar_bg.png in Resources */,
 				D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */,
@@ -1186,7 +1182,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
@@ -1206,7 +1203,7 @@
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F64E6C5E-A24C-44BB-BA7E-B53E89259242";
+				PROVISIONING_PROFILE = "90B3A20E-BA7F-4116-A31F-7B89ACFBF92E";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1218,8 +1215,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongqiang Zhang (US24R5GQXD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
@@ -1239,7 +1236,7 @@
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F64E6C5E-A24C-44BB-BA7E-B53E89259242";
+				PROVISIONING_PROFILE = "798F22E1-D9C6-4FA3-8D7C-E868416BD50F";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
