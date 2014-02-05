@@ -150,6 +150,7 @@ enum ESettingSectionCommon {
     else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowRate)
     {
         [MobClick event:@"settingsRate"];
+        [CKCommonUtility goRating];
     }
 }
 

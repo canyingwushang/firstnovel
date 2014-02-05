@@ -215,4 +215,16 @@
 	return rgbColor;
 }
 
++ (void)goRating
+{
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:RATE_FOR_IOS7_URL_STRING]];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:RATE_FOR_IOS6_URL_STRING]];
+    }
+}
+
 @end

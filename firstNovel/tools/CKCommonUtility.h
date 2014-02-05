@@ -37,4 +37,6 @@
 
 + (UIColor *)RGBColorFromHexString:(NSString *)aHexStr alpha:(float)aAlpha;
 
++ (void)goRating;
+
 @end

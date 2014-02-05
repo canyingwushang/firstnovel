@@ -116,6 +116,7 @@
     else if (buttonIndex == 1)
     {
         [MobClick event:@"rateAlertOK"];
+        [CKCommonUtility goRating];
     }
 }
 
