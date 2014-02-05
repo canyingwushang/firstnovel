@@ -80,7 +80,7 @@
 - (void)initUMeng
 {
     [MobClick setCrashReportEnabled:YES];
-    [MobClick setLogEnabled:YES];
+    //[MobClick setLogEnabled:YES];
     [MobClick setAppVersion:XcodeAppVersion];
     [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) SEND_INTERVAL channelId:UMENG_APPSTORE];
     [MobClick updateOnlineConfig];  //在线参数配置

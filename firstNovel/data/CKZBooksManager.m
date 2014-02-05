@@ -62,7 +62,6 @@
             [_localBooks addObjectsFromArray:[NSArray arrayWithContentsOfFile:booksListFile]];
             if ([CKAppSettings sharedInstance].lastReadIndex > 0 && [CKAppSettings sharedInstance].lastReadIndex < _localBooks.count)
             {
-                id lastReadObj = [_localBooks objectAtIndex:[CKAppSettings sharedInstance].lastReadIndex];
                 [_localBooks exchangeObjectAtIndex:0 withObjectAtIndex:[CKAppSettings sharedInstance].lastReadIndex];
             }
         }
@@ -85,7 +84,7 @@
             NSString *cacheZipBookPath = [[[CKFileManager sharedInstance] cacheDir] stringByAppendingPathComponent:[zipBookPath lastPathComponent]];
             NSError *error = nil;
             [[NSFileManager defaultManager] copyItemAtPath:zipBookPath toPath:cacheZipBookPath error:&error];
-            ZipArchive *zipArchive = [[ZipArchive alloc] init];
+            ZipArchive *zipArchive = [[[ZipArchive alloc] init] autorelease];
             [zipArchive UnzipOpenFile:cacheZipBookPath Password:@"ck"];
             [zipArchive UnzipFileTo:[[CKFileManager sharedInstance] cacheDir] overWrite:YES];
             [zipArchive UnzipCloseFile];

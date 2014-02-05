@@ -112,11 +112,6 @@
     tmpFooterView.backgroundColor = [UIColor clearColor];
 	RELEASE_SET_NIL(tmpFooterView);
     
-    CGFloat emptyViewOriginalY = 200.0f;
-    if (!SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0)) {
-        emptyViewOriginalY = 95.0f;
-    }
-    
     // 无下载内容提示文字Label
     CGRect labelFrame = CGRectMake(30.0f, 240.0f, 260.0f, 70.0f);  // 添加在_emptyView上的Frame.
     _emptyView = [[UILabel alloc] initWithFrame:labelFrame];
