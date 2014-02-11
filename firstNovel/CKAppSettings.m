@@ -164,5 +164,15 @@
     return YES;
 }
 
+- (BOOL)onlineBookLibrarySexAvaiable
+{
+    id onlineBooksSexSwitch = [_onlineParams objectForKey:ONLINEBOOKS_SEX_SWITCH];
+    if (onlineBooksSexSwitch && ![onlineBooksSexSwitch isEqualToString:@"yes"])
+    {
+        return NO;
+    }
+    return YES;
+}
+
 @end
 

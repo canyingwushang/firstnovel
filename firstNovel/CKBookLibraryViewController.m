@@ -138,6 +138,14 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    if (![[CKAppSettings sharedInstance] onlineBookLibrarySexAvaiable])
+    {
+        if ([request.URL.absoluteString hasPrefix:@"http://m.baidu.com/book#cates"])
+        {
+            return NO;
+        }
+    }
+    
     NSDictionary *kvs = [[request URL] keysAndValuesOfQuery];
     NSString *downsrc = [kvs objectForKey:@"downsrc"];
     NSString *title = [kvs objectForKey:@"title"];

@@ -27,5 +27,6 @@
 - (void)saveAppSettingWithDict:(NSDictionary *)aDict;
 - (BOOL)onlineBookLibraryAvaiable;
 - (BOOL)onlineBookLibraryDownloadAvaiable;
+- (BOOL)onlineBookLibrarySexAvaiable;
 
 @end
