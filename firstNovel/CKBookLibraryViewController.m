@@ -140,7 +140,41 @@
 {
     if (![[CKAppSettings sharedInstance] onlineBookLibrarySexAvaiable])
     {
-        if ([request.URL.absoluteString hasPrefix:@"http://m.baidu.com/book#cates"])
+        [self removeHTMLElements:webView];
+        
+        if ([request.URL.absoluteString rangeOfString:@"#recommend"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"#cates"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"book_search"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"book_pocket"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"pocket?"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"word="].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"tj=book_store"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"book?"].location != NSNotFound)
+        {
+            return NO;
+        }
+        if ([request.URL.absoluteString rangeOfString:@"zhidao.baidu.com/mmisc/senovel?"].location != NSNotFound)
         {
             return NO;
         }
@@ -167,6 +201,30 @@
         return NO;
     }
     return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    if (![[CKAppSettings sharedInstance] onlineBookLibrarySexAvaiable])
+    {
+        [self removeHTMLElements:webView];
+    }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if (![[CKAppSettings sharedInstance] onlineBookLibrarySexAvaiable])
+    {
+        [self removeHTMLElements:webView];
+    }
+}
+
+- (void)removeHTMLElements:(UIWebView *)webView
+{
+    [webView stringByEvaluatingJavaScriptFromString:KJSDeleteElementByID(@"icoSearch")];
+    [webView stringByEvaluatingJavaScriptFromString:KJSDeleteElementByID(@"backPocket")];
+    [webView stringByEvaluatingJavaScriptFromString:KJSDeleteElementByID(@"store_recommend")];
+    [webView stringByEvaluatingJavaScriptFromString:KJSDeleteElementByID(@"store_cates")];
 }
 
 - (void)showDownloadTip

@@ -213,7 +213,7 @@
         {
             self.navigationItem.title = @"在线书城";
             [_bookLibraryViewController updateBookLibrarySwitch:[[CKAppSettings sharedInstance] onlineBookLibraryAvaiable]];
-            [_bookLibraryViewController refresh];
+            //[_bookLibraryViewController refresh];
         }
         else if (toIndex == 2)
         {

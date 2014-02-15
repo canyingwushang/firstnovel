@@ -59,9 +59,13 @@ do{[aobj release]; aobj = nil;}while(0)
 
 #define KJSGetHTMLTagInnerHTML  @"document.getElementsByTagName('html')[0].innerHTML"
 
+#define KJSDeleteElementByID(ID) @"var _element = document.getElementById('" ID"');var _parentElement = _element.parentNode; if(_parentElement){ _parentElement.removeChild(_element);}"
+
 #define RATE_FOR_IOS6_URL_STRING     @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=814922547" // rate URL string 好评 （< ios 7）
 #define RATE_FOR_IOS7_URL_STRING     @"itms-apps://itunes.apple.com/app/id814922547" // rate URL string 详情页 （ios 7）
-#define BAIDU_BOX_STORE_APP_ID    @"814922547"
+
+#define BAIDU_RATE_FOR_IOS6_URL_STRING     @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=382201985" // rate URL string 好评 （< ios 7）
+#define BAIDU_RATE_FOR_IOS7_URL_STRING     @"itms-apps://itunes.apple.com/app/id382201985" // rate URL string 详情页 （ios 7）
 
 
 // 在线参数

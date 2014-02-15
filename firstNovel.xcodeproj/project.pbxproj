@@ -1186,7 +1186,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1207,7 +1207,7 @@
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90B3A20E-BA7F-4116-A31F-7B89ACFBF92E";
+				PROVISIONING_PROFILE = "70572886-2A35-4E2B-B07B-7074B7965F63";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1219,7 +1219,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1240,7 +1240,7 @@
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK/libWKTXTReaderSDK.a\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "798F22E1-D9C6-4FA3-8D7C-E868416BD50F";
+				PROVISIONING_PROFILE = "AFC0CFCC-09B3-4957-A469-B3AFB3713ACE";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
