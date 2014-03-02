@@ -61,7 +61,10 @@
         _webView.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT - TABBAR_HEIGHT  - NAVIGATIONBAR_HEIGHT);
     }
     [self.view addSubview:_webView];
+    
+#ifndef _LITEBOOK
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ONLINEBOOKS_ADDRESS]]];
+#endif
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
     {
@@ -87,6 +90,19 @@
     [_refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_refreshButton];
     
+#ifdef _LITEBOOK
+    _goBackButton.hidden = YES;
+    _refreshButton.hidden = YES;
+    CGRect webViewFrame = _webView.frame;
+    _errorLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0f, webViewFrame.origin.y, webViewFrame.size.width - 100.0f, webViewFrame.size.height)];
+    _errorLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
+    _errorLabel.numberOfLines = 5;
+    _errorLabel.text = @"升级到最新版，马上拥有海量热门网络小说，无线更新，还可整本离线，随时查看~";
+    [self.view addSubview:_errorLabel];
+    _webView.hidden = NO;
+    _errorLabel.hidden = NO;
+    
+#else
     CGRect webViewFrame = _webView.frame;
     _errorLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0f, webViewFrame.origin.y, webViewFrame.size.width - 100.0f, webViewFrame.size.height)];
     _errorLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main_view_bg.png"]];
@@ -96,6 +112,7 @@
     _webView.hidden = NO;
     _errorLabel.hidden = YES;
 	// Do any additional setup after loading the view.
+#endif
 }
 
 - (void)updateBookLibrarySwitch:(BOOL)ok

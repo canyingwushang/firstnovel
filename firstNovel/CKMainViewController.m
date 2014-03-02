@@ -213,7 +213,13 @@
         {
             self.navigationItem.title = @"在线书城";
             [_bookLibraryViewController updateBookLibrarySwitch:[[CKAppSettings sharedInstance] onlineBookLibraryAvaiable]];
-            //[_bookLibraryViewController refresh];
+        #ifdef _LITEBOOK
+            double delayInSeconds = 2.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                [CKCommonUtility goPro];
+            });
+        #endif
         }
         else if (toIndex == 2)
         {

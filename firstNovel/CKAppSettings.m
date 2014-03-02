@@ -146,6 +146,9 @@
 
 - (BOOL)onlineBookLibraryAvaiable
 {
+#ifdef _LITEBOOK
+    return NO;
+#endif
     id onlineBooksSwitch = [_onlineParams objectForKey:ONLINEBOOKS_SWITCH];
     if (onlineBooksSwitch && ![onlineBooksSwitch isEqualToString:@"yes"])
     {
@@ -156,6 +159,9 @@
 
 - (BOOL)onlineBookLibraryDownloadAvaiable
 {
+#ifdef _LITEBOOK
+    return NO;
+#endif
     id onlineBooksDownloadSwitch = [_onlineParams objectForKey:ONLINEBOOKS_DOWNLOAD_SWITCH];
     if (onlineBooksDownloadSwitch && ![onlineBooksDownloadSwitch isEqualToString:@"yes"])
     {
@@ -166,6 +172,9 @@
 
 - (BOOL)onlineBookLibrarySexAvaiable
 {
+#ifdef _LITEBOOK
+    return NO;
+#endif
     id onlineBooksSexSwitch = [_onlineParams objectForKey:ONLINEBOOKS_SEX_SWITCH];
     if (onlineBooksSexSwitch && ![onlineBooksSexSwitch isEqualToString:@"yes"])
     {

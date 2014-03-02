@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>经典书城</string>
+	<string>经典名著大全</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
@@ -14,6 +14,12 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>lite80</string>
+				<string>lite58</string>
+				<string>lite29</string>
+				<string>lite120</string>
+				<string>lite114</string>
+				<string>lite57</string>
 				<string>80</string>
 				<string>58</string>
 				<string>29</string>
@@ -24,7 +30,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.mei.firstbook</string>
+	<string>com.mei.firstnovellite</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
