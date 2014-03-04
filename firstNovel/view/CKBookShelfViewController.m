@@ -7,6 +7,7 @@
 //
 
 #import "CKBookShelfViewController.h"
+#import "CKCommonUtility.h"
 
 @interface CKBookShelfViewController ()
 
@@ -22,6 +23,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
 }
 
 - (void)viewDidLoad

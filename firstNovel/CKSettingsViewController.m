@@ -14,14 +14,8 @@
 #import "CKRootViewController.h"
 
 enum ESettingSection {
-    TSettingSectionDM = 0,
     TSettingSectionCommon,
     TSettingSectionCount
-};
-
-enum ESettingSectionDM {
-    TSettingDMRowDownloadManager = 0,
-    TSettingDMRowCount
 };
 
 enum ESettingSectionCommon {
@@ -101,16 +95,7 @@ enum ESettingSectionCommon {
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    if (indexPath.section == TSettingSectionDM)
-    {
-        cell.textLabel.text = @"下载的小说";
-        cell.imageView.image = [UIImage imageNamed:@"settings_download.png"];
-        if ([[BBADownloadDataSource sharedInstance] totalCount] > 0)
-        {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [[BBADownloadDataSource sharedInstance] totalCount]];
-        }
-    }
-    else if (indexPath.section == TSettingSectionCommon)
+    if (indexPath.section == TSettingSectionCommon)
     {
         if (indexPath.row == TSettingCommonRowFeedBack)
         {
@@ -141,15 +126,7 @@ enum ESettingSectionCommon {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == TSettingSectionDM && indexPath.row == TSettingDMRowDownloadManager)
-    {
-        BBADownloadManagerViewController *downloadViewController = [[BBADownloadManagerViewController alloc] init];
-        [[CKRootViewController sharedInstance].rootNaviViewController pushViewController:downloadViewController animated:YES];
-        [downloadViewController release];
-        
-        [MobClick event:@"settingsDownload"];
-    }
-    else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowFeedBack)
+    if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowFeedBack)
     {
         [MobClick event:@"settingsFeedback"];
         [UMFeedback showFeedback:[CKRootViewController sharedInstance] withAppkey:UMENG_APPKEY];
@@ -168,11 +145,7 @@ enum ESettingSectionCommon {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == TSettingSectionDM)
-    {
-        return TSettingDMRowCount;
-    }
-    else if (section == TSettingSectionCommon)
+    if (section == TSettingSectionCommon)
     {
         return TSettingCommonRowCount;
     }

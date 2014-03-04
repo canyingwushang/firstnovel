@@ -14,6 +14,6 @@
 // @brief - 下载中心主界面
 @interface BBADownloadManagerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, BBADownloadDataSourceDelegate, BBADownloadItemCellDelegate, WKReaderViewControllerDelegate>
 
-- (void)resignDataSourceDelegate; // 释放数据源delegate
+@property (nonatomic, retain) UITableView *bookShelfTable;
 
 @end // BBADownloadManagerViewController

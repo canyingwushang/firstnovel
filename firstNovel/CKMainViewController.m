@@ -16,10 +16,11 @@
 #import "CKRootViewController.h"
 #import "CKSettingsViewController.h"
 #import "CKAppSettings.h"
+#import "BBADownloadManagerViewController.h"
 
 @interface CKMainViewController ()
 
-@property (nonatomic, retain) UITableView *bookShelfTable;
+@property (nonatomic, retain) BBADownloadManagerViewController *bookShelfViewController;
 @property (nonatomic, retain) UIView *slidingContainer;
 @property (nonatomic, retain) CKBookLibraryViewController *bookLibraryViewController;
 @property (nonatomic, retain) CKSettingsViewController *settingsViewController;
@@ -45,7 +46,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NOTIFICATION_ADD_NEW_DOWNLOAD" object:nil];
     
     [_slidingTabBarVC release];
-    [_bookShelfTable release];
+    [_bookShelfViewController release];
     [_slidingContainer release];
     [_bookLibraryViewController release];
     [_settingsViewController release];
@@ -91,15 +92,10 @@
     {
         tableHeight -= NAVIGATIONBAR_HEIGHT;
     }
-    _bookShelfTable = [[UITableView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, tableHeight)];
-    _bookShelfTable.dataSource = self;
-    _bookShelfTable.delegate = self;
-    _bookShelfTable.allowsMultipleSelection = NO;
-    _bookShelfTable.allowsSelectionDuringEditing = NO;
-    _bookShelfTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    _bookShelfTable.backgroundColor = [UIColor clearColor];
-    [_slidingContainer addSubview:_bookShelfTable];
-    
+    // 书架
+    _bookShelfViewController = [[BBADownloadManagerViewController alloc] init];
+    _bookShelfViewController.view.frame = CGRectMake(0.0f, 0.0f, APPLICATION_FRAME_WIDTH, tableHeight);
+    [_slidingContainer addSubview:_bookShelfViewController.view];
     
     _bookLibraryViewController = [[CKBookLibraryViewController alloc] init];
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
@@ -126,9 +122,9 @@
     _settingsViewController.view.clipsToBounds = YES;
     [_slidingContainer addSubview:_settingsViewController.view];
     
-    self.navigationItem.title = @"名著";
+    self.navigationItem.title = @"本地书架";
     
-    _newTaskPoint = [[UIImageView alloc] initWithFrame:CGRectMake(280.0f, 5.0f, 18.0f, 18.0f)];
+    _newTaskPoint = [[UIImageView alloc] initWithFrame:CGRectMake(70.0f, 5.0f, 18.0f, 18.0f)];
     _newTaskPoint.image = [UIImage imageNamed:@"common_list_new.png"];
     [_slidingTabBarVC.view addSubview:_newTaskPoint];
     _newTaskPoint.hidden = YES;
@@ -207,19 +203,13 @@
     } completion:^(BOOL finished) {
         if (toIndex == 0)
         {
-            self.navigationItem.title = @"名著";
+            self.navigationItem.title = @"本地书架";
+            [_bookShelfViewController.bookShelfTable reloadData];
         }
         else if (toIndex == 1)
         {
             self.navigationItem.title = @"在线书城";
             [_bookLibraryViewController updateBookLibrarySwitch:[[CKAppSettings sharedInstance] onlineBookLibraryAvaiable]];
-        #ifdef _LITEBOOK
-            double delayInSeconds = 2.0;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [CKCommonUtility goPro];
-            });
-        #endif
         }
         else if (toIndex == 2)
         {
