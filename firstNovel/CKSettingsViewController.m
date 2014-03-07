@@ -22,7 +22,6 @@ enum ESettingSectionCommon {
     TSettingCommonRowFeedBack = 0,
     TSettingCommonRowRate,
     TSettingCommonRowVersion,
-    TSettingCommonRowPro,
     TSettingCommonRowCount
 };
 
@@ -113,12 +112,6 @@ enum ESettingSectionCommon {
             cell.imageView.image = [UIImage imageNamed:@"settings_rate.png"];
             cell.detailTextLabel.text = XcodeAppVersion;
         }
-        else if (indexPath.row == TSettingCommonRowPro)
-        {
-            cell.textLabel.text = @"免费升级Pro版";
-            cell.imageView.image = [UIImage imageNamed:@"settings_rate.png"];
-            cell.detailTextLabel.text = @"更精彩";
-        }
     }
     cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
     return cell;
@@ -135,11 +128,6 @@ enum ESettingSectionCommon {
     {
         [MobClick event:@"settingsRate"];
         [CKCommonUtility goRating];
-    }
-    else if (indexPath.section == TSettingSectionCommon && indexPath.row == TSettingCommonRowPro)
-    {
-        [MobClick event:@"settingspro"];
-        [CKCommonUtility goPro];
     }
 }
 

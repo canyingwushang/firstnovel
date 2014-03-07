@@ -17,6 +17,7 @@
 
 enum EBookShelfSection {
     EBookShelfSectionFamous = 0,
+    EBookShelfSectionMyBag,
     EBookShelfSectionDownload,
     EBookShelfSectionCount
 };
@@ -184,12 +185,31 @@ enum EBookShelfSection {
         if ([CKAppSettings sharedInstance].isFirstLaunchAfterUpdate)
         {
             famousCell.textLabel.textColor = [UIColor redColor];
-            famousCell.textLabel.text = @"经典名著都在这里~";
+            famousCell.textLabel.text = @"经典名著在这里~";
         }
         else
         {
-            famousCell.textLabel.text = @"经典名著60部合集";
+            famousCell.textLabel.text = @"经典名著合集";
         }
+        famousCell.textLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+        famousCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        famousCell.backgroundColor = [UIColor clearColor];
+        famousCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return famousCell;
+    }
+    else if (indexPath.section == EBookShelfSectionMyBag)
+    {
+        UITableViewCell *famousCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+        if ([CKAppSettings sharedInstance].isFirstLaunchAfterUpdate)
+        {
+            famousCell.textLabel.textColor = [UIColor redColor];
+            famousCell.textLabel.text = @"看过的网络小说在这里~";
+        }
+        else
+        {
+            famousCell.textLabel.text = @"我的小说书包";
+        }
+        famousCell.textLabel.font = [UIFont boldSystemFontOfSize:16.0f];
         famousCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         famousCell.backgroundColor = [UIColor clearColor];
         famousCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -228,7 +248,7 @@ enum EBookShelfSection {
     }
     else if (section == EBookShelfSectionDownload)
     {
-        return @"下载的小说";
+        return @"-------------------下载的小说-------------------";
     }
     return nil;
 }
@@ -240,16 +260,11 @@ enum EBookShelfSection {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == EBookShelfSectionFamous)
+    if (section == EBookShelfSectionFamous || section == EBookShelfSectionMyBag)
     {
         return 1;
     }
     return [BBADownloadDataSource sharedInstance].downloadList.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return DOWNLOADCELL_HEIGHT;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -281,6 +296,15 @@ enum EBookShelfSection {
             }
         }
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == EBookShelfSectionDownload)
+    {
+        return DOWNLOADCELL_HEIGHT;
+    }
+    return 55.0f;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
