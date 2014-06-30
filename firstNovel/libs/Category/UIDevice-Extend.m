@@ -48,6 +48,21 @@
     return noUnderlinePlatFromInfo;
 }
 
+- (NSString *)getDeviceInfo
+{
+    NSString *noUnderlineSystemVersion = [[UIDevice currentDevice].systemVersion stringByReplacingOccurrencesOfString:@"_" withString:@"-"];
+    NSString *platform = [self platform];
+    if (CHECK_STRING_INVALID(platform))
+    {
+        platform = @"NUL";
+    }
+    if (CHECK_STRING_INVALID(noUnderlineSystemVersion))
+    {
+        noUnderlineSystemVersion = @"0.0";
+    }
+	return [NSString stringWithFormat:DEVICEINFO_FORMAT, platform, noUnderlineSystemVersion];
+}
+
 #pragma mark - misc
 
 - (NSString *)getCellularProviderName

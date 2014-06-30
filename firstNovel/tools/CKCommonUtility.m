@@ -265,5 +265,48 @@
     }
 }
 
++ (NSString *)getScreenResolution
+{
+	NSInteger width = [[UIScreen mainScreen] currentMode].size.width;
+	NSInteger height = [[UIScreen mainScreen] currentMode].size.height;
+	return  [[[NSString alloc] initWithFormat:@"%d_%d", width, height] autorelease];
+}
+
++ (NSString *)reverseString:(NSString *)aString
+{
+	if (aString && [aString length])
+	{
+		NSUInteger length = [aString length];
+		unichar charactersPtr[length];
+		[aString getCharacters:charactersPtr range:NSMakeRange(0, length)];
+		if (length % 2)
+		{
+			int n = (length - 1) / 2;
+			unichar tmp;
+			for (int i = 0; i < n; i++)
+			{
+				tmp = charactersPtr[i];
+				charactersPtr[i] = charactersPtr[length - 1 - i];
+				charactersPtr[length - 1 - i] = tmp;
+			}
+		}
+		else
+		{
+			int n = length / 2;
+			unichar tmp;
+			for (int i = 0; i < n; i++)
+			{
+				tmp = charactersPtr[i];
+				charactersPtr[i] = charactersPtr[length - 1 - i];
+				charactersPtr[length - 1 - i] = tmp;
+			}
+		}
+		return [NSString stringWithCharacters:charactersPtr length:length];
+	}
+	else
+	{
+		return nil;
+	}
+}
 
 @end

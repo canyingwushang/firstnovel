@@ -26,6 +26,8 @@
 - (NSString *)getMCC;           //获取国家码
 - (NSString *)getMACAddress;     // 获取MAC地址
 
+- (NSString *)getDeviceInfo;
+
 - (BOOL)isRetina;           // 判断是否是高清屏幕
 - (BOOL)isJailBreak;        // 判断是否越狱
 

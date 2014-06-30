@@ -8,6 +8,8 @@
 
 #import "CKAppSettings.h"
 #import "CKFileManager.h"
+#import "BBAUDID.h"
+#import "CKCommonUtility.h"
 
 @implementation CKAppSettings
 

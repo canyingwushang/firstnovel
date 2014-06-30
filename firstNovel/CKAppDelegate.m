@@ -12,6 +12,7 @@
 #import "CKFileManager.h"
 #import "MobClick.h"
 #import "CKAppSettings.h"
+#import "CKUrlManager.h"
 
 @implementation CKAppDelegate
 
@@ -70,7 +71,7 @@
     [[BBANetworkManager sharedInstance] startDetectNetwork];
     
     dispatch_async(GCD_GLOBAL_QUEUQ, ^{
-        NSString *userAgent = BOX_UA;
+        NSString *userAgent = [[CKUrlManager sharedInstance] composeUserAgentParameter];
         NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:userAgent, @"UserAgent", nil];
         [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
         [dictionary release];

@@ -28,5 +28,8 @@
 - (NSString *)getDownloadListFile;
 
 - (NSString *)getAppSettingsFile;
+- (NSString *)getSDKUIDFilePath;
+
+- (NSString *)getActivationFilePath;
 
 @end

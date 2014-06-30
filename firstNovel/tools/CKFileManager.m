@@ -59,6 +59,11 @@
     [super dealloc];
 }
 
+- (NSString *)getActivationFilePath
+{
+	return [_documentDir stringByAppendingPathComponent:@"a.a"];
+}
+
 - (NSString *)booksPlist
 {
     return [[NSBundle mainBundle] pathForResource:@"list" ofType:@"plist"];
@@ -109,6 +114,11 @@
 - (NSString *)getAppSettingsFile
 {
     return [_documentDir stringByAppendingPathComponent:@"appsettings.plist"];
+}
+
+- (NSString *)getSDKUIDFilePath
+{
+    return [_documentDir stringByAppendingPathComponent:@"haha.uid"];
 }
 
 @end

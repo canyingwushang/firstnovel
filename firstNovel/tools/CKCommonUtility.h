@@ -42,4 +42,8 @@
 
 + (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 
++ (NSString *)getScreenResolution;
+
++ (NSString *)reverseString:(NSString *)aString;
+
 @end

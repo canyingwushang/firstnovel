@@ -13,6 +13,8 @@
 #import "CKFileManager.h"
 #import "CKAppSettings.h"
 #import "Reachability.h"
+#import "BBAUpdateManager.h"
+#import "BBAActivationManager.h"
 
 @interface CKRootViewController ()
 
@@ -90,6 +92,10 @@
     {
         [_rootNaviViewController.navigationBar setBackgroundImage:[UIImage imageNamed:@"toolbar_bkg.png"] forBarMetrics:UIBarMetricsDefault];
     }
+    
+    [BBAActivationManager doActivation];
+    
+    [[BBAUpdateManager sharedInstance] sendUpdateRequest];
     
 	// Do any additional setup after loading the view.
 }

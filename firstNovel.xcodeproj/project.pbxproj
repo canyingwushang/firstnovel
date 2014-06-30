@@ -322,10 +322,20 @@
 		07FF517C1881805500C98408 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51751881805500C98408 /* zip.c */; };
 		07FF517D1881805500C98408 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51781881805500C98408 /* ZipArchive.mm */; };
 		07FF517F1881825100C98408 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FF517E1881825100C98408 /* libz.dylib */; };
+		D481565019613DEB00859798 /* BBAActivationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D481564F19613DEB00859798 /* BBAActivationManager.m */; };
 		D494ECA31960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */; };
 		D494ECA41960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */; };
 		D494ECA51960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */; };
 		D494ECA61960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */; };
+		D494ECAA1961161100640DB3 /* BBAUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA91961161100640DB3 /* BBAUpdateManager.m */; };
+		D494ECAB1961161100640DB3 /* BBAUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA91961161100640DB3 /* BBAUpdateManager.m */; };
+		D494ECAF196116DD00640DB3 /* BBAUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECAE196116DD00640DB3 /* BBAUDID.m */; };
+		D494ECB0196116DD00640DB3 /* BBAUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECAE196116DD00640DB3 /* BBAUDID.m */; };
+		D494ECB31961170C00640DB3 /* CHKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECB21961170C00640DB3 /* CHKeychain.m */; };
+		D494ECB41961170C00640DB3 /* CHKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECB21961170C00640DB3 /* CHKeychain.m */; };
+		D494ECB61961172B00640DB3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D494ECB51961172B00640DB3 /* Security.framework */; };
+		D494ECB91961178C00640DB3 /* CKUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECB81961178C00640DB3 /* CKUrlManager.m */; };
+		D494ECBA1961178C00640DB3 /* CKUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECB81961178C00640DB3 /* CKUrlManager.m */; };
 		D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A34A188919D9000A5234 /* CKBookDesc.xib */; };
 		D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */; };
 		D4DFCBC118A2336800FE4B2E /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = D4DFCBC018A2336800FE4B2E /* 29.png */; };
@@ -543,9 +553,20 @@
 		07FF51771881805500C98408 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		07FF51781881805500C98408 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		07FF517E1881825100C98408 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D481564E19613DEB00859798 /* BBAActivationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAActivationManager.h; sourceTree = "<group>"; };
+		D481564F19613DEB00859798 /* BBAActivationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAActivationManager.m; sourceTree = "<group>"; };
 		D494ECA01960F75000640DB3 /* CKBookShelfTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfTableViewController.h; sourceTree = "<group>"; };
 		D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfTableViewController.m; sourceTree = "<group>"; };
 		D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookShelfTableViewController.xib; sourceTree = "<group>"; };
+		D494ECA81961161100640DB3 /* BBAUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAUpdateManager.h; sourceTree = "<group>"; };
+		D494ECA91961161100640DB3 /* BBAUpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAUpdateManager.m; sourceTree = "<group>"; };
+		D494ECAD196116DD00640DB3 /* BBAUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAUDID.h; path = firstNovel/BBAUDID.h; sourceTree = SOURCE_ROOT; };
+		D494ECAE196116DD00640DB3 /* BBAUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAUDID.m; path = firstNovel/BBAUDID.m; sourceTree = SOURCE_ROOT; };
+		D494ECB11961170C00640DB3 /* CHKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHKeychain.h; path = firstNovel/CHKeychain.h; sourceTree = SOURCE_ROOT; };
+		D494ECB21961170C00640DB3 /* CHKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHKeychain.m; path = firstNovel/CHKeychain.m; sourceTree = SOURCE_ROOT; };
+		D494ECB51961172B00640DB3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D494ECB71961178C00640DB3 /* CKUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKUrlManager.h; sourceTree = "<group>"; };
+		D494ECB81961178C00640DB3 /* CKUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKUrlManager.m; sourceTree = "<group>"; };
 		D4A2A34A188919D9000A5234 /* CKBookDesc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookDesc.xib; sourceTree = "<group>"; };
 		D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookDescViewController.h; sourceTree = "<group>"; };
 		D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookDescViewController.m; sourceTree = "<group>"; };
@@ -580,6 +601,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D494ECB61961172B00640DB3 /* Security.framework in Frameworks */,
 				077D22D318961F4700FD19B0 /* libUMFeedback.a in Frameworks */,
 				07DD9BA3188AE8250031E77B /* nlog.framework in Frameworks */,
 				07DD9B9E188AE6EB0031E77B /* libstdc++.6.dylib in Frameworks */,
@@ -812,6 +834,7 @@
 		07DC4F3A1880F71900279923 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D494ECB51961172B00640DB3 /* Security.framework */,
 				07DD9B9D188AE6EB0031E77B /* libstdc++.6.dylib */,
 				07DD9B9B188AE6E50031E77B /* libstdc++.6.0.9.dylib */,
 				07DD9B99188AE5960031E77B /* libstdc++.dylib */,
@@ -830,6 +853,10 @@
 		07DC4F411880F71900279923 /* firstNovel */ = {
 			isa = PBXGroup;
 			children = (
+				D481564E19613DEB00859798 /* BBAActivationManager.h */,
+				D481564F19613DEB00859798 /* BBAActivationManager.m */,
+				D494ECA81961161100640DB3 /* BBAUpdateManager.h */,
+				D494ECA91961161100640DB3 /* BBAUpdateManager.m */,
 				07DC4F4A1880F71900279923 /* CKAppDelegate.h */,
 				07DC4F4B1880F71900279923 /* CKAppDelegate.m */,
 				072311A9188C1337001A4673 /* CKAppSettings.h */,
@@ -901,9 +928,11 @@
 			children = (
 				07FF514F1880FF3A00C98408 /* CKCommonUtility.h */,
 				07FF51501880FF3A00C98408 /* CKCommonUtility.m */,
-				07FF51521880FF8300C98408 /* CKGlobalDefine.h */,
 				07FF516818815B2E00C98408 /* CKFileManager.h */,
 				07FF516918815B2E00C98408 /* CKFileManager.m */,
+				07FF51521880FF8300C98408 /* CKGlobalDefine.h */,
+				D494ECB71961178C00640DB3 /* CKUrlManager.h */,
+				D494ECB81961178C00640DB3 /* CKUrlManager.m */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -968,6 +997,7 @@
 		07FF516B1881805500C98408 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				D494ECAC196116CD00640DB3 /* UDID */,
 				072310C0188B6A78001A4673 /* Category */,
 				07DD9B9F188AE77A0031E77B /* JSONKit */,
 				D4E149BA188FD5E400F1EE3E /* UMeng */,
@@ -1011,6 +1041,17 @@
 				0791ABF91882BE190095F502 /* list.plist */,
 			);
 			path = books;
+			sourceTree = "<group>";
+		};
+		D494ECAC196116CD00640DB3 /* UDID */ = {
+			isa = PBXGroup;
+			children = (
+				D494ECAD196116DD00640DB3 /* BBAUDID.h */,
+				D494ECAE196116DD00640DB3 /* BBAUDID.m */,
+				D494ECB11961170C00640DB3 /* CHKeychain.h */,
+				D494ECB21961170C00640DB3 /* CHKeychain.m */,
+			);
+			name = UDID;
 			sourceTree = "<group>";
 		};
 		D4E149BA188FD5E400F1EE3E /* UMeng */ = {
@@ -1348,9 +1389,11 @@
 				07D57E9218AF64D4003AC74D /* CKSettingsViewController.m in Sources */,
 				07D57E9318AF64D4003AC74D /* CKBookLibraryViewController.m in Sources */,
 				07D57E9418AF64D4003AC74D /* zip.c in Sources */,
+				D494ECB41961170C00640DB3 /* CHKeychain.m in Sources */,
 				07D57E9518AF64D4003AC74D /* mztools.c in Sources */,
 				07D57E9618AF64D4003AC74D /* BBANetworkManager.m in Sources */,
 				07D57E9718AF64D4003AC74D /* CKSlidingTabBarViewController.m in Sources */,
+				D494ECAB1961161100640DB3 /* BBAUpdateManager.m in Sources */,
 				07D57E9818AF64D4003AC74D /* CKBookShelfCell.m in Sources */,
 				07D57E9918AF64D4003AC74D /* NSString-URLArguments.m in Sources */,
 				07D57E9A18AF64D4003AC74D /* BBANetWorkCheckSocket.m in Sources */,
@@ -1365,6 +1408,7 @@
 				07D57EA318AF64D4003AC74D /* CKBookChaptersViewController.m in Sources */,
 				07D57EA418AF64D4003AC74D /* JSONKit.m in Sources */,
 				07D57EA518AF64D4003AC74D /* BBADownloadManager.m in Sources */,
+				D494ECBA1961178C00640DB3 /* CKUrlManager.m in Sources */,
 				07D57EA618AF64D4003AC74D /* ASIHTTPRequest.m in Sources */,
 				07D57EA718AF64D4003AC74D /* ASIAuthenticationDialog.m in Sources */,
 				07D57EA818AF64D4003AC74D /* ASIDataCompressor.m in Sources */,
@@ -1374,6 +1418,7 @@
 				07D57EAC18AF64D4003AC74D /* Reachability.m in Sources */,
 				07D57EAD18AF64D4003AC74D /* ioapi.c in Sources */,
 				07D57EAE18AF64D4003AC74D /* ASINetworkQueue.m in Sources */,
+				D494ECB0196116DD00640DB3 /* BBAUDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,9 +1442,11 @@
 				07231147188BA52F001A4673 /* CKSettingsViewController.m in Sources */,
 				0791AC1C1882EA520095F502 /* CKBookLibraryViewController.m in Sources */,
 				07FF517C1881805500C98408 /* zip.c in Sources */,
+				D494ECB31961170C00640DB3 /* CHKeychain.m in Sources */,
 				07FF517A1881805500C98408 /* mztools.c in Sources */,
 				0723111C188B82B6001A4673 /* BBANetworkManager.m in Sources */,
 				0791ABCC1882788A0095F502 /* CKSlidingTabBarViewController.m in Sources */,
+				D494ECAA1961161100640DB3 /* BBAUpdateManager.m in Sources */,
 				0791AC111882C12D0095F502 /* CKBookShelfCell.m in Sources */,
 				072310CC188B6A78001A4673 /* NSString-URLArguments.m in Sources */,
 				0723111B188B82B6001A4673 /* BBANetWorkCheckSocket.m in Sources */,
@@ -1414,6 +1461,7 @@
 				07E567F9188A10E100F8BAFE /* CKBookChaptersViewController.m in Sources */,
 				07DD9BA2188AE77B0031E77B /* JSONKit.m in Sources */,
 				072310DB188B7451001A4673 /* BBADownloadManager.m in Sources */,
+				D494ECB91961178C00640DB3 /* CKUrlManager.m in Sources */,
 				07231139188B99FD001A4673 /* ASIHTTPRequest.m in Sources */,
 				07231134188B99FD001A4673 /* ASIAuthenticationDialog.m in Sources */,
 				07231135188B99FD001A4673 /* ASIDataCompressor.m in Sources */,
@@ -1423,6 +1471,8 @@
 				07231118188B82B6001A4673 /* Reachability.m in Sources */,
 				07FF51791881805500C98408 /* ioapi.c in Sources */,
 				0723113B188B99FD001A4673 /* ASINetworkQueue.m in Sources */,
+				D481565019613DEB00859798 /* BBAActivationManager.m in Sources */,
+				D494ECAF196116DD00640DB3 /* BBAUDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
