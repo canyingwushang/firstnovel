@@ -40,4 +40,6 @@
 + (void)goRating;
 + (void)goPro;
 
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
+
 @end

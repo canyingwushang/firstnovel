@@ -89,7 +89,6 @@
 		07362A24188AD4800061B53A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A23188AD4800061B53A /* CoreData.framework */; };
 		07362A28188AD4C10061B53A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A27188AD4C10061B53A /* SystemConfiguration.framework */; };
 		07362A2A188AD5050061B53A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07362A29188AD5050061B53A /* CoreTelephony.framework */; };
-		0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0746E64D188275810027FD43 /* CKBookShelfViewController.m */; };
 		0757037718AF872500ECC80A /* lite29.png in Resources */ = {isa = PBXBuildFile; fileRef = 0757036B18AF870C00ECC80A /* lite29.png */; };
 		0757037818AF872500ECC80A /* lite57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0757036C18AF870C00ECC80A /* lite57.png */; };
 		0757037918AF872500ECC80A /* lite58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0757036D18AF870C00ECC80A /* lite58.png */; };
@@ -139,7 +138,6 @@
 		0791AC151882CD5F0095F502 /* bookshelf_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0791AC131882CD5F0095F502 /* bookshelf_line@2x.png */; };
 		0791AC191882DAD40095F502 /* CKBookShelfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0791AC181882DAD40095F502 /* CKBookShelfCell.xib */; };
 		0791AC1C1882EA520095F502 /* CKBookLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0791AC1B1882EA520095F502 /* CKBookLibraryViewController.m */; };
-		07D57E8518AF64D4003AC74D /* CKBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0746E64D188275810027FD43 /* CKBookShelfViewController.m */; };
 		07D57E8618AF64D4003AC74D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51731881805500C98408 /* unzip.c */; };
 		07D57E8718AF64D4003AC74D /* CKBookDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */; };
 		07D57E8818AF64D4003AC74D /* BBACommonDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 072310D2188B7451001A4673 /* BBACommonDownloadTask.m */; };
@@ -324,6 +322,10 @@
 		07FF517C1881805500C98408 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51751881805500C98408 /* zip.c */; };
 		07FF517D1881805500C98408 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07FF51781881805500C98408 /* ZipArchive.mm */; };
 		07FF517F1881825100C98408 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FF517E1881825100C98408 /* libz.dylib */; };
+		D494ECA31960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */; };
+		D494ECA41960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */; };
+		D494ECA51960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */; };
+		D494ECA61960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */; };
 		D4A2A34B188919D9000A5234 /* CKBookDesc.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A34A188919D9000A5234 /* CKBookDesc.xib */; };
 		D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */; };
 		D4DFCBC118A2336800FE4B2E /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = D4DFCBC018A2336800FE4B2E /* 29.png */; };
@@ -445,8 +447,6 @@
 		07362A25188AD4900061B53A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		07362A27188AD4C10061B53A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		07362A29188AD5050061B53A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		0746E64C188275810027FD43 /* CKBookShelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfViewController.h; sourceTree = "<group>"; };
-		0746E64D188275810027FD43 /* CKBookShelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfViewController.m; sourceTree = "<group>"; };
 		0757036B18AF870C00ECC80A /* lite29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite29.png; sourceTree = "<group>"; };
 		0757036C18AF870C00ECC80A /* lite57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite57.png; sourceTree = "<group>"; };
 		0757036D18AF870C00ECC80A /* lite58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lite58.png; sourceTree = "<group>"; };
@@ -543,6 +543,9 @@
 		07FF51771881805500C98408 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		07FF51781881805500C98408 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		07FF517E1881825100C98408 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D494ECA01960F75000640DB3 /* CKBookShelfTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookShelfTableViewController.h; sourceTree = "<group>"; };
+		D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookShelfTableViewController.m; sourceTree = "<group>"; };
+		D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookShelfTableViewController.xib; sourceTree = "<group>"; };
 		D4A2A34A188919D9000A5234 /* CKBookDesc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CKBookDesc.xib; sourceTree = "<group>"; };
 		D4A2A34C18891A31000A5234 /* CKBookDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKBookDescViewController.h; sourceTree = "<group>"; };
 		D4A2A34D18891A31000A5234 /* CKBookDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKBookDescViewController.m; sourceTree = "<group>"; };
@@ -742,8 +745,6 @@
 		0746E64B188275590027FD43 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				0746E64C188275810027FD43 /* CKBookShelfViewController.h */,
-				0746E64D188275810027FD43 /* CKBookShelfViewController.m */,
 				0791ABCA1882788A0095F502 /* CKSlidingTabBarViewController.h */,
 				0791ABCB1882788A0095F502 /* CKSlidingTabBarViewController.m */,
 			);
@@ -843,6 +844,9 @@
 				0791AC0F1882C12D0095F502 /* CKBookShelfCell.h */,
 				0791AC101882C12D0095F502 /* CKBookShelfCell.m */,
 				0791AC181882DAD40095F502 /* CKBookShelfCell.xib */,
+				D494ECA01960F75000640DB3 /* CKBookShelfTableViewController.h */,
+				D494ECA11960F75000640DB3 /* CKBookShelfTableViewController.m */,
+				D494ECA21960F75000640DB3 /* CKBookShelfTableViewController.xib */,
 				0791ABF31882917B0095F502 /* CKMainViewController.h */,
 				0791ABF41882917B0095F502 /* CKMainViewController.m */,
 				07FF51471880FD1700C98408 /* CKRootViewController.h */,
@@ -1142,6 +1146,7 @@
 				07D57EE518AF64D4003AC74D /* dm_icon_music.png in Resources */,
 				07D57EE618AF64D4003AC74D /* dm_pausebutton_highlighted@2x.png in Resources */,
 				07D57EE718AF64D4003AC74D /* settings_rate.png in Resources */,
+				D494ECA61960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */,
 				07D57EE818AF64D4003AC74D /* tabbar_bg@2x.png in Resources */,
 				07D57EE918AF64D4003AC74D /* dm_progress_active_background.png in Resources */,
 				07D57EEA18AF64D4003AC74D /* dm_icon_video.png in Resources */,
@@ -1242,6 +1247,7 @@
 				0791ABE818827F7E0095F502 /* tabbar_book_library_hl@2x.png in Resources */,
 				0723118F188BFEE5001A4673 /* dm_progress_active_foreground.png in Resources */,
 				0791ABE918827F7E0095F502 /* tabbar_book_library.png in Resources */,
+				D494ECA51960F75000640DB3 /* CKBookShelfTableViewController.xib in Resources */,
 				07FF515B188106FE00C98408 /* Default@2x.png in Resources */,
 				072311A8188C0617001A4673 /* toolbar_refresh_normal@2x.png in Resources */,
 				07362A18188AC7940061B53A /* chapter_icon_novel@2x.png in Resources */,
@@ -1326,7 +1332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07D57E8518AF64D4003AC74D /* CKBookShelfViewController.m in Sources */,
 				07D57E8618AF64D4003AC74D /* unzip.c in Sources */,
 				07D57E8718AF64D4003AC74D /* CKBookDescViewController.m in Sources */,
 				07D57E8818AF64D4003AC74D /* BBACommonDownloadTask.m in Sources */,
@@ -1337,6 +1342,7 @@
 				07D57E8D18AF64D4003AC74D /* ASIDownloadCache.m in Sources */,
 				07D57E8E18AF64D4003AC74D /* CKCommonUtility.m in Sources */,
 				07D57E8F18AF64D4003AC74D /* CKFileManager.m in Sources */,
+				D494ECA41960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */,
 				07D57E9018AF64D4003AC74D /* ZipArchive.mm in Sources */,
 				07D57E9118AF64D4003AC74D /* CKAppSettings.m in Sources */,
 				07D57E9218AF64D4003AC74D /* CKSettingsViewController.m in Sources */,
@@ -1375,7 +1381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0746E64E188275810027FD43 /* CKBookShelfViewController.m in Sources */,
 				07FF517B1881805500C98408 /* unzip.c in Sources */,
 				D4A2A34E18891A31000A5234 /* CKBookDescViewController.m in Sources */,
 				072310DA188B7451001A4673 /* BBACommonDownloadTask.m in Sources */,
@@ -1386,6 +1391,7 @@
 				07231137188B99FD001A4673 /* ASIDownloadCache.m in Sources */,
 				07FF51511880FF3A00C98408 /* CKCommonUtility.m in Sources */,
 				07FF516A18815B2E00C98408 /* CKFileManager.m in Sources */,
+				D494ECA31960F75000640DB3 /* CKBookShelfTableViewController.m in Sources */,
 				07FF517D1881805500C98408 /* ZipArchive.mm in Sources */,
 				072311AB188C1337001A4673 /* CKAppSettings.m in Sources */,
 				07231147188BA52F001A4673 /* CKSettingsViewController.m in Sources */,
@@ -1452,7 +1458,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/firstNovel/firstNovelLite-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
@@ -1486,7 +1492,7 @@
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/firstNovel/firstNovelLite-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
@@ -1582,7 +1588,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yongmei Zhao (FPQRQ8KBBV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1591,7 +1597,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
 				INFOPLIST_FILE = "firstNovel/firstNovel-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",
@@ -1615,7 +1621,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yongmei Zhao (W4YAXSU6F6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1624,7 +1630,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "firstNovel/firstNovel-Prefix.pch";
 				INFOPLIST_FILE = "firstNovel/firstNovel-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/firstNovel/libs/WKTXTReaderSDK\"",

@@ -45,11 +45,22 @@
     if (self)
     {
         //创建下载中心缓存目录
+        NSString *downloadCacheDir = [[CKFileManager sharedInstance] getDownloadLibraryDir];
         NSString *cacheDir = [[CKFileManager sharedInstance] getDownloadCacheDir];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:cacheDir])
+        if ([[NSFileManager defaultManager] fileExistsAtPath:cacheDir])
         {
-            [[NSFileManager defaultManager] createDirectoryAtPath:cacheDir withIntermediateDirectories:NO attributes:nil error:nil];
+            // 兼容原有逻辑
+            [[NSFileManager defaultManager] moveItemAtPath:cacheDir toPath:downloadCacheDir error:nil];
         }
+        else
+        {
+            // 在Library下创建downloadcache目录
+            [[NSFileManager defaultManager] createDirectoryAtPath:downloadCacheDir withIntermediateDirectories:NO attributes:nil error:nil];
+        }
+        
+        // 跳过iCloud和iTunes备份
+        [CKCommonUtility addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:downloadCacheDir isDirectory:YES]];
+        
         _allowRunning = YES;
         _currentConcurrent = 0;
         _maxConcurrent = 1; // 默认最大同步任务数为1

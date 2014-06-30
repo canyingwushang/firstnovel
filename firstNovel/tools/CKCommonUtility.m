@@ -239,5 +239,31 @@
     }
 }
 
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[URL path]])
+    {
+        return NO;
+    }
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_5_1))
+    {
+        NSError *error = nil;
+        BOOL success = [URL setResourceValue:[NSNumber numberWithBool: YES]
+                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
+        if(!success){
+            NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+        }
+        return success;
+    }
+    else
+    {
+        //It is not possible to exclude data from backups on iOS 5.0.
+        //If your app must support iOS 5.0, then you will need to store your app data in Caches to avoid that data being backed up.
+        //iOS will delete your files from the Caches directory when necessary, so your app will need to degrade gracefully if it's data files are deleted.
+        return NO;
+    }
+}
+
 
 @end

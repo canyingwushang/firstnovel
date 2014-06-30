@@ -742,8 +742,18 @@
             item.receivedBytes = [[itemDict objectForKey:DOWNLOADITEM_KEY_RECEIVEDBYTES] longLongValue];
             item.sourceURL = [itemDict objectForKey:DOWNLOADITEM_KEY_SOURCEURL];
 
+            // 兼容之前保存的绝对路径
             NSString *tmpPlayUrl = [itemDict objectForKey:DOWNLOADITEM_KEY_PLAYURL];
-            item.playurl = [[CKFileManager sharedInstance].cacheDir stringByAppendingPathComponent:tmpPlayUrl];
+            NSRange downCacheRange = [tmpPlayUrl rangeOfString:[NSString stringWithFormat:@"/%@/%@", @"downloadcache", @"novel"]];
+            if (downCacheRange.location != NSNotFound && downCacheRange.length > 0)
+            {
+                if (downCacheRange.location > 0)
+                {
+                    // 截掉绝对路径的前半部分(xxxx/Library/Caches/xxxx)
+                    tmpPlayUrl = [tmpPlayUrl substringFromIndex:downCacheRange.location];
+                }
+            }
+            item.playurl = [[[CKFileManager sharedInstance] libraryDir] stringByAppendingPathComponent:tmpPlayUrl];
             
             item.needShownNew = [[itemDict objectForKey:DOWNLOADITEM_KEY_SHOWNNEW] boolValue];
             id typeObj = [itemDict objectForKey:DOWNLOADITEM_KEY_BUSINESS_TYPE];

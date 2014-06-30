@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSString *documentDir;
 @property (nonatomic, retain) NSString *cacheDir;
+@property (nonatomic, retain) NSString *libraryDir;
 
 - (NSString *)booksPlist;
 - (NSString *)documentBooksListFile;
@@ -21,6 +22,7 @@
 - (NSString *)bookContentPath:(NSString *)bookid;
 - (NSString *)bookContentCachePath:(NSString *)bookid;
 
+- (NSString *)getDownloadLibraryDir;
 - (NSString *)getDownloadCacheDir;
 - (NSString *)getDownloadCacheDirForNovel;
 - (NSString *)getDownloadListFile;

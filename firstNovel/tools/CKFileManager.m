@@ -38,6 +38,13 @@
         {
             _cacheDir = [[paths objectAtIndex:0] retain];
         }
+        
+        // Library Dir
+        paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+        if (paths && [paths count])
+        {
+            _libraryDir = [[paths objectAtIndex:0] retain];
+        }
 	}
     
 	return self;
@@ -47,6 +54,7 @@
 {
     [_documentDir release];
     [_cacheDir release];
+    RELEASE_SET_NIL(_libraryDir);
     
     [super dealloc];
 }
@@ -70,6 +78,13 @@
 {
     return [[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"content"] stringByAppendingPathComponent:[NSString stringWithFormat:@"book_%@.zip", bookid]];
 }
+
+// 迁移后的下载目录，在library下
+- (NSString *)getDownloadLibraryDir
+{
+    return [_libraryDir stringByAppendingPathComponent:@"downloadcache"];
+}
+
 
 - (NSString *)bookContentCachePath:(NSString *)bookid
 {

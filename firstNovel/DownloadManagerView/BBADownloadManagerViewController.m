@@ -14,10 +14,10 @@
 #import "CKCommonUtility.h"
 #import "CKRootViewController.h"
 #import "CKAppSettings.h"
+#import "CKBookShelfTableViewController.h"
 
 enum EBookShelfSection {
     EBookShelfSectionFamous = 0,
-    EBookShelfSectionMyBag,
     EBookShelfSectionDownload,
     EBookShelfSectionCount
 };
@@ -197,24 +197,6 @@ enum EBookShelfSection {
         famousCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return famousCell;
     }
-    else if (indexPath.section == EBookShelfSectionMyBag)
-    {
-        UITableViewCell *famousCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
-        if ([CKAppSettings sharedInstance].isFirstLaunchAfterUpdate)
-        {
-            famousCell.textLabel.textColor = [UIColor redColor];
-            famousCell.textLabel.text = @"看过的网络小说在这里~";
-        }
-        else
-        {
-            famousCell.textLabel.text = @"我的小说书包";
-        }
-        famousCell.textLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-        famousCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        famousCell.backgroundColor = [UIColor clearColor];
-        famousCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return famousCell;
-    }
     else if (indexPath.section == EBookShelfSectionDownload)
     {
         BBADownloadItem *item = [[BBADownloadDataSource sharedInstance].downloadList objectAtIndex:indexPath.row];
@@ -248,7 +230,7 @@ enum EBookShelfSection {
     }
     else if (section == EBookShelfSectionDownload)
     {
-        return @"-------------------下载的小说-------------------";
+        return @"-------------提示：小说可左滑删除-------------";
     }
     return nil;
 }
@@ -260,7 +242,7 @@ enum EBookShelfSection {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == EBookShelfSectionFamous || section == EBookShelfSectionMyBag)
+    if (section == EBookShelfSectionFamous)
     {
         return 1;
     }
@@ -336,41 +318,43 @@ enum EBookShelfSection {
 {
     if (indexPath.section == EBookShelfSectionFamous)
     {
-        ;
+        CKBookShelfTableViewController *bookShelfTableViewController = [[CKBookShelfTableViewController alloc] initWithNibName:@"CKBookShelfTableViewController" bundle:nil];
+        [[CKRootViewController sharedInstance].rootNaviViewController pushViewController:bookShelfTableViewController animated:YES];
+        [bookShelfTableViewController autorelease];
     }
-    else if (indexPath.section == EBookShelfSectionDownload)
-    {
-        BBADownloadItemCell *cell = (BBADownloadItemCell *)[tableView cellForRowAtIndexPath:indexPath];
-        if (cell != nil)
-        {
-            if (cell.status == EDownloadTaskStatusRunning || cell.status == EDownloadTaskStatusWaiting)
-            {
-                [self stop:cell.dataSource.taskID];
-            }
-            else if (cell.status == EDownloadTaskStatusSuspend)
-            {
-                [self resume:cell.dataSource.taskID];
-            }
-            else if (cell.status == EDownloadTaskStatusFailed)
-            {
-                [self retry:cell.dataSource.taskID];
-            }
-            else if (cell.status == EDownloadTaskStatusFinished)
-            {
-                [self play:cell.dataSource.taskID];
-            }
-            
-            if (cell.dataSource.needShownNew == YES)
-            {
-                cell.dataSource.needShownNew = NO;
-                dispatch_async(GCD_GLOBAL_QUEUQ, ^{
-                    [[BBADownloadDataSource sharedInstance] saveDowloadlist];
-                });
-                NSIndexPath *currentPath = [NSIndexPath indexPathForRow:indexPath.row inSection:EBookShelfSectionDownload];
-                [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentPath] withRowAnimation:UITableViewRowAnimationNone];
-            }
-        }
-    }
+//    else if (indexPath.section == EBookShelfSectionDownload)
+//    {
+//        BBADownloadItemCell *cell = (BBADownloadItemCell *)[tableView cellForRowAtIndexPath:indexPath];
+//        if (cell != nil)
+//        {
+//            if (cell.status == EDownloadTaskStatusRunning || cell.status == EDownloadTaskStatusWaiting)
+//            {
+//                [self stop:cell.dataSource.taskID];
+//            }
+//            else if (cell.status == EDownloadTaskStatusSuspend)
+//            {
+//                [self resume:cell.dataSource.taskID];
+//            }
+//            else if (cell.status == EDownloadTaskStatusFailed)
+//            {
+//                [self retry:cell.dataSource.taskID];
+//            }
+//            else if (cell.status == EDownloadTaskStatusFinished)
+//            {
+//                [self play:cell.dataSource.taskID];
+//            }
+//            
+//            if (cell.dataSource.needShownNew == YES)
+//            {
+//                cell.dataSource.needShownNew = NO;
+//                dispatch_async(GCD_GLOBAL_QUEUQ, ^{
+//                    [[BBADownloadDataSource sharedInstance] saveDowloadlist];
+//                });
+//                NSIndexPath *currentPath = [NSIndexPath indexPathForRow:indexPath.row inSection:EBookShelfSectionDownload];
+//                [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentPath] withRowAnimation:UITableViewRowAnimationNone];
+//            }
+//        }
+//    }
 }
 
 - (void)updateDownloadList:(NSArray *)downloadList
@@ -417,7 +401,7 @@ enum EBookShelfSection {
         dispatch_async(GCD_GLOBAL_QUEUQ, ^{
             [[BBADownloadDataSource sharedInstance] saveDowloadlist];
         });
-        dispatch_async(dispatch_get_current_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             
             NSUInteger indexPath = [[BBADownloadDataSource sharedInstance].downloadList indexOfObject:item];
             if (indexPath < [[BBADownloadDataSource sharedInstance].downloadList count])

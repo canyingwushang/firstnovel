@@ -72,15 +72,15 @@
     if (CHECK_STRING_INVALID(_sourceURL)) return;
     
     // 创建下载video工作目录
-    NSString *videoDir = [[CKFileManager sharedInstance] getDownloadCacheDirForNovel];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:videoDir])
+    NSString *novelDir = [[CKFileManager sharedInstance] getDownloadLibraryDir];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:novelDir])
     {
         NSError *error = nil;
-        [[NSFileManager defaultManager] createDirectoryAtPath:videoDir withIntermediateDirectories:NO attributes:nil error:&error];
+        [[NSFileManager defaultManager] createDirectoryAtPath:novelDir withIntermediateDirectories:NO attributes:nil error:&error];
         if (error != nil) return;
     }
     // 创建下载task工作目录
-    NSString *taskDir = [videoDir stringByAppendingPathComponent:_taskID];
+    NSString *taskDir = [novelDir stringByAppendingPathComponent:_taskID];
     self.taskDir = taskDir;
     if (![[NSFileManager defaultManager] fileExistsAtPath:taskDir])
     {
@@ -143,6 +143,8 @@
     NSString *videoDir = [[CKFileManager sharedInstance] getDownloadCacheDirForNovel];
     NSError *error = nil;
     [[NSFileManager defaultManager] removeItemAtPath:[videoDir stringByAppendingPathComponent:_taskID] error:&error];
+    NSString *downloadCache = [[CKFileManager sharedInstance] getDownloadLibraryDir];
+    [[NSFileManager defaultManager] removeItemAtPath:[downloadCache stringByAppendingPathComponent:_taskID] error:&error];
 }
 
 - (void)setType:(enum TDownloadFileType)type

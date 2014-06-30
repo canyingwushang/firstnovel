@@ -107,9 +107,9 @@
     DICTIONARY_SET_OBJECT_FOR_KEY(dict, _sourceURL, DOWNLOADITEM_KEY_SOURCEURL);
     
     // 保存相对路径
-    if ([_playurl hasPrefix:[CKFileManager sharedInstance].cacheDir])
+    if ([_playurl hasPrefix:[[CKFileManager sharedInstance] getDownloadLibraryDir]])
     {
-        DICTIONARY_SET_OBJECT_FOR_KEY(dict, [_playurl stringByReplacingOccurrencesOfString:[CKFileManager sharedInstance].cacheDir withString:@""], DOWNLOADITEM_KEY_PLAYURL);
+        DICTIONARY_SET_OBJECT_FOR_KEY(dict, [_playurl stringByReplacingOccurrencesOfString:[[CKFileManager sharedInstance] libraryDir] withString:@""], DOWNLOADITEM_KEY_PLAYURL);
     }
     else
     {
