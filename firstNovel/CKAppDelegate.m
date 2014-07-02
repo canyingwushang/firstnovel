@@ -13,6 +13,7 @@
 #import "MobClick.h"
 #import "CKAppSettings.h"
 #import "CKUrlManager.h"
+#import "wax.h"
 
 @implementation CKAppDelegate
 
@@ -25,6 +26,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self initWorks];
+    
+    wax_init();
+    wax_run("run.lua");
     
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _window.rootViewController = [CKRootViewController sharedInstance];;
