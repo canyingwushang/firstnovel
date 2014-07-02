@@ -11,6 +11,7 @@ require "wax.helpers.pickView"
 -- Just a bunch of global helper functions
 
 function IBOutlet(...)
+  print("IBOutlet")
   -- does nothing... just used so we can parse it
 end
 
