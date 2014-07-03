@@ -222,9 +222,6 @@
 		D4D298AE1964240100A62337 /* wax_instance.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D298581964240100A62337 /* wax_instance.m */; };
 		D4D298AF1964240100A62337 /* wax_server.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2985A1964240100A62337 /* wax_server.m */; };
 		D4D298B01964240100A62337 /* wax_struct.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2985D1964240100A62337 /* wax_struct.m */; };
-		D4D298B41964286200A62337 /* CKSettingsViewController.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B31964286200A62337 /* CKSettingsViewController.lua */; };
-		D4D298B7196437F100A62337 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B6196437F100A62337 /* init.lua */; };
-		D4D298B91964EE2700A62337 /* define.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B81964EE2700A62337 /* define.lua */; };
 		D4DFCBC118A2336800FE4B2E /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = D4DFCBC018A2336800FE4B2E /* 29.png */; };
 		D4E149BD188FD5E400F1EE3E /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */; };
 /* End PBXBuildFile section */
@@ -1434,7 +1431,6 @@
 				07231183188BFEE5001A4673 /* dm_icon_others.png in Resources */,
 				0791AC061882BFC30095F502 /* book_cell_select@2x.png in Resources */,
 				07231186188BFEE5001A4673 /* dm_icon_text@2x.png in Resources */,
-				D4D298B91964EE2700A62337 /* define.lua in Resources */,
 				0791ABED18827F7E0095F502 /* tabbar_book_shelf.png in Resources */,
 				07231157188BAD8C001A4673 /* settings_rate@2x.png in Resources */,
 				0791AC001882BE870095F502 /* content in Resources */,
@@ -1476,14 +1472,12 @@
 				0791ABD51882797B0095F502 /* tabbar_bg@2x.png in Resources */,
 				0723118D188BFEE5001A4673 /* dm_progress_active_background.png in Resources */,
 				07231187188BFEE5001A4673 /* dm_icon_video.png in Resources */,
-				D4D298B7196437F100A62337 /* init.lua in Resources */,
 				07231193188BFEE5001A4673 /* dm_progress_pause_foreground.png in Resources */,
 				07231190188BFEE5001A4673 /* dm_progress_active_foreground@2x.png in Resources */,
 				0791ABDA18827A1B0095F502 /* main_view_bg@2x.png in Resources */,
 				07FF515A188106FE00C98408 /* Default.png in Resources */,
 				07231197188BFEE5001A4673 /* dm_retrybutton_normal.png in Resources */,
 				072311A5188C0617001A4673 /* toolbar_refresh_highlighted.png in Resources */,
-				D4D298B41964286200A62337 /* CKSettingsViewController.lua in Resources */,
 				0757037D18AF872B00ECC80A /* lite29.png in Resources */,
 				07231141188B9DA8001A4673 /* common_list_new.png in Resources */,
 				0791AC081882BFC30095F502 /* book_cell@2x.png in Resources */,
