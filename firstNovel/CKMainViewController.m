@@ -14,7 +14,6 @@
 #import "CKBookLibraryViewController.h"
 #import "CKBookDescViewController.h"
 #import "CKRootViewController.h"
-#import "CKSettingsViewController.h"
 #import "CKAppSettings.h"
 #import "BBADownloadManagerViewController.h"
 
@@ -23,7 +22,7 @@
 @property (nonatomic, retain) BBADownloadManagerViewController *bookShelfViewController;
 @property (nonatomic, retain) UIView *slidingContainer;
 @property (nonatomic, retain) CKBookLibraryViewController *bookLibraryViewController;
-@property (nonatomic, retain) CKSettingsViewController *settingsViewController;
+@property (nonatomic, retain) UIViewController *settingsViewController;
 @property (nonatomic, retain) UIImageView *newTaskPoint;
 
 @end
@@ -109,18 +108,21 @@
     _bookLibraryViewController.view.clipsToBounds = YES;
     [_slidingContainer addSubview:_bookLibraryViewController.view];
     
-    
-    _settingsViewController = [[CKSettingsViewController alloc] init];
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+    Class CKSettingsViewController = NSClassFromString(@"CKSettingsViewController");
+    if (CKSettingsViewController && [CKSettingsViewController isSubclassOfClass:[UIViewController class]])
     {
-        _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT );
+        _settingsViewController = [[CKSettingsViewController alloc] init];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(IOS_7_0))
+        {
+            _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT );
+        }
+        else
+        {
+            _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT);
+        }
+        _settingsViewController.view.clipsToBounds = YES;
+        [_slidingContainer addSubview:_settingsViewController.view];
     }
-    else
-    {
-        _settingsViewController.view.frame = CGRectMake(2*APPLICATION_FRAME_WIDTH, 0.0f, APPLICATION_FRAME_WIDTH, APPLICATION_FRAME_HEIGHT);
-    }
-    _settingsViewController.view.clipsToBounds = YES;
-    [_slidingContainer addSubview:_settingsViewController.view];
     
     self.navigationItem.title = @"本地书架";
     
@@ -253,10 +255,15 @@
         
     }];
     
-    if (toIndex == 2)
+    if (toIndex == 0)
     {
         _newTaskPoint.hidden = YES;
-        [_settingsViewController.settingsTable reloadData];
+        SEL settingsTable = NSSelectorFromString(@"settingsTable");
+        if (settingsTable)
+        {
+            UITableView *tableView = [_settingsViewController performSelector:settingsTable];
+            [tableView reloadData];
+        }
     }
     
     if (toIndex == 0)

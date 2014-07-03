@@ -224,6 +224,7 @@
 		D4D298B01964240100A62337 /* wax_struct.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2985D1964240100A62337 /* wax_struct.m */; };
 		D4D298B41964286200A62337 /* CKSettingsViewController.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B31964286200A62337 /* CKSettingsViewController.lua */; };
 		D4D298B7196437F100A62337 /* init.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B6196437F100A62337 /* init.lua */; };
+		D4D298B91964EE2700A62337 /* define.lua in Resources */ = {isa = PBXBuildFile; fileRef = D4D298B81964EE2700A62337 /* define.lua */; };
 		D4DFCBC118A2336800FE4B2E /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = D4DFCBC018A2336800FE4B2E /* 29.png */; };
 		D4E149BD188FD5E400F1EE3E /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */; };
 /* End PBXBuildFile section */
@@ -590,6 +591,7 @@
 		D4D298B2196424F900A62337 /* ProtocolLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolLoader.h; sourceTree = SOURCE_ROOT; };
 		D4D298B31964286200A62337 /* CKSettingsViewController.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CKSettingsViewController.lua; sourceTree = "<group>"; };
 		D4D298B6196437F100A62337 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
+		D4D298B81964EE2700A62337 /* define.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = define.lua; sourceTree = "<group>"; };
 		D4DFCBC018A2336800FE4B2E /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
 		D4E149BB188FD5E400F1EE3E /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		D4E149BC188FD5E400F1EE3E /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
@@ -1351,6 +1353,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D298B6196437F100A62337 /* init.lua */,
+				D4D298B81964EE2700A62337 /* define.lua */,
 			);
 			path = bba;
 			sourceTree = "<group>";
@@ -1431,6 +1434,7 @@
 				07231183188BFEE5001A4673 /* dm_icon_others.png in Resources */,
 				0791AC061882BFC30095F502 /* book_cell_select@2x.png in Resources */,
 				07231186188BFEE5001A4673 /* dm_icon_text@2x.png in Resources */,
+				D4D298B91964EE2700A62337 /* define.lua in Resources */,
 				0791ABED18827F7E0095F502 /* tabbar_book_shelf.png in Resources */,
 				07231157188BAD8C001A4673 /* settings_rate@2x.png in Resources */,
 				0791AC001882BE870095F502 /* content in Resources */,

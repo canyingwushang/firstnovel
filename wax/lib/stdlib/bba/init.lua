@@ -1,10 +1,21 @@
 wax.bba = {}
 
 function wax.bba.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO (sysver)
-    local result = UIDevice:currentDevice():systemVersion():compare_options(sysver, 64)
-    if result then 
-        return NSOrderedAscending
-    else
-        return NSOrderedDescending
-    end
+    local result = toobjc(UIDevice:currentDevice():systemVersion()):compare_options(sysver, 64)
+    return result
+end
+
+function wax.bba.APPLICATION_FRAME_WIDTH()
+    local size = CKCommonUtility:getApplicationSize()
+    print(size.width)
+end
+
+function wax.bba.APPLICATION_FRAME_HEIGHT()
+    local size = CKCommonUtility:getApplicationSize()
+    print(size.width)
+end
+
+function wax.bba.XcodeAppVersion()
+    local dict = NSBundle:mainBundle():infoDictionary()
+    return dict["CFBundleShortVersionString"]
 end

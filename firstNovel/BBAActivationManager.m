@@ -17,14 +17,6 @@
 #define ACTIVATION_STATUS_SUCCESS                 @"1"              // 激活成功标志
 #define ACTIVATION_MAX_TRYTIMES                   3                 // 激活最大重试次数
 
-// 私有方法
-@interface BBAActivationManager ()
-
-- (void)fireActivation;
-- (BOOL)parseActivationResult:(NSData *)aData;
-
-@end
-
 // 类实现
 @implementation BBAActivationManager
 
