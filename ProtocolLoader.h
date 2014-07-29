@@ -5,7 +5,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProtocolLoader : NSObject <UIApplicationDelegate, UIWebViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UITextViewDelegate, UITabBarControllerDelegate, UISearchDisplayDelegate> {}
+#import "UMFeedback.h"
+
+@interface ProtocolLoader : NSObject <UIApplicationDelegate, UIWebViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate, UISearchBarDelegate, UITextViewDelegate, UITabBarControllerDelegate, UISearchDisplayDelegate, UMFeedbackDataDelegate> {}
 @end
 
 @implementation ProtocolLoader

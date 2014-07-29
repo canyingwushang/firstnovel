@@ -32,7 +32,6 @@
 		07231142188B9DA8001A4673 /* common_list_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723113E188B9DA8001A4673 /* common_list_new@2x.png */; };
 		07231143188B9DA8001A4673 /* common_tab_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723113F188B9DA8001A4673 /* common_tab_new.png */; };
 		07231144188B9DA8001A4673 /* common_tab_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231140188B9DA8001A4673 /* common_tab_new@2x.png */; };
-		07231147188BA52F001A4673 /* CKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07231146188BA52F001A4673 /* CKSettingsViewController.m */; };
 		0723114E188BACFE001A4673 /* settings_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231148188BACFE001A4673 /* settings_about.png */; };
 		0723114F188BACFE001A4673 /* settings_about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07231149188BACFE001A4673 /* settings_about@2x.png */; };
 		07231150188BACFE001A4673 /* settings_download.png in Resources */ = {isa = PBXBuildFile; fileRef = 0723114A188BACFE001A4673 /* settings_download.png */; };
@@ -277,8 +276,6 @@
 		0723113E188B9DA8001A4673 /* common_list_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_list_new@2x.png"; sourceTree = "<group>"; };
 		0723113F188B9DA8001A4673 /* common_tab_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_tab_new.png; sourceTree = "<group>"; };
 		07231140188B9DA8001A4673 /* common_tab_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_tab_new@2x.png"; sourceTree = "<group>"; };
-		07231145188BA52F001A4673 /* CKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSettingsViewController.h; sourceTree = "<group>"; };
-		07231146188BA52F001A4673 /* CKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSettingsViewController.m; sourceTree = "<group>"; };
 		07231148188BACFE001A4673 /* settings_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_about.png; sourceTree = "<group>"; };
 		07231149188BACFE001A4673 /* settings_about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_about@2x.png"; sourceTree = "<group>"; };
 		0723114A188BACFE001A4673 /* settings_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_download.png; sourceTree = "<group>"; };
@@ -586,7 +583,6 @@
 		D4D2985C1964240100A62337 /* wax_struct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wax_struct.h; sourceTree = "<group>"; };
 		D4D2985D1964240100A62337 /* wax_struct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wax_struct.m; sourceTree = "<group>"; };
 		D4D298B2196424F900A62337 /* ProtocolLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolLoader.h; sourceTree = SOURCE_ROOT; };
-		D4D298B31964286200A62337 /* CKSettingsViewController.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CKSettingsViewController.lua; sourceTree = "<group>"; };
 		D4D298B6196437F100A62337 /* init.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = init.lua; sourceTree = "<group>"; };
 		D4D298B81964EE2700A62337 /* define.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = define.lua; sourceTree = "<group>"; };
 		D4DFCBC018A2336800FE4B2E /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
@@ -878,8 +874,6 @@
 				0791ABF41882917B0095F502 /* CKMainViewController.m */,
 				07FF51471880FD1700C98408 /* CKRootViewController.h */,
 				07FF51481880FD1700C98408 /* CKRootViewController.m */,
-				07231145188BA52F001A4673 /* CKSettingsViewController.h */,
-				07231146188BA52F001A4673 /* CKSettingsViewController.m */,
 				07FF514A1880FEDA00C98408 /* data */,
 				072310D0188B7451001A4673 /* DownloadManager */,
 				072310DE188B74ED001A4673 /* DownloadManagerView */,
@@ -1058,7 +1052,6 @@
 			isa = PBXGroup;
 			children = (
 				D4D297C71964240100A62337 /* run.lua */,
-				D4D298B31964286200A62337 /* CKSettingsViewController.lua */,
 			);
 			path = scripts;
 			sourceTree = SOURCE_ROOT;
@@ -1579,7 +1572,6 @@
 				D4D298861964240100A62337 /* loslib.c in Sources */,
 				07FF517D1881805500C98408 /* ZipArchive.mm in Sources */,
 				072311AB188C1337001A4673 /* CKAppSettings.m in Sources */,
-				07231147188BA52F001A4673 /* CKSettingsViewController.m in Sources */,
 				D4D298871964240100A62337 /* lparser.c in Sources */,
 				0791AC1C1882EA520095F502 /* CKBookLibraryViewController.m in Sources */,
 				07FF517C1881805500C98408 /* zip.c in Sources */,

@@ -14,6 +14,9 @@
 #import "CKAppSettings.h"
 #import "CKUrlManager.h"
 #import "wax.h"
+#import "UMFeedback.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 @implementation CKAppDelegate
 
@@ -26,6 +29,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self initWorks];
+    
+//    Class uiview = objc_getClass("UIView");
+//    unsigned int count = 0;
+//    Method*    methods= class_copyMethodList(uiview, &count);
+//    NSLog(@"%d", count);
+//    for (int i = 0; i < count ; i++)
+//    {
+//        SEL name = method_getName(methods[i]);
+//        NSString *strName = [NSString  stringWithCString:sel_getName(name) encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@",strName);
+//    }
     
     wax_init();
     wax_run("run.lua");
@@ -95,6 +109,7 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [MobClick checkUpdate];
     });
+    [UMFeedback sharedInstance];
 }
 
 @end

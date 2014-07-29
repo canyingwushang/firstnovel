@@ -7,12 +7,12 @@ end
 
 function wax.bba.APPLICATION_FRAME_WIDTH()
     local size = CKCommonUtility:getApplicationSize()
-    print(size.width)
+    return size.width
 end
 
 function wax.bba.APPLICATION_FRAME_HEIGHT()
     local size = CKCommonUtility:getApplicationSize()
-    print(size.width)
+    return size.height
 end
 
 function wax.bba.XcodeAppVersion()
