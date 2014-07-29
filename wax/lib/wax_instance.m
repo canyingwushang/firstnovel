@@ -325,7 +325,6 @@ static int __newindex(lua_State *L) {
     
     // If this already exists in a protocol, or superclass make sure it will call the lua functions
     int luaType = lua_type(L, 3);
-    printf("__newindex right value type is:%d\n", luaType);
     if (instanceUserdata->isClass && luaType == LUA_TFUNCTION) {
         overrideMethod(L, instanceUserdata);
     }
